@@ -2,21 +2,9 @@
 
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Rocket, Users, Zap, Award, Landmark, Building2, Heart } from "lucide-react";
+import { Rocket } from "lucide-react";
 
 export default function NetworkSection() {
-  const outerNodesLeft = [
-    { label: "Founder", icon: Users, y: 15 },
-    { label: "Accelerator", icon: Zap, y: 50 },
-    { label: "Mentor", icon: Award, y: 85 },
-  ];
-
-  const outerNodesRight = [
-    { label: "Investor", icon: Landmark, y: 15 },
-    { label: "VC", icon: Building2, y: 50 },
-    { label: "Angel", icon: Heart, y: 85 },
-  ];
-
   // Generate a field of concentric orange dots with randomized blinking animations
   const blinkingDots = useMemo(() => {
     const dots: { cx: number; cy: number; duration: number; delay: number; maxOpacity: number }[] = [];
@@ -54,7 +42,7 @@ export default function NetworkSection() {
             style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
             className="text-4xl sm:text-5xl md:text-6xl text-slate-950 leading-[1.15] mb-6 font-normal tracking-tight"
           >
-            The VRaise Scouting & Capital Network
+            The VRaise Scouting &amp; Capital Network
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans font-normal max-w-xl mx-auto">
             Connecting campus founders directly to tier-1 venture funds, accelerators, mentors, and angel syndicates.
@@ -126,31 +114,28 @@ export default function NetworkSection() {
 
           </svg>
 
-          {/* LEFT OUTER NODES */}
+          {/* LEFT OUTER NODES (Clean typography, no icons/emojis) */}
           {/* Node 1: Founder (Top Left) */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute left-[3%] sm:left-[8%] top-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-5 py-2.5 shadow-xl flex items-center gap-2.5 font-mono text-xs uppercase font-bold text-slate-900 cursor-pointer"
+            className="absolute left-[3%] sm:left-[8%] top-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <Users size={16} className="text-orange-500" />
             <span>Founder</span>
           </motion.div>
 
           {/* Node 2: Accelerator (Mid Left) */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute left-[1%] sm:left-[4%] top-[46%] z-20 bg-white border border-slate-200/90 rounded-full px-5 py-2.5 shadow-xl flex items-center gap-2.5 font-mono text-xs uppercase font-bold text-slate-900 cursor-pointer"
+            className="absolute left-[1%] sm:left-[4%] top-[46%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <Zap size={16} className="text-amber-500 fill-amber-400" />
             <span>Accelerator</span>
           </motion.div>
 
           {/* Node 3: Mentor (Bottom Left) */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute left-[3%] sm:left-[8%] bottom-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-5 py-2.5 shadow-xl flex items-center gap-2.5 font-mono text-xs uppercase font-bold text-slate-900 cursor-pointer"
+            className="absolute left-[3%] sm:left-[8%] bottom-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <Award size={16} className="text-purple-500" />
             <span>Mentor</span>
           </motion.div>
 
@@ -167,31 +152,28 @@ export default function NetworkSection() {
             </span>
           </div>
 
-          {/* RIGHT OUTER NODES */}
+          {/* RIGHT OUTER NODES (Clean typography, no icons/emojis) */}
           {/* Node 4: Investor (Top Right) */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute right-[3%] sm:right-[8%] top-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-5 py-2.5 shadow-xl flex items-center gap-2.5 font-mono text-xs uppercase font-bold text-slate-900 cursor-pointer"
+            className="absolute right-[3%] sm:right-[8%] top-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <Landmark size={16} className="text-emerald-600" />
             <span>Investor</span>
           </motion.div>
 
           {/* Node 5: VC (Mid Right) */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute right-[1%] sm:right-[4%] top-[46%] z-20 bg-white border border-slate-200/90 rounded-full px-5 py-2.5 shadow-xl flex items-center gap-2.5 font-mono text-xs uppercase font-bold text-slate-900 cursor-pointer"
+            className="absolute right-[1%] sm:right-[4%] top-[46%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-bold text-slate-900 cursor-pointer tracking-wider"
           >
-            <Building2 size={16} className="text-blue-600" />
             <span>VC</span>
           </motion.div>
 
           {/* Node 6: Angel (Bottom Right) */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute right-[3%] sm:right-[8%] bottom-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-5 py-2.5 shadow-xl flex items-center gap-2.5 font-mono text-xs uppercase font-bold text-slate-900 cursor-pointer"
+            className="absolute right-[3%] sm:right-[8%] bottom-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <Heart size={16} className="text-rose-500 fill-rose-500" />
             <span>Angel</span>
           </motion.div>
 
