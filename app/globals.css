@@ -6,7 +6,7 @@
 
 :root {
   /* Color System */
-  --bg-primary: #f8fafc;
+  --bg-primary: #ffffff;
   --bg-secondary: #ffffff;
   --blue-brand: #0284c7;
   --magenta-brand: #82185d;
@@ -15,8 +15,8 @@
   --text-muted: #64748b;
   --text-light: #f8fafc;
   
-  --font-heading: 'Outfit', -apple-system, sans-serif;
-  --font-body: 'Outfit', -apple-system, sans-serif;
+  --font-heading: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.2s ease;
@@ -28,12 +28,13 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: 400;
-  background-color: var(--bg-primary);
+  background-color: #ffffff;
   color: var(--text-dark);
   overflow-x: hidden;
   line-height: 1.6;

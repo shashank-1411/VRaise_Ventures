@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Minus, Square, X, PhoneCall } from "lucide-react";
+import { PhoneCall } from "lucide-react";
 
 interface CtaBannerProps {
   onOpenModal: () => void;
@@ -13,18 +13,6 @@ export default function CtaBanner({
   onOpenModal,
   calendlyUrl = "https://calendly.com",
 }: CtaBannerProps) {
-  const buttonSpringBounce = {
-    hover: {
-      scale: 1.05,
-      y: -3,
-      transition: { type: "spring", stiffness: 400, damping: 16 },
-    },
-    tap: {
-      scale: 0.96,
-      y: 0,
-    },
-  };
-
   const handleBookCall = () => {
     if (calendlyUrl) {
       window.open(calendlyUrl, "_blank", "noopener,noreferrer");
@@ -33,83 +21,60 @@ export default function CtaBanner({
   };
 
   return (
-    <section className="py-16 px-6 relative z-20" id="cta-banner">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-20 px-4 relative z-20 select-none bg-white font-sans" id="cta-banner">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           whileHover={{ scale: 1.01 }}
-          className="w-full text-slate-900 rounded-3xl shadow-2xl relative z-20 border-2 border-slate-900 overflow-hidden font-sans bg-[#ece9d8]"
+          className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 p-10 sm:p-16 flex flex-col items-center text-center justify-center gap-6 min-h-[380px] bg-slate-950"
         >
-          {/* Windows XP Classic Blue Header Bar with Rounded Top Corners */}
-          <div className="bg-gradient-to-r from-[#0058e6] via-[#2573f9] to-[#004dc2] px-4 py-2.5 flex items-center justify-between text-white font-bold text-xs select-none shadow-xs border-b border-blue-900 rounded-t-3xl">
-            <div className="flex items-center gap-2 font-mono">
-              <PhoneCall size={14} className="text-white" />
-              <span>vraise-ventures-intro-call.exe</span>
-            </div>
-            
-            {/* Windows XP Control Buttons [ _ ] [ ▢ ] [ X ] */}
-            <div className="flex items-center gap-1.5">
-              <div className="w-5 h-5 bg-[#0058e6] hover:bg-blue-600 border border-white/60 rounded-xs flex items-center justify-center cursor-pointer shadow-2xs">
-                <Minus size={11} className="text-white" />
-              </div>
-              <div className="w-5 h-5 bg-[#0058e6] hover:bg-blue-600 border border-white/60 rounded-xs flex items-center justify-center cursor-pointer shadow-2xs">
-                <Square size={9} className="text-white" />
-              </div>
-              <div className="w-5 h-5 bg-[#e81123] hover:bg-red-600 border border-white/60 rounded-xs flex items-center justify-center cursor-pointer shadow-2xs">
-                <X size={12} className="text-white font-extrabold" />
-              </div>
-            </div>
+          {/* Background Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+          >
+            <source src="/assets/15452141_1920_1080_60fps.mp4" type="video/mp4" />
+          </video>
+
+          {/* Dark Overlay for Ultra Crisp White Contrast */}
+          <div className="absolute inset-0 bg-slate-950/65 backdrop-blur-[2px] z-10" />
+
+          {/* Headline & Sub Headline */}
+          <div className="space-y-4 max-w-2xl z-20 flex flex-col items-center relative">
+            <span className="font-mono text-xs uppercase tracking-widest text-orange-400 font-bold">
+              Ready to Partner?
+            </span>
+            <h2
+              style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
+              className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-white"
+            >
+              Ready to access off-market deal flow?
+            </h2>
+
+            <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed max-w-xl mx-auto font-normal">
+              Book a 15-minute intro call with our origination team to set up customized thesis parameters across India, ANZ, and US tech corridors.
+            </p>
           </div>
 
-          {/* Windows XP Light Gray Inset Container */}
-          <div className="p-3 sm:p-4 bg-[#ece9d8] border-t border-white rounded-b-3xl">
-            
-            {/* White Inset Content Card with Rounded Corners and Video Background */}
-            <div className="relative border-2 border-slate-700 rounded-2xl p-8 sm:p-14 shadow-inner overflow-hidden flex flex-col items-center text-center justify-center gap-6 min-h-[340px] bg-white">
-              
-              {/* Background Video */}
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover z-0"
-              >
-                <source src="/assets/15452141_1920_1080_60fps.mp4" type="video/mp4" />
-              </video>
-
-              {/* Light Overlay for Ultra Crisp Black & Dark Grey Contrast */}
-              <div className="absolute inset-0 bg-white/75 backdrop-blur-[2px] z-10" />
-
-              {/* Perfectly Aligned Headline & Sub Headline */}
-              <div className="space-y-3.5 max-w-2xl z-20 flex flex-col items-center">
-                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-slate-950">
-                  Ready to Access Off-Market Deal Flow?
-                </h2>
-
-                <p className="text-xs sm:text-base text-slate-800 font-semibold leading-relaxed max-w-xl mx-auto">
-                  Book a 15-minute intro call with our origination team to set up customized thesis parameters across India, ANZ, and US tech corridors.
-                </p>
-              </div>
-
-              {/* Proper Black Interactive CTA Button opening Calendly link */}
-              <div className="z-20 pt-2">
-                <motion.button
-                  onClick={handleBookCall}
-                  whileHover="hover"
-                  whileTap="tap"
-                  variants={buttonSpringBounce}
-                  className="px-9 py-3.5 bg-slate-950 hover:bg-slate-800 text-white font-extrabold text-sm sm:text-base rounded-2xl shadow-2xl flex items-center gap-3 cursor-pointer transition-all border-2 border-slate-950"
-                >
-                  <span>Book a Call</span>
-                  <ArrowRight size={18} className="text-white" />
-                </motion.button>
-              </div>
-            </div>
+          {/* Soft 3D Floating CTA Button opening Calendly */}
+          <div className="z-20 pt-2">
+            <motion.button
+              onClick={handleBookCall}
+              whileHover={{ scale: 1.07, y: -4 }}
+              whileTap={{ scale: 0.96 }}
+              className="px-9 py-3.5 bg-white text-slate-950 hover:bg-slate-100 font-sans text-xs uppercase font-bold tracking-widest rounded-full shadow-[0_20px_35px_-8px_rgba(255,255,255,0.3)] border border-white flex items-center gap-3 cursor-pointer transition-all duration-300 group"
+            >
+              <PhoneCall size={16} className="text-slate-950 group-hover:rotate-12 transition-transform" />
+              <span>BOOK A CALL</span>
+            </motion.button>
           </div>
+
         </motion.div>
       </div>
     </section>

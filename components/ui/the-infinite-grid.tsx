@@ -48,7 +48,7 @@ export const InfiniteGridBackground = ({ children, className }: { children?: Rea
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className={cn(
-        "relative w-full min-h-screen overflow-hidden bg-gradient-to-b from-[#f8fafc] via-[#e0f2fe]/60 to-[#e2e8f0]/30",
+        "relative w-full min-h-screen overflow-hidden bg-white",
         className
       )}
     >

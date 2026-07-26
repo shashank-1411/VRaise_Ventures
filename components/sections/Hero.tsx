@@ -1,252 +1,324 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Compass, Target, ShieldCheck, Building2, Minus, Square, X } from "lucide-react";
+import React from "react";
+import { motion } from "framer-motion";
+import { PhoneCall, Star, GraduationCap, Globe2, Compass, Layers } from "lucide-react";
 
 interface HeroProps {
   onOpenModal: () => void;
 }
 
 export default function Hero({ onOpenModal }: HeroProps) {
-  const [activeFeedIndex, setActiveFeedIndex] = useState(0);
-
-  const buttonSpringBounce = {
-    hover: {
-      scale: 1.04,
-      y: -3,
-      transition: { type: "spring", stiffness: 400, damping: 16 },
-    },
-    tap: {
-      scale: 0.96,
-      y: 0,
-    },
-  };
-
-  // 4 Live News Deals switching every 4 seconds (no colored badges)
-  const liveDeals = [
-    {
-      id: 1,
-      category: "GovTech & B2B AI SaaS",
-      stage: "Seed Stage",
-      origin: "Genesis USYD Incubator & IIT Founder Group",
-      mandate: "TEN13 & Pinery Capital Mandate Match",
-      fitScore: "98% Fit",
-      summary: "Founders hold 20 years of Commonwealth procurement IP. Audited cap table, raw financial verification passed, direct warm intro sent to lead partner with data room prepared.",
-      status: "0% Founder Equity Drag • Signed Partner Agreement",
-      corridor: "ANZ & India Corridor",
-    },
-    {
-      id: 2,
-      category: "Defense Tech & Autonomous Robotics",
-      stage: "Pre-Seed Stage",
-      origin: "Go8 Australia Lab & Canberra GovTech Hub",
-      mandate: "M8 Ventures & Square Peg Mandate Match",
-      fitScore: "99% Fit",
-      summary: "Ex-ADF autonomous navigation team referred directly to lead partner. Clean cap table audited, 100% customer retention, complete data room prepared.",
-      status: "Direct Lead Partner Intro • Data Room Prepared",
-      corridor: "Sydney & Canberra Corridor",
-    },
-    {
-      id: 3,
-      category: "Fintech Infrastructure & Settlement",
-      stage: "Seed Stage",
-      origin: "IIT Delhi Innovation Lab & WhatsApp Group",
-      mandate: "Peak XV & TEN13 Partner Mandate Match",
-      fitScore: "96% Fit",
-      summary: "Cross-border settlement engine processing $4M monthly volume. Zero equity drag, diligence memo signed and delivered directly to lead IC.",
-      status: "0% Founder Advisory Fee • Verified Traction",
-      corridor: "Bengaluru & Global Corridor",
-    },
-    {
-      id: 4,
-      category: "BioTech AI & Clinical Intelligence",
-      stage: "Pre-Seed Stage",
-      origin: "Monash Bio-Incubator & Stanford Alumni Room",
-      mandate: "Blackbird & Pinery Capital Mandate Match",
-      fitScore: "97% Fit",
-      summary: "AI pathology diagnostic model with FDA pre-clearance. Full data room attached, warm intro scheduled directly with lead healthcare partner.",
-      status: "100% Vetted IC Memo • Direct Handoff",
-      corridor: "Melbourne & US Corridor",
-    },
-  ];
-
-  // Automatic 4-Second News Switcher
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveFeedIndex((prev) => (prev + 1) % liveDeals.length);
-    }, 4000); // 4000ms = 4 seconds
-
-    return () => clearInterval(timer);
-  }, [liveDeals.length]);
-
-  const activeDeal = liveDeals[activeFeedIndex];
-
   return (
-    <section className="relative w-full pt-36 pb-20 px-4 overflow-hidden" id="home">
-      <div className="max-w-4xl mx-auto text-center flex flex-col items-center z-10">
+    <section className="relative w-full pt-44 sm:pt-56 pb-24 px-4 overflow-hidden bg-white" id="home">
+      <div className="max-w-6xl mx-auto text-center flex flex-col items-center z-10 relative">
         
-        {/* Main Headline */}
-        <motion.h1
+        {/* Tagline */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap items-center justify-center gap-2 mb-6"
+        >
+          <span className="font-mono text-xs uppercase tracking-widest text-slate-500 font-bold">
+            The World&apos;s First Student-Led Scouting Firm
+          </span>
+          <div className="flex items-center gap-1 text-orange-500">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={14} className="fill-orange-500 text-orange-500" />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Heading in PT Serif */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-950 leading-[1.1] mb-6"
+          style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
+          className="text-4xl sm:text-6xl md:text-7xl text-slate-950 leading-[1.12] mb-6 max-w-4xl tracking-tight font-normal"
         >
-          Build better pipeline. <br className="hidden sm:inline" />
-          Faster. With VRaise
-        </motion.h1>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            <span>We Scout.</span>
+            
+            {/* Overlapping Social Icon Badges with Vibrant Colored Glow Shadows (Borderless) */}
+            <div className="inline-flex items-center -space-x-2.5 relative -top-1.5 z-20">
+              {/* Instagram */}
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 text-white shadow-[0_16px_32px_-6px_rgba(249,115,22,0.85)] flex items-center justify-center z-10 hover:scale-110 transition-transform cursor-pointer">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </div>
 
-        {/* Subtitle */}
+              {/* YouTube */}
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-red-700 via-red-600 to-red-500 text-white shadow-[0_16px_32px_-6px_rgba(239,68,68,0.85)] flex items-center justify-center z-20 hover:scale-110 transition-transform cursor-pointer">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </div>
+
+              {/* TikTok */}
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-slate-950 via-slate-900 to-zinc-800 text-white shadow-[0_16px_32px_-6px_rgba(15,23,42,0.85)] flex items-center justify-center z-30 hover:scale-110 transition-transform cursor-pointer">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.525 0h3.08c.12 1.488.746 2.87 1.8 3.924A6.793 6.793 0 0 0 21.33 5.75v3.1a9.923 9.923 0 0 1-5.725-1.777v7.577a6.837 6.837 0 1 1-6.837-6.837c.39 0 .775.034 1.15.1v3.19a3.67 3.67 0 1 0 2.607 3.547V0z"/>
+                </svg>
+              </div>
+
+              {/* Facebook */}
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-700 via-blue-600 to-sky-500 text-white shadow-[0_16px_32px_-6px_rgba(37,99,235,0.85)] flex items-center justify-center z-40 hover:scale-110 transition-transform cursor-pointer">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+            </div>
+
+            <span>We Build.</span>
+          </div>
+          <div>We Raise.</div>
+        </motion.div>
+
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-8 font-normal"
+          className="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed mb-8 font-sans font-normal"
         >
-          VRaise helps VC teams, founders, and managers discover high-quality early-stage deals in seconds without missing proprietary signal.
+          We source high-quality deal flow for venture funds across every sector and every stage, and we prepare founders properly before they meet an investor.
         </motion.p>
 
-        {/* Action Buttons */}
+        {/* Action Buttons: Book a Call & Explore VRaise */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex items-center justify-center mb-12"
+          className="flex flex-wrap items-center justify-center gap-4 mb-12 sm:mb-16"
         >
           <motion.button
             onClick={onOpenModal}
-            whileHover="hover"
-            whileTap="tap"
-            variants={buttonSpringBounce}
-            className="px-8 py-3.5 bg-slate-950 hover:bg-slate-800 text-white font-semibold text-sm rounded-xl shadow-md flex items-center gap-2 cursor-pointer transition-colors"
+            whileHover={{ scale: 1.07, y: -5 }}
+            whileTap={{ scale: 0.96 }}
+            className="px-9 py-3.5 bg-gradient-to-b from-slate-800 via-slate-900 to-black text-white font-sans text-xs uppercase font-normal tracking-widest rounded-full shadow-[0_20px_35px_-8px_rgba(0,0,0,0.6),0_10px_20px_-5px_rgba(0,0,0,0.4)] border border-slate-700/80 flex items-center gap-3 cursor-pointer transition-all duration-300 group"
           >
-            <span>Get Started</span>
-            <ArrowRight size={16} />
+            <PhoneCall size={16} className="text-white group-hover:rotate-12 transition-transform" />
+            <span>BOOK A CALL</span>
           </motion.button>
+
+          <motion.a
+            href="#about"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.96 }}
+            className="px-8 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-slate-200 transition-colors cursor-pointer"
+          >
+            Explore VRaise
+          </motion.a>
         </motion.div>
 
-        {/* CLASSIC WINDOWS XP RETRO STYLE LIVE FEED WINDOW */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4 }}
-          whileHover={{
-            scale: 1.01,
-            y: -3,
-            transition: { type: "spring", stiffness: 350, damping: 17 },
-          }}
-          className="w-full max-w-3xl text-slate-900 rounded-t-xl rounded-b-lg shadow-xl text-left relative z-20 transition-all border-2 border-slate-400 overflow-hidden font-sans"
-        >
-          {/* Windows XP Classic Blue Header Bar */}
-          <div className="bg-gradient-to-r from-[#0058e6] via-[#2573f9] to-[#004dc2] px-3.5 py-1.5 flex items-center justify-between text-white font-bold text-xs select-none shadow-xs border-b border-blue-900">
-            <div className="flex items-center gap-2 font-mono">
-              <Compass size={14} className="text-white animate-spin-slow" />
-              <span>vraise-ventures-live-feed</span>
+        {/* EXACT TEMPLATE CONSTELLATION GRAPH & FLOATING FOUNDER CARDS SHOWCASE */}
+        <div className="relative w-full max-w-5xl h-[520px] sm:h-[600px] mt-2 select-none">
+          
+          {/* Organic Curved SVG Dashed Wave Line */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1000 550" fill="none">
+            <path
+              d="M 20 320 C 140 180, 240 110, 350 150 C 450 190, 540 80, 640 150 C 740 220, 840 140, 980 300"
+              stroke="#cbd5e1"
+              strokeWidth="2"
+              strokeDasharray="6 6"
+            />
+          </svg>
+
+          {/* 1. ALEX_TRAVIS ✔ (Top Left - Tilted Left - B&W Image) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
+            className="absolute left-[2%] sm:left-[6%] top-[14%] sm:top-[12%] w-[160px] sm:w-[210px] h-[210px] sm:h-[265px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-10 -rotate-6 group cursor-pointer bg-gradient-to-br from-indigo-600 to-purple-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop"
+              alt="Alex Travis"
+              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
+              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
+                Alex_Travis
+                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">
+                  ✓
+                </div>
+              </span>
             </div>
-            
-            {/* Windows XP Window Control Buttons [ _ ] [ ▢ ] [ X ] */}
-            <div className="flex items-center gap-1">
-              <div className="w-5 h-5 bg-[#0058e6] hover:bg-blue-600 border border-white/60 rounded-xs flex items-center justify-center cursor-pointer shadow-2xs">
-                <Minus size={11} className="text-white" />
-              </div>
-              <div className="w-5 h-5 bg-[#0058e6] hover:bg-blue-600 border border-white/60 rounded-xs flex items-center justify-center cursor-pointer shadow-2xs">
-                <Square size={9} className="text-white" />
-              </div>
-              <div className="w-5 h-5 bg-[#e81123] hover:bg-red-600 border border-white/60 rounded-xs flex items-center justify-center cursor-pointer shadow-2xs">
-                <X size={12} className="text-white font-extrabold" />
-              </div>
+          </motion.div>
+
+          {/* 2. LIAM CARTER ✔ (Bottom Left-Center - Tilted Right - B&W Image) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
+            className="absolute left-[22%] sm:left-[24%] bottom-[2%] sm:bottom-[4%] w-[155px] sm:w-[200px] h-[200px] sm:h-[250px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-15 rotate-3 group cursor-pointer bg-gradient-to-br from-sky-600 to-blue-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=600&auto=format&fit=crop"
+              alt="Liam Carter"
+              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
+              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
+                Liam Carter
+                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">
+                  ✓
+                </div>
+              </span>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Windows XP Classic Light Gray Body Frame */}
-          <div className="bg-[#ece9d8] p-3 sm:p-4 border-t border-white">
-            
-            {/* White Inset Content Card */}
-            <div className="bg-white border border-slate-300 rounded-lg p-4 shadow-inner space-y-3">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeDeal.id}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="space-y-3"
-                >
-                  {/* Top Bar (No colored badges) */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-200">
-                    <div className="flex items-center gap-2.5">
-                      <div className="p-1.5 bg-slate-100 rounded-md border border-slate-300 text-slate-800">
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-                        >
-                          <Compass className="w-4 h-4 text-slate-700" />
-                        </motion.div>
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h3 className="font-extrabold text-slate-900 text-base tracking-tight">
-                            {activeDeal.category}
-                          </h3>
-                          <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-slate-200 text-slate-700 border border-slate-300 rounded-xs">
-                            {activeDeal.stage}
-                          </span>
-                        </div>
-                        <span className="text-xs text-slate-500 font-normal">{activeDeal.origin}</span>
-                      </div>
-                    </div>
-
-                    <span className="text-[11px] font-mono text-slate-500 font-semibold">
-                      Feed Item ({activeFeedIndex + 1}/{liveDeals.length})
-                    </span>
-                  </div>
-
-                  {/* Summary Box */}
-                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-md text-xs text-slate-800 space-y-1 font-sans">
-                    <div className="flex items-center justify-between font-bold text-slate-900">
-                      <span className="flex items-center gap-1.5">
-                        <Target size={13} className="text-slate-600" /> {activeDeal.mandate}
-                      </span>
-                      <span className="text-slate-700 font-mono text-[10px] bg-slate-200 px-2 py-0.5 rounded-xs border border-slate-300 font-bold">
-                        {activeDeal.fitScore}
-                      </span>
-                    </div>
-                    <p className="text-slate-600 leading-normal text-xs pt-1">
-                      {activeDeal.summary}
-                    </p>
-                  </div>
-
-                  {/* Bottom Status Bar */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-600 pt-1 font-medium gap-2 border-t border-slate-200">
-                    <span className="flex items-center gap-1.5 font-bold text-slate-800">
-                      <ShieldCheck size={15} className="text-slate-600" /> {activeDeal.status}
-                    </span>
-                    <span className="text-slate-500 font-mono text-[11px] flex items-center gap-1">
-                      <Building2 size={13} className="text-slate-600" /> {activeDeal.corridor}
-                    </span>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
-              {/* 4-Second Timer Progress Bar */}
-              <div className="w-full bg-slate-200 h-1.5 rounded-full mt-2 overflow-hidden border border-slate-300">
-                <motion.div
-                  key={`bar-${activeFeedIndex}`}
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 4, ease: "linear" }}
-                  className="h-full bg-slate-700"
-                />
-              </div>
+          {/* 3. JOHN CLERK ✔ (Center Card - Tilted Right - B&W Image) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
+            className="absolute left-[43%] sm:left-[45%] top-[24%] sm:top-[22%] w-[155px] sm:w-[195px] h-[195px] sm:h-[245px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-20 rotate-6 group cursor-pointer bg-gradient-to-br from-amber-200 to-orange-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop"
+              alt="John Clerk"
+              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
+              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
+                John Clerk
+                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">
+                  ✓
+                </div>
+              </span>
             </div>
+          </motion.div>
 
-          </div>
-        </motion.div>
+          {/* 4. CRISH PAUL ✔ (Top Right - Tilted Left - B&W Image) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
+            className="absolute right-[12%] sm:right-[14%] top-[2%] sm:top-[4%] w-[165px] sm:w-[215px] h-[215px] sm:h-[270px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-10 -rotate-6 group cursor-pointer bg-gradient-to-br from-emerald-600 to-teal-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop"
+              alt="Crish Paul"
+              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
+              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
+                Crish Paul
+                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">
+                  ✓
+                </div>
+              </span>
+            </div>
+          </motion.div>
 
-        {/* Bottom Social Proof label */}
-        <div className="text-xs font-medium text-slate-500 mt-12 tracking-wide uppercase">
-          Trusted by modern investment teams across ANZ, India &amp; US
+          {/* 5. JAMES FOSTER ✔ (Bottom Right - Tilted Right - B&W Image) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
+            className="absolute right-[5%] sm:right-[7%] bottom-[5%] sm:bottom-[8%] w-[160px] sm:w-[205px] h-[205px] sm:h-[255px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-15 rotate-3 group cursor-pointer bg-gradient-to-br from-sky-700 to-slate-900"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop"
+              alt="James Foster"
+              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
+              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
+                James Foster
+                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">
+                  ✓
+                </div>
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Floating Badge Pill 1: 15+ Campus Scouts (Far Left Bottom) */}
+          <motion.div
+            whileHover={{ scale: 1.1, y: -3 }}
+            className="absolute left-[-1%] sm:left-[1%] bottom-[24%] sm:bottom-[28%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
+          >
+            <GraduationCap size={14} className="text-slate-800" />
+            <span>15+ Campus Scouts</span>
+          </motion.div>
+
+          {/* Floating Badge Pill 2: IITs · IIMs · Ivy League (Top Center) */}
+          <motion.div
+            whileHover={{ scale: 1.1, y: -3 }}
+            className="absolute left-[37%] sm:left-[40%] top-[12%] sm:top-[14%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
+          >
+            <Compass size={14} className="text-blue-600" />
+            <span>IITs · IIMs · Ivy League</span>
+          </motion.div>
+
+          {/* Floating Badge Pill 3: 3 Countries (Bottom Center) */}
+          <motion.div
+            whileHover={{ scale: 1.1, y: -3 }}
+            className="absolute left-[40%] sm:left-[43%] bottom-[12%] sm:bottom-[14%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
+          >
+            <Globe2 size={14} className="text-orange-500" />
+            <span>3 Countries</span>
+          </motion.div>
+
+          {/* Floating Badge Pill 4: All Sectors & Stages (Right Mid-Top) */}
+          <motion.div
+            whileHover={{ scale: 1.1, y: -3 }}
+            className="absolute right-[10%] sm:right-[13%] top-[54%] sm:top-[56%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
+          >
+            <Layers size={14} className="text-emerald-600" />
+            <span>All Sectors & Stages</span>
+          </motion.div>
+
+          {/* Floating Badge Pill 5: Seed to Series A (Far Right Mid) */}
+          <motion.div
+            whileHover={{ scale: 1.1, y: -3 }}
+            className="absolute right-[-1%] sm:right-[1%] top-[68%] sm:top-[70%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
+          >
+            <span>SEED TO SERIES A</span>
+          </motion.div>
+
+          {/* Floating Orange Circle Icon (Top Left-Center) */}
+          <motion.div
+            animate={{ scale: [1, 1.18, 1], y: [0, -5, 0] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+            className="absolute left-[30%] sm:left-[32%] top-[4%] sm:top-[6%] w-11 h-11 rounded-full bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 text-white shadow-[0_14px_28px_-4px_rgba(249,115,22,0.85)] flex items-center justify-center z-20 cursor-pointer"
+          >
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </motion.div>
+
+          {/* Floating Red Circle Icon (Bottom Right-Center) */}
+          <motion.div
+            animate={{ scale: [1, 1.18, 1], y: [0, -5, 0] }}
+            transition={{ repeat: Infinity, duration: 3.5, delay: 0.5, ease: "easeInOut" }}
+            className="absolute left-[62%] sm:left-[64%] bottom-[20%] sm:bottom-[22%] w-11 h-11 rounded-full bg-gradient-to-tr from-red-700 via-red-600 to-red-500 text-white shadow-[0_14px_28px_-4px_rgba(239,68,68,0.85)] flex items-center justify-center z-20 cursor-pointer"
+          >
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </motion.div>
+
+          {/* Floating Dark Circle Icon (Far Right) */}
+          <motion.div
+            animate={{ scale: [1, 1.18, 1], y: [0, -5, 0] }}
+            transition={{ repeat: Infinity, duration: 4, delay: 1, ease: "easeInOut" }}
+            className="absolute right-[0%] sm:right-[1%] top-[30%] sm:top-[32%] w-11 h-11 rounded-full bg-gradient-to-tr from-slate-950 via-slate-900 to-zinc-800 text-white shadow-[0_14px_28px_-4px_rgba(15,23,42,0.85)] flex items-center justify-center z-30 cursor-pointer"
+          >
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12.525 0h3.08c.12 1.488.746 2.87 1.8 3.924A6.793 6.793 0 0 0 21.33 5.75v3.1a9.923 9.923 0 0 1-5.725-1.777v7.577a6.837 6.837 0 1 1-6.837-6.837c.39 0 .775.034 1.15.1v3.19a3.67 3.67 0 1 0 2.607 3.547V0z"/>
+            </svg>
+          </motion.div>
+
         </div>
 
       </div>

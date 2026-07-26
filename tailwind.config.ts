@@ -15,7 +15,9 @@ const config: Config = {
         bgSecondary: "#ffffff",
       },
       fontFamily: {
-        outfit: ["var(--font-outfit)", "sans-serif"],
+        sans: ["var(--font-inter)", "Inter", "sans-serif"],
+        serif: ["var(--font-inter)", "Inter", "sans-serif"],
+        mono: ["var(--font-inter)", "Inter", "sans-serif"],
       },
     },
   },

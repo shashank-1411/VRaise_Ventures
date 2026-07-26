@@ -2,44 +2,32 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  Sparkles, 
-  Layers, 
-  Box, 
-  Boxes, 
-  Hexagon, 
-  Triangle, 
-  Workflow, 
-  Cpu, 
-  Globe2, 
-  Zap 
-} from "lucide-react";
 
 export default function PartnerMarquee() {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Larger, prominent partner logos
+  // Real partner logos & venture funds
   const sampleLogos = [
-    { name: "Hom_", icon: <Box size={30} className="stroke-[2.2]" /> },
-    { name: "Courto", icon: <Workflow size={30} className="stroke-[2.2]" /> },
-    { name: "Vista", icon: <Layers size={30} className="stroke-[2.2]" /> },
-    { name: "Rentigo", icon: <Hexagon size={30} className="stroke-[2.2]" /> },
-    { name: "Carvia", icon: <Triangle size={30} className="stroke-[2.2]" /> },
-    { name: "Spatium X", icon: <Cpu size={30} className="stroke-[2.2]" /> },
-    { name: "Classter", icon: <Boxes size={30} className="stroke-[2.2]" /> },
-    { name: "Bitazza", icon: <Sparkles size={30} className="stroke-[2.2]" /> },
-    { name: "Nexus AI", icon: <Globe2 size={30} className="stroke-[2.2]" /> },
-    { name: "Pulse VC", icon: <Zap size={30} className="stroke-[2.2]" /> },
+    { name: "TEN13", image: "/assets/ten13.png" },
+    { name: "Pinery", image: "/assets/pinery.png" },
+    { name: "M8 Ventures", image: "/assets/m8.png" },
   ];
 
-  // Quadruplicated set for seamless, slow continuous loop
-  const marqueeItems = [...sampleLogos, ...sampleLogos, ...sampleLogos, ...sampleLogos];
+  // Quadruplicated set for seamless, continuous marquee loop
+  const marqueeItems = [
+    ...sampleLogos,
+    ...sampleLogos,
+    ...sampleLogos,
+    ...sampleLogos,
+    ...sampleLogos,
+    ...sampleLogos,
+  ];
 
   return (
     <div className="w-full bg-white/40 backdrop-blur-xs border-y border-slate-200/80 py-10 overflow-hidden relative z-20">
       <div className="max-w-6xl mx-auto text-center mb-7">
         <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-slate-400">
-          TRUSTED BY 200+ GLOBAL SAAS &amp; AI BRANDS
+          PARTNER FUNDS &amp; VENTURE SYNDICATES
         </span>
       </div>
 
@@ -63,22 +51,21 @@ export default function PartnerMarquee() {
             repeat: Infinity,
             repeatType: "loop",
             ease: "linear",
-            duration: 85,
+            duration: 45,
           }}
         >
           {marqueeItems.map((logo, idx) => (
             <motion.div
               key={`${logo.name}-${idx}`}
-              whileHover={{ scale: 1.18, y: -3 }}
+              whileHover={{ scale: 1.15, y: -3 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex items-center gap-3 text-slate-700 hover:text-slate-950 opacity-75 hover:opacity-100 transition-all duration-300 cursor-pointer select-none group shrink-0"
+              className="flex items-center justify-center cursor-pointer select-none group shrink-0 py-2 px-4"
             >
-              <div className="text-slate-800 group-hover:scale-110 transition-transform">
-                {logo.icon}
-              </div>
-              <span className="font-extrabold text-lg sm:text-xl tracking-tight font-sans text-slate-900">
-                {logo.name}
-              </span>
+              <img
+                src={logo.image}
+                alt={logo.name}
+                className="h-14 sm:h-20 max-h-20 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+              />
             </motion.div>
           ))}
         </motion.div>
