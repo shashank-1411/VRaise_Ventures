@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Linkedin, PhoneCall, Mail } from "lucide-react";
 
 interface VerticalFloatingDockProps {
@@ -13,7 +13,7 @@ export default function VerticalFloatingDock({
   onOpenCallModal,
   onOpenNewsletterModal,
 }: VerticalFloatingDockProps) {
-  const iconVariants = {
+  const iconVariants: Variants = {
     initial: { scale: 1, x: 0 },
     hover: { 
       scale: 1.2, 
