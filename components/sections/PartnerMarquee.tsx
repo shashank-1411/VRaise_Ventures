@@ -8,11 +8,11 @@ export default function PartnerMarquee() {
 
   // Real partner logos & venture funds
   const sampleLogos = [
-    { name: "TEN13", image: "/assets/ten13.png", isText: false, isBoardy: false },
-    { name: "Pinery", image: "/assets/pinery.png", isText: false, isBoardy: false },
-    { name: "Boardy", image: "/assets/boardy.png", isText: false, isBoardy: true },
-    { name: "Level Up Ventures", image: null, isText: true, isBoardy: false },
-    { name: "and many more...", image: null, isMore: true, isBoardy: false },
+    { name: "TEN13", image: "/assets/ten13.png", isMore: false },
+    { name: "Pinery", image: "/assets/pinery.png", isMore: false },
+    { name: "Boardy", image: "/assets/boardy.png", isMore: false },
+    { name: "Level Up Ventures", image: "/assets/levelup ventures.jpeg", isMore: false },
+    { name: "and many more...", image: null, isMore: true },
   ];
 
   // Quadruplicated set for seamless, continuous marquee loop
@@ -74,32 +74,13 @@ export default function PartnerMarquee() {
                     {item.name}
                   </span>
                 </div>
-              ) : item.isBoardy ? (
-                /* Boardy Logo Image + Boardy Text (Regular) */
-                <div className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[160px] sm:min-w-[200px]">
-                  <img
-                    src="/assets/boardy.png"
-                    alt="Boardy Logo"
-                    className="h-8 sm:h-10 w-auto object-contain rounded-full"
-                  />
-                  <span className="font-normal text-lg sm:text-xl text-slate-800 group-hover:text-slate-950 tracking-tight font-sans">
-                    Boardy
-                  </span>
-                </div>
-              ) : item.isText ? (
-                /* Text Partner Brand Badges with Clean Card Border (Level Up Ventures) */
-                <div className="flex items-center justify-center px-7 py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[150px] sm:min-w-[190px]">
-                  <span className="font-extrabold text-lg sm:text-xl text-slate-700 group-hover:text-slate-950 tracking-tight font-sans">
-                    {item.name}
-                  </span>
-                </div>
               ) : (
-                /* Image Partner Logos with Clean Card Border (TEN13 & Pinery) */
-                <div className="flex items-center justify-center px-7 py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[150px] sm:min-w-[190px]">
+                /* Full Color Partner Logos with Clean Card Border (No Greyscale) */
+                <div className="flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[150px] sm:min-w-[190px]">
                   <img
                     src={item.image!}
                     alt={item.name}
-                    className="h-10 sm:h-14 max-h-14 w-auto object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                    className="h-10 sm:h-14 max-h-14 w-auto object-contain transition-all duration-300"
                   />
                 </div>
               )}
