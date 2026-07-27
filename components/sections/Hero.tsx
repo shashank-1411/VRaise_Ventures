@@ -66,23 +66,23 @@ export default function Hero({ onOpenModal }: HeroProps) {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mb-10 sm:mb-14"
         >
-          {/* 3D Blue Tactile Capsule "PITCH US" Button */}
+          {/* Flat Sleek Blue "PITCH US" Button */}
           <motion.button
             onClick={() => window.open("https://calendly.com", "_blank")}
-            whileHover={{ scale: 1.07, y: -4 }}
-            whileTap={{ scale: 0.96 }}
-            className="px-7 sm:px-9 py-3 sm:py-3.5 bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_14px_28px_-4px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.4),0_4px_0_0_#1d4ed8] border-t border-blue-300/60 hover:brightness-110 active:translate-y-1 flex items-center gap-2.5 sm:gap-3 cursor-pointer transition-all duration-300 group"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className="px-7 sm:px-9 py-3 sm:py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-md hover:shadow-xl hover:shadow-blue-500/25 flex items-center gap-2.5 sm:gap-3 cursor-pointer transition-all duration-300 group"
           >
             <Mail size={16} className="text-white group-hover:rotate-12 transition-transform shrink-0" />
             <span>PITCH US</span>
           </motion.button>
 
-          {/* 3D Light Grey Tactile Capsule "PARTNER WITH US" Button */}
+          {/* Flat Sleek Light Grey "PARTNER WITH US" Button */}
           <motion.button
             onClick={onOpenModal}
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.96 }}
-            className="px-7 sm:px-9 py-3 sm:py-3.5 bg-gradient-to-b from-slate-100 via-slate-200 to-slate-300 text-slate-900 font-mono text-xs uppercase font-extrabold tracking-wider rounded-full shadow-[0_12px_24px_-4px_rgba(0,0,0,0.3),inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_0_0_#94a3b8] border-t border-white hover:brightness-105 active:translate-y-1 transition-all cursor-pointer flex items-center justify-center"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className="px-7 sm:px-9 py-3 sm:py-3.5 bg-slate-100 hover:bg-white text-slate-900 font-mono text-xs uppercase font-extrabold tracking-wider rounded-full border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex items-center justify-center"
           >
             <span>Partner With Us</span>
           </motion.button>

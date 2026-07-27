@@ -52,11 +52,11 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           </Link>
         </div>
 
-        {/* Right 3D Blue Capsule "Pitch Us" Button */}
+        {/* Right Flat Sleek Blue "Pitch Us" Button */}
         <div className="flex items-center">
           <button
             onClick={handlePitchUs}
-            className="px-5 sm:px-7 py-2 sm:py-2.5 rounded-full bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700 text-white font-mono text-[11px] sm:text-xs uppercase font-extrabold tracking-wider shadow-[0_8px_18px_-3px_rgba(37,99,235,0.55),inset_0_2px_3px_rgba(255,255,255,0.4),0_3px_0_0_#1d4ed8] border-t border-blue-300/60 hover:scale-105 active:translate-y-0.5 transition-all cursor-pointer flex items-center gap-1.5 sm:gap-2"
+            className="px-5 sm:px-7 py-2 sm:py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-mono text-[11px] sm:text-xs uppercase font-extrabold tracking-wider shadow-sm hover:shadow-md hover:scale-105 transition-all cursor-pointer flex items-center gap-1.5 sm:gap-2"
           >
             <Mail size={14} className="text-white shrink-0" />
             <span>Pitch Us</span>
