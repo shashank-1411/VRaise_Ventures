@@ -25,7 +25,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.08] text-slate-950 font-normal tracking-tight max-w-5xl mb-4"
         >
-          World&apos;s first student led council
+          World&apos;s first student led scouting firm
         </motion.h1>
 
         {/* Blinking Sub-Headline Line Directly Below Headline */}
