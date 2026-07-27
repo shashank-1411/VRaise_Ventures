@@ -54,8 +54,8 @@ export default function DockMorph({ items, className, position = "bottom" }: Doc
       <TooltipProvider delayDuration={100}>
         <div
           className={cn(
-            "relative flex items-center gap-2 p-1 rounded-full",
-            position === "left" ? "flex-col gap-3 px-3 py-5" : "flex-row",
+            "relative flex items-center gap-3.5 sm:gap-4.5 px-4 sm:px-5 py-1.5 rounded-full",
+            position === "left" ? "flex-col gap-4 px-3.5 py-6" : "flex-row",
             "bg-gradient-to-b from-white via-slate-50 to-slate-100/95 border border-slate-200/90",
             "shadow-[0_8px_18px_-3px_rgba(0,0,0,0.08),inset_0_2px_3px_rgba(255,255,255,0.9),0_3px_0_0_#cbd5e1]"
           )}
