@@ -1,33 +1,9 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 export default function AboutVRaise() {
-  // Generate a ring of blinking orange lights behind the center logo
-  const orangeBlinkingLights = useMemo(() => {
-    const dots: { cx: number; cy: number; duration: number; delay: number; maxOpacity: number }[] = [];
-    const centerX = 160;
-    const centerY = 80;
-    const numRings = 4;
-    const dotsPerRingBase = 10;
-
-    for (let ring = 1; ring <= numRings; ring++) {
-      const radius = ring * 22;
-      const count = dotsPerRingBase + ring * 6;
-      for (let i = 0; i < count; i++) {
-        const angle = (i / count) * 2 * Math.PI;
-        const cx = centerX + radius * Math.cos(angle);
-        const cy = centerY + radius * Math.sin(angle);
-        const duration = 1.0 + (i % 4) * 0.3;
-        const delay = (i % 6) * 0.2;
-        const maxOpacity = 0.6 + (i % 3) * 0.15;
-        dots.push({ cx, cy, duration, delay, maxOpacity });
-      }
-    }
-    return dots;
-  }, []);
-
   return (
     <section className="w-full py-24 px-4 bg-white select-none overflow-hidden font-sans" id="about-vraise">
       <div className="max-w-5xl mx-auto text-center flex flex-col items-center relative">
@@ -42,7 +18,7 @@ export default function AboutVRaise() {
           </h2>
         </div>
 
-        {/* Floating 3D Heart GIFs (Maintained Original Size) */}
+        {/* Floating 3D Heart GIFs */}
         <motion.div
           animate={{ y: [0, -12, 0], rotate: [-15, -8, -15] }}
           transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }}
@@ -67,36 +43,11 @@ export default function AboutVRaise() {
           />
         </motion.div>
 
-        {/* Center Brand Header with Enlarged Logo & Animated Orange Blinking Lights */}
+        {/* Center Brand Header with Enlarged Logo & Soft Glowing Aura */}
         <div className="relative mb-12 flex items-center justify-center">
           
           {/* Glowing Animated Pulsing Orange Aura Ring */}
-          <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-orange-500/25 via-amber-500/35 to-orange-500/25 blur-2xl animate-pulse pointer-events-none z-0" />
-
-          {/* SVG Animated Orange Blinking Lights Field */}
-          <svg className="absolute -inset-16 w-80 h-40 pointer-events-none z-0" viewBox="0 0 320 160" fill="none">
-            {orangeBlinkingLights.map((dot, idx) => (
-              <motion.circle
-                key={`orange-light-${idx}`}
-                cx={dot.cx}
-                cy={dot.cy}
-                r={2.2}
-                fill="#f97316"
-                className="shadow-[0_0_8px_#f97316]"
-                initial={{ opacity: 0.2, scale: 0.8 }}
-                animate={{
-                  opacity: [0.2, dot.maxOpacity, 0.2],
-                  scale: [0.8, 1.5, 0.8],
-                }}
-                transition={{
-                  duration: dot.duration,
-                  delay: dot.delay,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-            ))}
-          </svg>
+          <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-orange-500/20 via-amber-500/25 to-orange-500/20 blur-2xl animate-pulse pointer-events-none z-0" />
 
           {/* Enlarged Center Logo Pill Badge */}
           <motion.div
