@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Sparkles, Building2 } from "lucide-react";
+import { X } from "lucide-react";
 
 interface PartnerItem {
   name: string;
-  image: string | null;
-  category?: string;
-  isMore?: boolean;
-  isText?: boolean;
+  image: string;
+  category: string;
 }
 
 export default function PartnerMarquee() {
@@ -18,7 +16,7 @@ export default function PartnerMarquee() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Primary partner logos
+  // Mentioned partner logos
   const primaryLogos: PartnerItem[] = [
     { name: "TEN13", image: "/assets/ten13.png", category: "Syndicate Platform" },
     { name: "Pinery", image: "/assets/pinery.png", category: "Venture Fund" },
@@ -26,26 +24,12 @@ export default function PartnerMarquee() {
     { name: "Level Up Ventures", image: "/assets/levelup ventures.jpeg", category: "Pre-Seed Fund" },
   ];
 
-  // Extended partner list for the popup modal
-  const allPartners: PartnerItem[] = [
-    ...primaryLogos,
-    { name: "Blackbird Ventures Network", image: null, category: "ANZ Tech Corridor", isText: true },
-    { name: "Square Peg Syndicate", image: null, category: "Global Growth Fund", isText: true },
-    { name: "AirTree Pioneer Network", image: null, category: "Early Stage", isText: true },
-    { name: "GovTech Specialists", image: null, category: "GovTech & Policy", isText: true },
-    { name: "Bilateral ANZ-India Syndicate", image: null, category: "Cross-Border Fund", isText: true },
-    { name: "Campus Founders Angel Network", image: null, category: "University Angels", isText: true },
-  ];
-
+  // Repeat logos to form seamless infinite loop track
   const marqueeItems: PartnerItem[] = [
     ...primaryLogos,
-    { name: "and many more...", image: null, isMore: true },
     ...primaryLogos,
-    { name: "and many more...", image: null, isMore: true },
     ...primaryLogos,
-    { name: "and many more...", image: null, isMore: true },
     ...primaryLogos,
-    { name: "and many more...", image: null, isMore: true },
   ];
 
   // Sync scrollbar progress
@@ -58,18 +42,37 @@ export default function PartnerMarquee() {
     }
   };
 
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = Number(e.target.value);
-    setScrollProgress(val);
+  const handleBarClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const percentage = (clickX / rect.width) * 100;
+    setScrollProgress(percentage);
     if (scrollRef.current) {
       const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
-      scrollRef.current.scrollLeft = (val / 100) * maxScroll;
+      scrollRef.current.scrollLeft = (percentage / 100) * maxScroll;
     }
   };
 
   return (
     <div className="w-full bg-white/40 backdrop-blur-xs border-y border-slate-200/80 py-12 overflow-hidden relative z-20 font-sans select-none">
       
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-track {
+          animation: marquee 30s linear infinite;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+
       {/* Section Header */}
       <div className="max-w-6xl mx-auto text-center mb-8 px-4">
         <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">
@@ -101,15 +104,9 @@ export default function PartnerMarquee() {
           className="w-full overflow-x-auto no-scrollbar scroll-smooth py-2 px-4"
         >
           {/* Continuous Infinite Marquee Track */}
-          <motion.div
-            className="flex items-center gap-6 sm:gap-8 w-max"
-            animate={{ x: isHovered ? undefined : ["0%", "-50%"] }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "linear",
-              duration: 40,
-            }}
+          <div
+            className="flex items-center gap-6 sm:gap-8 w-max animate-marquee-track"
+            style={{ animationPlayState: isHovered ? "paused" : "running" }}
           >
             {marqueeItems.map((item, idx) => (
               <motion.div
@@ -117,48 +114,31 @@ export default function PartnerMarquee() {
                 whileHover={{ scale: 1.08, y: -2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 className="flex items-center justify-center cursor-pointer shrink-0 py-2 group"
-                onClick={() => {
-                  if (item.isMore) setIsModalOpen(true);
-                }}
+                onClick={() => setIsModalOpen(true)}
               >
-                {item.isMore ? (
-                  /* "and many more..." clickable pill badge */
-                  <div className="flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-blue-50 border border-blue-200 shadow-xs group-hover:bg-blue-600 group-hover:border-blue-600 transition-all h-20 sm:h-22">
-                    <Sparkles size={16} className="text-blue-600 group-hover:text-white transition-colors" />
-                    <span className="font-mono text-xs uppercase tracking-widest font-bold text-blue-600 group-hover:text-white transition-colors">
-                      {item.name}
-                    </span>
-                  </div>
-                ) : (
-                  /* Full Color Partner Logo Card */
-                  <div className="flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[150px] sm:min-w-[190px]">
-                    <img
-                      src={item.image!}
-                      alt={item.name}
-                      className="h-10 sm:h-14 max-h-14 w-auto object-contain transition-all duration-300"
-                    />
-                  </div>
-                )}
+                {/* Full Color Partner Logo Card */}
+                <div className="flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[150px] sm:min-w-[190px]">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="h-10 sm:h-14 max-h-14 w-auto object-contain transition-all duration-300"
+                  />
+                </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
-        {/* Custom Interactive Scrollbar Scroller Below Marquee */}
-        <div className="max-w-xs sm:max-w-md mx-auto mt-6 px-6 flex flex-col items-center gap-2">
-          <div className="w-full flex items-center gap-3">
-            <span className="text-[10px] font-mono font-bold uppercase text-slate-400">Scroll</span>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={scrollProgress}
-              onChange={handleSliderChange}
-              className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
-              aria-label="Scroll partner logos"
-            />
-            <span className="text-[10px] font-mono font-bold uppercase text-slate-400">Drag</span>
-          </div>
+        {/* Single Slim Scroll Bar */}
+        <div
+          className="w-48 sm:w-64 h-1 bg-slate-200/80 rounded-full overflow-hidden mx-auto mt-6 relative cursor-pointer"
+          onClick={handleBarClick}
+          aria-label="Scroll position indicator"
+        >
+          <div
+            className="h-full bg-blue-600 rounded-full transition-all duration-150 ease-out"
+            style={{ width: `${Math.min(100, Math.max(15, scrollProgress))}%` }}
+          />
         </div>
 
       </div>
@@ -194,45 +174,29 @@ export default function PartnerMarquee() {
               </button>
 
               {/* Modal Title Header */}
-              <div className="flex items-center gap-3 mb-8">
-                <div className="p-3 bg-blue-50 border border-blue-200 rounded-2xl text-blue-600">
-                  <Building2 size={26} />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-600 block">
-                    [ VRaise Ecosystem ]
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950">
-                    Partner Funds &amp; Syndicates
-                  </h3>
-                </div>
+              <div className="mb-6">
+                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950">
+                  Partner Funds &amp; Syndicates
+                </h3>
               </div>
 
               <p className="text-sm text-slate-600 leading-relaxed mb-8">
                 Our scout network partners with tier-1 venture funds, angel syndicates, and institutional platforms across Australia, India, and North America.
               </p>
 
-              {/* Grid of All Partner Logos */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {allPartners.map((partner, idx) => (
+              {/* Grid of Mentioned Partner Logos */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                {primaryLogos.map((partner, idx) => (
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.03, y: -2 }}
-                    className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-xs flex flex-col items-center justify-center text-center gap-2 group hover:bg-white hover:shadow-md transition-all"
+                    className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-xs flex flex-col items-center justify-center text-center gap-2 group hover:bg-white hover:shadow-md transition-all cursor-pointer"
                   >
-                    {partner.image ? (
-                      <img
-                        src={partner.image}
-                        alt={partner.name}
-                        className="h-12 w-auto object-contain mb-1"
-                      />
-                    ) : (
-                      <div className="h-12 flex items-center justify-center">
-                        <span className="font-extrabold text-base text-slate-900 tracking-tight font-sans">
-                          {partner.name}
-                        </span>
-                      </div>
-                    )}
+                    <img
+                      src={partner.image}
+                      alt={partner.name}
+                      className="h-12 w-auto object-contain mb-1"
+                    />
                     <span className="font-mono text-[10px] uppercase font-bold text-blue-600 tracking-wider">
                       {partner.category}
                     </span>
