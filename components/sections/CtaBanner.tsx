@@ -58,23 +58,23 @@ export default function CtaBanner({ onOpenModal }: CtaBannerProps) {
           {/* Sleek Flat Capsule CTAs */}
           <div className="z-20 pt-2 flex flex-wrap items-center justify-center gap-4">
             
-            {/* Flat Sleek Blue "PITCH US" Button */}
+            {/* Blue Colored Shadow CTA "PITCH US" Button */}
             <motion.button
               onClick={handlePitchUs}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-md hover:shadow-xl hover:shadow-blue-500/25 flex items-center gap-3 cursor-pointer transition-all duration-300 group"
+              className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs uppercase font-extrabold tracking-wider rounded-full border border-blue-400/40 shadow-[0_8px_25px_-4px_rgba(37,99,235,0.55)] hover:shadow-[0_12px_28px_-4px_rgba(37,99,235,0.7)] flex items-center gap-3 cursor-pointer transition-all duration-300 group"
             >
               <Mail size={16} className="text-white group-hover:rotate-12 transition-transform shrink-0" />
               <span>PITCH US</span>
             </motion.button>
 
-            {/* Flat Sleek Light Grey "PARTNER WITH US" Button */}
+            {/* Light Grey Colored Shadow CTA "PARTNER WITH US" Button */}
             <motion.button
               onClick={onOpenModal}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="px-8 py-3.5 bg-slate-100 hover:bg-white text-slate-950 font-mono text-xs uppercase font-extrabold tracking-wider rounded-full border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex items-center justify-center"
+              className="px-8 py-3.5 bg-slate-100 hover:bg-white text-slate-950 font-mono text-xs uppercase font-extrabold tracking-wider rounded-full border border-slate-200/90 shadow-[0_8px_20px_-4px_rgba(148,163,184,0.45)] hover:shadow-[0_12px_25px_-4px_rgba(148,163,184,0.65)] transition-all duration-300 cursor-pointer flex items-center justify-center"
             >
               <span>PARTNER WITH US</span>
             </motion.button>

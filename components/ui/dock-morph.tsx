@@ -54,10 +54,9 @@ export default function DockMorph({ items, className, position = "bottom" }: Doc
       <TooltipProvider delayDuration={100}>
         <div
           className={cn(
-            "relative flex items-center gap-3.5 sm:gap-4.5 px-4 sm:px-5 py-1.5 rounded-full",
-            position === "left" ? "flex-col gap-4 px-3.5 py-6" : "flex-row",
-            "bg-gradient-to-b from-white via-slate-50 to-slate-100/95 border border-slate-200/90",
-            "shadow-[0_8px_18px_-3px_rgba(0,0,0,0.08),inset_0_2px_3px_rgba(255,255,255,0.9),0_3px_0_0_#cbd5e1]"
+            "relative flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-full",
+            position === "left" ? "flex-col gap-3 px-3 py-4" : "flex-row",
+            "bg-slate-100/90 backdrop-blur-md border border-slate-200/90 shadow-sm"
           )}
         >
           {dockItems.map((item, i) => (
@@ -73,7 +72,7 @@ export default function DockMorph({ items, className, position = "bottom" }: Doc
                     {hovered === i && (
                       <motion.div
                         initial={{ scale: 0.6, opacity: 0 }}
-                        animate={{ scale: 1.4, opacity: 1 }}
+                        animate={{ scale: 1.3, opacity: 1 }}
                         exit={{ scale: 0.6, opacity: 0 }}
                         transition={{
                           type: "spring",
@@ -82,27 +81,24 @@ export default function DockMorph({ items, className, position = "bottom" }: Doc
                         }}
                         className={cn(
                           "absolute inset-0 rounded-full -z-10",
-                          "bg-gradient-to-tr from-blue-500/40 via-blue-300/25 to-blue-100/10",
-                          "backdrop-blur-2xl shadow-lg shadow-blue-500/25"
+                          "bg-blue-500/20 backdrop-blur-md shadow-md shadow-blue-500/20"
                         )}
                       />
                     )}
                   </AnimatePresence>
 
-                  {/* 3D Tactile Capsule Button (Matching Pitch Us CTA) */}
+                  {/* Non-3D Flat Sleek Circle Button */}
                   <motion.button
                     type="button"
                     onClick={item.onClick}
-                    whileHover={{ scale: 1.1, y: -1 }}
-                    whileTap={{ scale: 0.94, y: 1 }}
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.94 }}
                     transition={{ type: "spring", stiffness: 350, damping: 18 }}
                     className={cn(
                       "relative z-10 h-8 w-8 sm:h-8.5 sm:w-8.5 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200",
-                      "bg-gradient-to-b from-white via-slate-100 to-slate-200/90 text-slate-800 hover:text-white",
-                      "hover:from-blue-500 hover:via-blue-600 hover:to-blue-700",
-                      "border border-slate-300/80 hover:border-blue-300/60",
-                      "shadow-[0_4px_10px_-2px_rgba(0,0,0,0.08),inset_0_1.5px_2px_rgba(255,255,255,0.9),0_2px_0_0_#cbd5e1]",
-                      "hover:shadow-[0_8px_16px_-3px_rgba(37,99,235,0.55),inset_0_1.5px_2px_rgba(255,255,255,0.4),0_2px_0_0_#1d4ed8]"
+                      "bg-white text-slate-700 hover:text-white hover:bg-blue-600",
+                      "border border-slate-200 hover:border-blue-500",
+                      "shadow-xs hover:shadow-md hover:shadow-blue-500/30"
                     )}
                     aria-label={item.label}
                   >
