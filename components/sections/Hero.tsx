@@ -9,41 +9,8 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenModal }: HeroProps) {
-  const founders = [
-    {
-      name: "Alex_Travis",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
-      bg: "from-indigo-600 to-purple-800",
-      rotate: "-rotate-6",
-    },
-    {
-      name: "Liam Carter",
-      image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=600&auto=format&fit=crop",
-      bg: "from-sky-600 to-blue-800",
-      rotate: "rotate-3",
-    },
-    {
-      name: "John Clerk",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
-      bg: "from-sky-200 to-blue-300",
-      rotate: "rotate-6",
-    },
-    {
-      name: "Crish Paul",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop",
-      bg: "from-emerald-600 to-teal-800",
-      rotate: "-rotate-6",
-    },
-    {
-      name: "James Foster",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
-      bg: "from-sky-700 to-slate-900",
-      rotate: "rotate-3",
-    },
-  ];
-
   return (
-    <section className="relative w-full pt-32 sm:pt-44 pb-20 px-4 bg-white text-slate-900 overflow-hidden font-sans select-none">
+    <section className="relative w-full pt-32 sm:pt-40 pb-16 px-4 bg-white text-slate-900 overflow-hidden font-sans select-none">
       
       {/* Background Subtle Gradient Backdrop */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] bg-gradient-to-b from-blue-50/50 via-white to-white pointer-events-none -z-10" />
@@ -100,7 +67,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mb-12 sm:mb-16"
+          className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mb-10 sm:mb-14"
         >
           {/* 3D Blue Tactile Capsule "PITCH US" Button */}
           <motion.button
@@ -125,178 +92,41 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </motion.button>
         </motion.div>
 
-        {/* DESKTOP CONSTELLATION GRAPH SHOWCASE */}
-        <div className="hidden md:block relative w-full max-w-5xl h-[580px] mt-2 select-none">
-          
-          {/* Organic Curved SVG Dashed Wave Line */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1000 550" fill="none">
-            <path
-              d="M 20 320 C 140 180, 240 110, 350 150 C 450 190, 540 80, 640 150 C 740 220, 840 140, 980 300"
-              stroke="#cbd5e1"
-              strokeWidth="2"
-              strokeDasharray="6 6"
-            />
-          </svg>
-
-          {/* 1. ALEX_TRAVIS ✔ */}
-          <motion.div
-            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
-            className="absolute left-[6%] top-[12%] w-[205px] h-[260px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-10 -rotate-6 group cursor-pointer bg-gradient-to-br from-indigo-600 to-purple-800"
-          >
-            <img
-              src={founders[0].image}
-              alt={founders[0].name}
-              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
-              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
-                {founders[0].name}
-                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">✓</div>
-              </span>
-            </div>
-          </motion.div>
-
-          {/* 2. LIAM CARTER ✔ */}
-          <motion.div
-            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
-            className="absolute left-[24%] bottom-[4%] w-[200px] h-[250px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-15 rotate-3 group cursor-pointer bg-gradient-to-br from-sky-600 to-blue-800"
-          >
-            <img
-              src={founders[1].image}
-              alt={founders[1].name}
-              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
-              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
-                {founders[1].name}
-                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">✓</div>
-              </span>
-            </div>
-          </motion.div>
-
-          {/* 3. JOHN CLERK ✔ */}
-          <motion.div
-            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
-            className="absolute left-[45%] top-[22%] w-[195px] h-[245px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-20 rotate-6 group cursor-pointer bg-gradient-to-br from-blue-200 to-sky-300"
-          >
-            <img
-              src={founders[2].image}
-              alt={founders[2].name}
-              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
-              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
-                {founders[2].name}
-                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">✓</div>
-              </span>
-            </div>
-          </motion.div>
-
-          {/* 4. CRISH PAUL ✔ */}
-          <motion.div
-            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
-            className="absolute right-[14%] top-[4%] w-[215px] h-[270px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-10 -rotate-6 group cursor-pointer bg-gradient-to-br from-emerald-600 to-teal-800"
-          >
-            <img
-              src={founders[3].image}
-              alt={founders[3].name}
-              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
-              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
-                {founders[3].name}
-                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">✓</div>
-              </span>
-            </div>
-          </motion.div>
-
-          {/* 5. JAMES FOSTER ✔ */}
-          <motion.div
-            whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
-            className="absolute right-[7%] bottom-[8%] w-[205px] h-[255px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-15 rotate-3 group cursor-pointer bg-gradient-to-br from-sky-700 to-slate-900"
-          >
-            <img
-              src={founders[4].image}
-              alt={founders[4].name}
-              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
-              <span className="text-[11px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/20">
-                {founders[4].name}
-                <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white font-extrabold">✓</div>
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Floating Badge Pills */}
-          <div className="absolute left-[1%] bottom-[28%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900">
-            <GraduationCap size={14} className="text-slate-800" />
-            <span>100+ Campus Scouts</span>
-          </div>
-
-          <div className="absolute left-[30%] top-[14%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900">
-            <Compass size={14} className="text-blue-600" />
-            <span>Go8 · Ivy League · Russell Group · IITs · IIMs</span>
-          </div>
-
-          <div className="absolute left-[39%] bottom-[12%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900">
-            <Globe2 size={14} className="text-blue-600" />
-            <span>Operating in 5 Continents</span>
-          </div>
-
-          <div className="absolute right-[11%] top-[56%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900">
-            <Layers size={14} className="text-emerald-600" />
-            <span>Pre-Seed to Series A</span>
-          </div>
-
-        </div>
-
-        {/* MOBILE SHOWCASE GRID */}
-        <div className="md:hidden w-full flex flex-col items-center gap-6 mt-4">
-          
-          {/* 3D Founders horizontal scroll container */}
-          <div className="w-full flex items-center gap-4 overflow-x-auto pb-4 px-2 snap-x snap-mandatory scrollbar-none">
-            {founders.map((founder, idx) => (
-              <div
-                key={idx}
-                className={`shrink-0 w-[170px] h-[220px] rounded-3xl overflow-hidden shadow-xl border-2 border-slate-900 relative snap-center ${founder.bg}`}
-              >
-                <img
-                  src={founder.image}
-                  alt={founder.name}
-                  className="w-full h-full object-cover grayscale contrast-125"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3">
-                  <span className="text-[10px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1 bg-slate-950/80 px-2 py-0.5 rounded-full border border-white/20">
-                    {founder.name}
-                    <div className="w-3 h-3 rounded-full bg-blue-500 flex items-center justify-center text-[8px] text-white font-bold">✓</div>
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Clean Mobile Badge Grid */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-mono text-[11px] uppercase font-bold text-slate-900">
-            <div className="bg-slate-50 border border-slate-200/90 rounded-2xl px-4 py-3 shadow-xs flex items-center gap-2.5 justify-center">
-              <GraduationCap size={15} className="text-slate-800 shrink-0" />
+        {/* Clean Aligned Hero Metrics & Network Badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+          className="w-full max-w-5xl mx-auto"
+        >
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-mono text-[11px] sm:text-xs uppercase font-extrabold text-slate-900">
+            
+            {/* Badge 1: 100+ Campus Scouts */}
+            <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
+              <GraduationCap size={16} className="text-slate-800 shrink-0" />
               <span>100+ Campus Scouts</span>
             </div>
-            <div className="bg-slate-50 border border-slate-200/90 rounded-2xl px-4 py-3 shadow-xs flex items-center gap-2.5 justify-center text-center">
-              <Compass size={15} className="text-blue-600 shrink-0" />
+
+            {/* Badge 2: Go8 · Ivy League · Russell Group · IITs · IIMs */}
+            <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
+              <Compass size={16} className="text-blue-600 shrink-0" />
               <span>Go8 · Ivy League · Russell Group · IITs · IIMs</span>
             </div>
-            <div className="bg-slate-50 border border-slate-200/90 rounded-2xl px-4 py-3 shadow-xs flex items-center gap-2.5 justify-center">
-              <Globe2 size={15} className="text-blue-600 shrink-0" />
+
+            {/* Badge 3: Operating in 5 Continents */}
+            <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
+              <Globe2 size={16} className="text-blue-600 shrink-0" />
               <span>Operating in 5 Continents</span>
             </div>
-            <div className="bg-slate-50 border border-slate-200/90 rounded-2xl px-4 py-3 shadow-xs flex items-center gap-2.5 justify-center">
-              <Layers size={15} className="text-emerald-600 shrink-0" />
+
+            {/* Badge 4: Pre-Seed to Series A */}
+            <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
+              <Layers size={16} className="text-emerald-600 shrink-0" />
               <span>Pre-Seed to Series A</span>
             </div>
-          </div>
 
-        </div>
+          </div>
+        </motion.div>
 
       </div>
     </section>
