@@ -103,25 +103,25 @@ export default function Hero({ onOpenModal }: HeroProps) {
             
             {/* Badge 1: 100+ Campus Scouts */}
             <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
-              <GraduationCap size={16} className="text-slate-800 shrink-0" />
+              <GraduationCap size={16} className="text-slate-950 shrink-0" />
               <span>100+ Campus Scouts</span>
             </div>
 
             {/* Badge 2: Go8 · Ivy League · Russell Group · IITs · IIMs */}
             <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
-              <Compass size={16} className="text-blue-600 shrink-0" />
+              <Compass size={16} className="text-slate-950 shrink-0" />
               <span>Go8 · Ivy League · Russell Group · IITs · IIMs</span>
             </div>
 
             {/* Badge 3: Operating in 5 Continents */}
             <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
-              <Globe2 size={16} className="text-blue-600 shrink-0" />
+              <Globe2 size={16} className="text-slate-950 shrink-0" />
               <span>Operating in 5 Continents</span>
             </div>
 
             {/* Badge 4: Pre-Seed to Series A */}
             <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
-              <Layers size={16} className="text-emerald-600 shrink-0" />
+              <Layers size={16} className="text-slate-950 shrink-0" />
               <span>Pre-Seed to Series A</span>
             </div>
 
