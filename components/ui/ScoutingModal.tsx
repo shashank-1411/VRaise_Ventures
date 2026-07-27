@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Handshake, CheckCircle2, Send } from "lucide-react";
+import { X, CheckCircle2, Send } from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface ScoutingModalProps {
@@ -75,19 +75,11 @@ export default function ScoutingModal({ isOpen, onClose }: ScoutingModalProps) {
             {!submitted ? (
               <div className="space-y-6">
                 
-                {/* Modal Header */}
-                <div className="flex items-center gap-3">
-                  <div className="p-3 bg-blue-50 border border-blue-200 rounded-2xl text-blue-600">
-                    <Handshake size={24} />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-600 block">
-                      [ Partner With Us ]
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-950">
-                      Partner With VRaise
-                    </h3>
-                  </div>
+                {/* Clean Modal Header (Without top icon & tagline text) */}
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-950">
+                    Partner With VRaise
+                  </h3>
                 </div>
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -152,13 +144,13 @@ export default function ScoutingModal({ isOpen, onClose }: ScoutingModalProps) {
                     />
                   </div>
 
-                  {/* 3D Blue Submit Button */}
+                  {/* Royal Blue Capsule Submit Button */}
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700 text-white font-mono text-xs uppercase font-extrabold tracking-wider rounded-2xl shadow-[0_8px_18px_-3px_rgba(37,99,235,0.55),inset_0_2px_3px_rgba(255,255,255,0.4),0_3px_0_0_#1d4ed8] border-t border-blue-300/60 hover:scale-[1.02] active:translate-y-0.5 transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
+                    className="w-full py-3.5 px-6 bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs uppercase font-extrabold tracking-wider rounded-full border border-blue-400/40 shadow-[0_8px_25px_-4px_rgba(37,99,235,0.55)] hover:shadow-[0_12px_28px_-4px_rgba(37,99,235,0.7)] transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
                   >
-                    <Send size={15} />
-                    <span>Submit Partnership Inquiry</span>
+                    <Send size={15} className="shrink-0" />
+                    <span>SUBMIT</span>
                   </button>
                 </form>
 
@@ -177,7 +169,7 @@ export default function ScoutingModal({ isOpen, onClose }: ScoutingModalProps) {
                 </p>
                 <button
                   onClick={handleReset}
-                  className="mt-4 px-8 py-3 bg-slate-950 text-white font-mono text-xs uppercase font-bold tracking-wider rounded-2xl hover:bg-slate-800 transition-colors cursor-pointer"
+                  className="mt-4 px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-blue-400/40 shadow-[0_6px_20px_-3px_rgba(37,99,235,0.55)] transition-all cursor-pointer"
                 >
                   Done
                 </button>
