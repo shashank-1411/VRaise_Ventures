@@ -45,22 +45,12 @@ export default function Footer() {
         { label: "Campus Incubators", href: "#process" },
       ],
     },
-    {
-      title: "Legal & Terms",
-      links: [
-        { label: "Privacy Policy", href: "#" },
-        { label: "Terms of Service", href: "#" },
-        { label: "Partner Agreements", href: "#" },
-        { label: "Discreet Sourcing Policy", href: "#about-vraise" },
-        { label: "Security & Audit", href: "#" },
-      ],
-    },
   ];
 
   return (
     <RuixenGradientFooter gradientHeight="45vh" minReveal={0} className="relative z-10 bg-white border-t-2 border-slate-900 font-sans">
       <div className="mx-auto w-full max-w-6xl px-6 pt-16 pb-6" id="footer">
-        <div className="grid gap-12 pb-12 sm:grid-cols-2 lg:grid-cols-6 items-start">
+        <div className="grid gap-12 pb-12 sm:grid-cols-2 lg:grid-cols-5 items-start">
           
           {/* Brand Info & Email Contact */}
           <div className="lg:col-span-2 space-y-4">
@@ -110,7 +100,7 @@ export default function Footer() {
 
           </div>
 
-          {/* Footer Navigation Columns */}
+          {/* Footer Navigation Columns (Clean & Minimal) */}
           {columns.map((col, idx) => (
             <div key={idx} className="space-y-3">
               <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-950">

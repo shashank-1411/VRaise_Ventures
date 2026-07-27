@@ -51,7 +51,7 @@ export default function PartnerMarquee() {
 
         {/* Slow Marquee Track */}
         <motion.div
-          className="flex items-center gap-14 sm:gap-20 w-max"
+          className="flex items-center gap-6 sm:gap-8 w-max"
           animate={{ x: isHovered ? undefined : ["0%", "-50%"] }}
           transition={{
             repeat: Infinity,
@@ -63,29 +63,33 @@ export default function PartnerMarquee() {
           {marqueeItems.map((item, idx) => (
             <motion.div
               key={`${item.name}-${idx}`}
-              whileHover={{ scale: 1.12, y: -3 }}
+              whileHover={{ scale: 1.08, y: -2 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex items-center justify-center cursor-pointer shrink-0 py-2 px-3 group"
+              className="flex items-center justify-center cursor-pointer shrink-0 py-2 group"
             >
               {item.isMore ? (
-                /* "and many more..." pill badge */
-                <span className="font-mono text-xs uppercase tracking-widest font-bold text-slate-500 bg-slate-100/90 border border-slate-300 rounded-full px-5 py-2.5 shadow-xs group-hover:bg-slate-950 group-hover:text-white group-hover:border-slate-950 transition-colors">
-                  {item.name}
-                </span>
+                /* "and many more..." bordered pill badge */
+                <div className="flex items-center justify-center px-6 py-4 rounded-2xl bg-slate-100/90 border border-slate-300 shadow-xs group-hover:bg-slate-950 group-hover:border-slate-950 transition-all h-20 sm:h-22">
+                  <span className="font-mono text-xs uppercase tracking-widest font-bold text-slate-600 group-hover:text-white transition-colors">
+                    {item.name}
+                  </span>
+                </div>
               ) : item.isText ? (
-                /* Text Partner Brand Badges (Boardy & Level Up Ventures) */
-                <div className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-xs group-hover:bg-white group-hover:shadow-md group-hover:border-slate-300 transition-all">
+                /* Text Partner Brand Badges with Clean Card Border (Boardy & Level Up Ventures) */
+                <div className="flex items-center justify-center px-7 py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[150px] sm:min-w-[190px]">
                   <span className="font-extrabold text-lg sm:text-xl text-slate-700 group-hover:text-slate-950 tracking-tight font-sans">
                     {item.name}
                   </span>
                 </div>
               ) : (
-                /* Image Partner Logos (TEN13 & Pinery with grey-to-color hover) */
-                <img
-                  src={item.image!}
-                  alt={item.name}
-                  className="h-14 sm:h-18 max-h-18 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                />
+                /* Image Partner Logos with Clean Card Border (TEN13 & Pinery) */
+                <div className="flex items-center justify-center px-7 py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[150px] sm:min-w-[190px]">
+                  <img
+                    src={item.image!}
+                    alt={item.name}
+                    className="h-10 sm:h-14 max-h-14 w-auto object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
+                </div>
               )}
             </motion.div>
           ))}
