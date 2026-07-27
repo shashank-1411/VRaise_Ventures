@@ -2,22 +2,15 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { PhoneCall } from "lucide-react";
+import { Mail, Users } from "lucide-react";
 
 interface CtaBannerProps {
   onOpenModal: () => void;
-  calendlyUrl?: string;
 }
 
-export default function CtaBanner({
-  onOpenModal,
-  calendlyUrl = "https://calendly.com",
-}: CtaBannerProps) {
-  const handleBookCall = () => {
-    if (calendlyUrl) {
-      window.open(calendlyUrl, "_blank", "noopener,noreferrer");
-    }
-    onOpenModal();
+export default function CtaBanner({ onOpenModal }: CtaBannerProps) {
+  const handlePitchUs = () => {
+    window.location.href = "mailto:pitch@vraiseventures.com?subject=Pitch%20Us%20-%20VRaise%20Ventures";
   };
 
   return (
@@ -58,21 +51,35 @@ export default function CtaBanner({
             </h2>
 
             <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed max-w-xl mx-auto font-normal">
-              Book a quick intro call with our team to discuss fundraising or deal origination.
+              Get in touch with our origination team to discuss fundraising or explore partnership opportunities.
             </p>
           </div>
 
-          {/* Soft 3D Floating CTA Button opening Calendly */}
-          <div className="z-20 pt-2">
+          {/* Dual Action Buttons: Pitch Us (Highlight) & Partner With Us */}
+          <div className="z-20 pt-2 flex flex-wrap items-center justify-center gap-4">
+            
+            {/* Attention-grabbing Highlight "Pitch Us" Button (mailto link) */}
             <motion.button
-              onClick={handleBookCall}
+              onClick={handlePitchUs}
               whileHover={{ scale: 1.07, y: -4 }}
               whileTap={{ scale: 0.96 }}
-              className="px-9 py-3.5 bg-white text-slate-950 hover:bg-slate-100 font-sans text-xs uppercase font-bold tracking-widest rounded-full shadow-[0_20px_35px_-8px_rgba(255,255,255,0.3)] border border-white flex items-center gap-3 cursor-pointer transition-all duration-300 group"
+              className="px-9 py-3.5 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_20px_35px_-8px_rgba(249,115,22,0.65)] border border-orange-400/50 flex items-center gap-3 cursor-pointer transition-all duration-300 group"
             >
-              <PhoneCall size={16} className="text-slate-950 group-hover:rotate-12 transition-transform" />
-              <span>BOOK A CALL</span>
+              <Mail size={16} className="text-white group-hover:rotate-12 transition-transform" />
+              <span>PITCH US</span>
             </motion.button>
+
+            {/* Secondary "Partner With Us" Button */}
+            <motion.button
+              onClick={onOpenModal}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              className="px-8 py-3.5 bg-white hover:bg-slate-100 text-slate-950 font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-white shadow-xs transition-colors cursor-pointer flex items-center gap-2"
+            >
+              <Users size={16} className="text-slate-950" />
+              <span>PARTNER WITH US</span>
+            </motion.button>
+
           </div>
 
         </motion.div>

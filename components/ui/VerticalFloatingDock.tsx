@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import { Linkedin, PhoneCall, Mail } from "lucide-react";
+import { Linkedin, Calendar, Mail } from "lucide-react";
 
 interface VerticalFloatingDockProps {
   onOpenCallModal: () => void;
@@ -30,10 +30,10 @@ export default function VerticalFloatingDock({
       action: () => window.open("https://linkedin.com", "_blank"),
     },
     {
-      id: "call",
-      label: "Schedule Call",
-      icon: <PhoneCall size={15} className="text-slate-900 group-hover:text-white transition-colors" />,
-      action: onOpenCallModal,
+      id: "calendar",
+      label: "Calendar",
+      icon: <Calendar size={15} className="text-slate-900 group-hover:text-white transition-colors" />,
+      action: () => window.open("https://calendly.com", "_blank"),
     },
     {
       id: "newsletter",
@@ -44,7 +44,7 @@ export default function VerticalFloatingDock({
   ];
 
   return (
-    <aside aria-label="Quick Access Dock" className="fixed right-2 sm:right-3 top-1/2 -translate-y-1/2 z-50">
+    <aside aria-label="Quick Access Dock" className="fixed right-2 sm:right-3 top-1/2 -translate-y-1/2 z-50 font-sans">
       <div className="bg-white/95 backdrop-blur-xl border border-slate-300 shadow-xl rounded-full p-1.5 flex flex-col items-center gap-2">
         {dockItems.map((item) => (
           <div key={item.id} className="relative group">

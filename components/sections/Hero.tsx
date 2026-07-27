@@ -55,31 +55,34 @@ export default function Hero({ onOpenModal }: HeroProps) {
           We source high-quality deal flow for venture funds across every sector and every stage, and we prepare founders properly before they meet an investor.
         </motion.p>
 
-        {/* Action Buttons: Book a Call & Explore VRaise */}
+        {/* Action Buttons: Pitch Us (Attention-grabbing) & Partner With Us */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-wrap items-center justify-center gap-4 mb-12 sm:mb-16"
         >
-          <motion.button
-            onClick={onOpenModal}
+          {/* Attention-grabbing Pitch Us Button */}
+          <motion.a
+            href="mailto:pitch@vraiseventures.com?subject=Pitch%20Us%20-%20VRaise%20Ventures"
             whileHover={{ scale: 1.07, y: -5 }}
             whileTap={{ scale: 0.96 }}
-            className="px-9 py-3.5 bg-gradient-to-b from-slate-800 via-slate-900 to-black text-white font-sans text-xs uppercase font-normal tracking-widest rounded-full shadow-[0_20px_35px_-8px_rgba(0,0,0,0.6),0_10px_20px_-5px_rgba(0,0,0,0.4)] border border-slate-700/80 flex items-center gap-3 cursor-pointer transition-all duration-300 group"
+            className="px-9 py-3.5 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_20px_35px_-8px_rgba(249,115,22,0.65)] border border-orange-400/50 flex items-center gap-3 cursor-pointer transition-all duration-300 group"
           >
-            <PhoneCall size={16} className="text-white group-hover:rotate-12 transition-transform" />
-            <span>BOOK A CALL</span>
-          </motion.button>
+            <Mail size={16} className="text-white group-hover:rotate-12 transition-transform" />
+            <span>PITCH US</span>
+          </motion.a>
 
-          <motion.a
-            href="#about"
+          {/* Partner With Us Button */}
+          <motion.button
+            onClick={onOpenModal}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.96 }}
-            className="px-8 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-slate-200 transition-colors cursor-pointer"
+            className="px-8 py-3.5 bg-white hover:bg-slate-100 text-slate-900 font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-slate-300 shadow-xs transition-colors cursor-pointer flex items-center gap-2"
           >
-            Explore VRaise
-          </motion.a>
+            <Users size={16} className="text-slate-800" />
+            <span>Partner With Us</span>
+          </motion.button>
         </motion.div>
 
         {/* EXACT TEMPLATE CONSTELLATION GRAPH & FLOATING FOUNDER CARDS SHOWCASE */}
