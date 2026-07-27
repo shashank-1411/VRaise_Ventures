@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus } from "lucide-react";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open by default
@@ -44,6 +45,9 @@ export default function FaqSection() {
         
         {/* Section Header */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
+          <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold mb-3 block">
+            FAQ
+          </span>
           <h2
             style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
             className="text-4xl sm:text-5xl md:text-6xl text-slate-950 leading-[1.15] mb-6 font-normal tracking-tight"
@@ -55,7 +59,7 @@ export default function FaqSection() {
           </p>
         </div>
 
-        {/* FAQ Accordion List (Matching Template Screenshot) */}
+        {/* FAQ Accordion List */}
         <div className="flex flex-col gap-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
@@ -66,12 +70,16 @@ export default function FaqSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-slate-50/80 border border-slate-200/90 rounded-2xl overflow-hidden transition-all duration-300 hover:border-slate-300"
+                className={`rounded-2xl overflow-hidden transition-all duration-300 border ${
+                  isOpen
+                    ? "bg-blue-50/90 border-blue-200/90 shadow-md"
+                    : "bg-slate-50/80 border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-xs"
+                }`}
               >
                 {/* Accordion Header Button */}
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full p-6 sm:p-7 flex items-center justify-between gap-4 text-left cursor-pointer focus:outline-none"
+                  className="w-full p-6 sm:p-7 flex items-center justify-between gap-4 text-left cursor-pointer focus:outline-none group"
                 >
                   <h3
                     style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
@@ -80,15 +88,19 @@ export default function FaqSection() {
                     {faq.question}
                   </h3>
 
-                  {/* Circular Plus/Minus Toggle Icon */}
+                  {/* Circular Deep Navy Blue Toggle Icon Badge */}
                   <div
-                    className={`w-9 h-9 min-w-[36px] rounded-full bg-slate-950 text-white flex items-center justify-center shadow-[0_8px_16px_-2px_rgba(0,0,0,0.5)] transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : "rotate-0"
+                    className={`w-9 h-9 min-w-[36px] rounded-full text-white flex items-center justify-center transition-all duration-300 group-hover:scale-105 ${
+                      isOpen
+                        ? "bg-blue-600 shadow-[0_6px_16px_-2px_rgba(37,99,235,0.45)]"
+                        : "bg-[#091535] shadow-[0_6px_16px_-2px_rgba(9,21,53,0.45)]"
                     }`}
                   >
-                    <span className="text-xl font-bold leading-none select-none">
-                      {isOpen ? "−" : "+"}
-                    </span>
+                    {isOpen ? (
+                      <Minus size={18} className="text-white shrink-0" />
+                    ) : (
+                      <Plus size={18} className="text-white shrink-0" />
+                    )}
                   </div>
                 </button>
 
@@ -102,7 +114,7 @@ export default function FaqSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.35, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-7 sm:px-7 sm:pb-8 text-slate-600 text-sm sm:text-base leading-relaxed font-sans font-normal border-t border-slate-200/60 pt-4">
+                      <div className="px-6 pb-7 sm:px-7 sm:pb-8 text-slate-700 text-sm sm:text-base leading-relaxed font-sans font-normal border-t border-blue-200/60 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>
