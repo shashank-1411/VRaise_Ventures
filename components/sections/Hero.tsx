@@ -18,7 +18,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
         
-        {/* Main Headline in PT Serif with Blue Morphing Lens */}
+        {/* Main Headline with Blue Morphing Lens revealing white text on hover */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,9 +28,8 @@ export default function Hero({ onOpenModal }: HeroProps) {
         >
           <MagneticText
             text="World's first student led council"
-            hoverText="WE SCOUT • WE BUILD • WE RAISE"
-            textClassName="font-normal font-serif text-slate-950"
-            circleRadius={240}
+            textClassName="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.08] font-normal tracking-tight font-serif text-slate-950"
+            circleRadius={220}
           />
         </motion.h1>
 
@@ -41,12 +40,9 @@ export default function Hero({ onOpenModal }: HeroProps) {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mb-8"
         >
-          <MagneticText
-            text="we scout • we build • we raise"
-            hoverText="DISCREET DEAL ORIGINATION"
-            textClassName="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] font-extrabold text-blue-600"
-            circleRadius={180}
-          />
+          <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] font-extrabold text-blue-600 animate-pulse">
+            we scout • we build • we raise
+          </p>
         </motion.div>
 
         {/* Sub-Headline Description */}

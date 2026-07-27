@@ -6,18 +6,16 @@ import { cn } from "@/lib/utils"
 
 interface MagneticTextProps {
   text: string
-  hoverText?: string
   className?: string
   textClassName?: string
   circleRadius?: number
 }
 
 export function MagneticText({
-  text = "CREATIVE",
-  hoverText,
+  text = "World's first student led council",
   className,
   textClassName,
-  circleRadius = 200,
+  circleRadius = 220,
 }: MagneticTextProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const circleRef = useRef<HTMLDivElement>(null)
@@ -47,15 +45,17 @@ export function MagneticText({
     const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor
 
     const animate = () => {
-      currentPos.current.x = lerp(currentPos.current.x, mousePos.current.x, 0.15)
-      currentPos.current.y = lerp(currentPos.current.y, mousePos.current.y, 0.15)
+      currentPos.current.x = lerp(currentPos.current.x, mousePos.current.x, 0.18)
+      currentPos.current.y = lerp(currentPos.current.y, mousePos.current.y, 0.18)
+
+      const halfRadius = circleRadius / 2
 
       if (circleRef.current) {
-        circleRef.current.style.transform = `translate(${currentPos.current.x}px, ${currentPos.current.y}px) translate(-50%, -50%)`
+        circleRef.current.style.transform = `translate(${currentPos.current.x - halfRadius}px, ${currentPos.current.y - halfRadius}px)`
       }
 
       if (innerTextRef.current) {
-        innerTextRef.current.style.transform = `translate(${-currentPos.current.x}px, ${-currentPos.current.y}px)`
+        innerTextRef.current.style.transform = `translate(${-currentPos.current.x + halfRadius}px, ${-currentPos.current.y + halfRadius}px)`
       }
 
       animationFrameRef.current = requestAnimationFrame(animate)
@@ -65,7 +65,7 @@ export function MagneticText({
     return () => {
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
     }
-  }, [])
+  }, [circleRadius])
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return
@@ -90,8 +90,6 @@ export function MagneticText({
     setIsHovered(false)
   }, [])
 
-  const displayText = hoverText || text
-
   return (
     <div
       ref={containerRef}
@@ -100,8 +98,10 @@ export function MagneticText({
       onMouseLeave={handleMouseLeave}
       className={cn("relative inline-flex items-center justify-center cursor-pointer select-none", className)}
     >
-      {/* Base text layer */}
-      <span className={cn("text-slate-950 font-bold tracking-tight", textClassName)}>{text}</span>
+      {/* Base text layer (Black text) */}
+      <span className={cn("text-slate-950 font-normal tracking-tight font-serif", textClassName)}>
+        {text}
+      </span>
 
       {/* Morphing Blue Lens Circle */}
       <div
@@ -110,23 +110,22 @@ export function MagneticText({
         style={{
           width: isHovered ? circleRadius : 0,
           height: isHovered ? circleRadius : 0,
-          transition: "width 0.5s cubic-bezier(0.33, 1, 0.68, 1), height 0.5s cubic-bezier(0.33, 1, 0.68, 1)",
+          transition: "width 0.4s cubic-bezier(0.33, 1, 0.68, 1), height 0.4s cubic-bezier(0.33, 1, 0.68, 1)",
           willChange: "transform, width, height",
         }}
       >
         <div
           ref={innerTextRef}
-          className="absolute flex items-center justify-center text-center"
+          className="absolute top-0 left-0 flex items-center justify-center text-center pointer-events-none"
           style={{
-            width: containerSize.width,
-            height: containerSize.height,
-            top: "50%",
-            left: "50%",
+            width: containerSize.width || "max-content",
+            height: containerSize.height || "auto",
             willChange: "transform",
           }}
         >
-          <span className={cn("text-white font-bold tracking-tight whitespace-nowrap", textClassName)}>
-            {displayText}
+          {/* Inner text layer inside blue lens (White text, 100% superimposed) */}
+          <span className={cn("text-white font-normal tracking-tight font-serif whitespace-nowrap", textClassName)}>
+            {text}
           </span>
         </div>
       </div>
