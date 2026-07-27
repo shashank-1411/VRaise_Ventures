@@ -2,12 +2,13 @@
 
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Sparkles } from "lucide-react";
 
 interface PartnerItem {
   name: string;
-  image: string;
-  category: string;
+  image?: string | null;
+  category?: string;
+  isMore?: boolean;
 }
 
 export default function PartnerMarquee() {
@@ -24,12 +25,18 @@ export default function PartnerMarquee() {
     { name: "Level Up Ventures", image: "/assets/levelup ventures.jpeg", category: "Pre-Seed Fund" },
   ];
 
-  // Repeat logos to form seamless infinite loop track
+  // Base list including 'and many more...' badge
+  const baseItems: PartnerItem[] = [
+    ...primaryLogos,
+    { name: "and many more...", image: null, isMore: true },
+  ];
+
+  // Quadruple repeat to form a seamless infinite loop track
   const marqueeItems: PartnerItem[] = [
-    ...primaryLogos,
-    ...primaryLogos,
-    ...primaryLogos,
-    ...primaryLogos,
+    ...baseItems,
+    ...baseItems,
+    ...baseItems,
+    ...baseItems,
   ];
 
   // Sync scrollbar progress
@@ -62,7 +69,7 @@ export default function PartnerMarquee() {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee-track {
-          animation: marquee 30s linear infinite;
+          animation: marquee 35s linear infinite;
         }
         .no-scrollbar::-webkit-scrollbar {
           display: none;
@@ -114,16 +121,30 @@ export default function PartnerMarquee() {
                 whileHover={{ scale: 1.08, y: -2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 className="flex items-center justify-center cursor-pointer shrink-0 py-2 group"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                  if (item.isMore) {
+                    setIsModalOpen(true);
+                  }
+                }}
               >
-                {/* Full Color Partner Logo Card */}
-                <div className="flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[150px] sm:min-w-[190px]">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="h-10 sm:h-14 max-h-14 w-auto object-contain transition-all duration-300"
-                  />
-                </div>
+                {item.isMore ? (
+                  /* "and many more..." clickable pill badge */
+                  <div className="flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-blue-50/90 border border-blue-200 shadow-xs group-hover:bg-blue-600 group-hover:border-blue-600 transition-all h-20 sm:h-22 min-w-[160px] sm:min-w-[200px]">
+                    <Sparkles size={16} className="text-blue-600 group-hover:text-white transition-colors shrink-0" />
+                    <span className="font-mono text-xs uppercase tracking-widest font-extrabold text-blue-600 group-hover:text-white transition-colors">
+                      {item.name}
+                    </span>
+                  </div>
+                ) : (
+                  /* Full Color Partner Logo Card */
+                  <div className="flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs group-hover:shadow-md group-hover:border-slate-300 transition-all h-20 sm:h-22 min-w-[150px] sm:min-w-[190px]">
+                    <img
+                      src={item.image!}
+                      alt={item.name}
+                      className="h-10 sm:h-14 max-h-14 w-auto object-contain transition-all duration-300"
+                    />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -184,7 +205,7 @@ export default function PartnerMarquee() {
                 Our scout network partners with tier-1 venture funds, angel syndicates, and institutional platforms across Australia, India, and North America.
               </p>
 
-              {/* Grid of Mentioned Partner Logos */}
+              {/* Grid of Partner Logos */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {primaryLogos.map((partner, idx) => (
                   <motion.div
@@ -193,7 +214,7 @@ export default function PartnerMarquee() {
                     className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-xs flex flex-col items-center justify-center text-center gap-2 group hover:bg-white hover:shadow-md transition-all cursor-pointer"
                   >
                     <img
-                      src={partner.image}
+                      src={partner.image!}
                       alt={partner.name}
                       className="h-12 w-auto object-contain mb-1"
                     />
