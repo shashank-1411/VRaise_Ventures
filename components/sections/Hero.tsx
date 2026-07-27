@@ -10,10 +10,19 @@ interface HeroProps {
 
 export default function Hero({ onOpenModal }: HeroProps) {
   return (
-    <section className="relative w-full pt-32 sm:pt-40 pb-16 px-4 bg-white text-slate-900 overflow-hidden font-sans select-none">
+    <section className="relative w-full pt-32 sm:pt-40 pb-20 sm:pb-24 px-4 bg-slate-950 text-white overflow-hidden font-sans select-none">
       
-      {/* Background Subtle Gradient Backdrop */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] bg-gradient-to-b from-blue-50/50 via-white to-white pointer-events-none -z-10" />
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none -z-20">
+        <img
+          src="/assets/herohero.jpeg"
+          alt="VRaise Scouting Network Background"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+
+      {/* Navy Blue Overlay Film */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#091124]/90 via-[#0a1532]/85 to-[#0b1328]/95 backdrop-blur-[2px] pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
         
@@ -23,7 +32,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.08] text-slate-950 font-normal tracking-tight max-w-5xl mb-4"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.08] text-white font-normal tracking-tight max-w-5xl mb-4 drop-shadow-md"
         >
           World&apos;s first student led scouting firm
         </motion.h1>
@@ -35,7 +44,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mb-8"
         >
-          <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] font-extrabold text-blue-600 animate-pulse">
+          <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] font-extrabold text-blue-400 animate-pulse drop-shadow-sm">
             we scout • we build • we raise
           </p>
         </motion.div>
@@ -45,7 +54,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-base sm:text-lg md:text-xl text-slate-600 font-sans font-normal max-w-2xl leading-relaxed mb-8 sm:mb-10"
+          className="text-base sm:text-lg md:text-xl text-slate-200/90 font-sans font-normal max-w-2xl leading-relaxed mb-8 sm:mb-10"
         >
           We source high-quality deal flow for venture funds across every sector and every stage, and we prepare founders properly before they meet an investor.
         </motion.p>
@@ -68,14 +77,14 @@ export default function Hero({ onOpenModal }: HeroProps) {
             <span>PITCH US</span>
           </motion.button>
 
-          {/* 3D White Tactile Capsule "Partner With Us" Button */}
+          {/* 3D White Glass Tactile Capsule "Partner With Us" Button */}
           <motion.button
             onClick={onOpenModal}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.96 }}
-            className="px-7 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-b from-white via-slate-50 to-slate-100 text-slate-900 font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-slate-300/90 shadow-[0_10px_20px_-4px_rgba(0,0,0,0.12),inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_0_0_#cbd5e1] hover:bg-slate-100 active:translate-y-1 transition-all cursor-pointer flex items-center gap-2"
+            className="px-7 sm:px-8 py-3 sm:py-3.5 bg-white/10 backdrop-blur-md text-white font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-white/25 shadow-lg hover:bg-white/20 active:translate-y-1 transition-all cursor-pointer flex items-center gap-2"
           >
-            <Users size={16} className="text-slate-800 shrink-0" />
+            <Users size={16} className="text-white shrink-0" />
             <span>Partner With Us</span>
           </motion.button>
         </motion.div>
@@ -87,29 +96,29 @@ export default function Hero({ onOpenModal }: HeroProps) {
           transition={{ duration: 0.7, delay: 0.35 }}
           className="w-full max-w-5xl mx-auto"
         >
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-mono text-[11px] sm:text-xs uppercase font-extrabold text-slate-900">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-mono text-[11px] sm:text-xs uppercase font-extrabold text-white">
             
             {/* Badge 1: 100+ Campus Scouts */}
-            <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
-              <GraduationCap size={16} className="text-slate-950 shrink-0" />
+            <div className="bg-slate-900/75 backdrop-blur-md border border-white/15 shadow-md rounded-full px-5 py-3 flex items-center gap-2.5 hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white">
+              <GraduationCap size={16} className="text-blue-400 shrink-0" />
               <span>100+ Campus Scouts</span>
             </div>
 
             {/* Badge 2: Go8 · Ivy League · Russell Group · IITs · IIMs */}
-            <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
-              <Compass size={16} className="text-slate-950 shrink-0" />
+            <div className="bg-slate-900/75 backdrop-blur-md border border-white/15 shadow-md rounded-full px-5 py-3 flex items-center gap-2.5 hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white">
+              <Compass size={16} className="text-blue-400 shrink-0" />
               <span>Go8 · Ivy League · Russell Group · IITs · IIMs</span>
             </div>
 
             {/* Badge 3: Operating in 5 Continents */}
-            <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
-              <Globe2 size={16} className="text-slate-950 shrink-0" />
+            <div className="bg-slate-900/75 backdrop-blur-md border border-white/15 shadow-md rounded-full px-5 py-3 flex items-center gap-2.5 hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white">
+              <Globe2 size={16} className="text-blue-400 shrink-0" />
               <span>Operating in 5 Continents</span>
             </div>
 
             {/* Badge 4: Pre-Seed to Series A */}
-            <div className="bg-white border border-slate-200/90 shadow-sm rounded-full px-5 py-3 flex items-center gap-2.5 hover:shadow-md hover:border-slate-300 transition-all cursor-default">
-              <Layers size={16} className="text-slate-950 shrink-0" />
+            <div className="bg-slate-900/75 backdrop-blur-md border border-white/15 shadow-md rounded-full px-5 py-3 flex items-center gap-2.5 hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white">
+              <Layers size={16} className="text-blue-400 shrink-0" />
               <span>Pre-Seed to Series A</span>
             </div>
 
