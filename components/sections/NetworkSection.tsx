@@ -28,8 +28,11 @@ export default function NetworkSection() {
     return dots;
   }, []);
 
+  const scoutingPartners = ["Founders", "Accelerators", "Incubators", "Mentors"];
+  const capitalPartners = ["Venture Funds", "Family Offices", "Angel Syndicates"];
+
   return (
-    <section className="w-full py-24 px-4 bg-[#070e24] text-white overflow-hidden select-none font-sans relative" id="network">
+    <section className="w-full py-20 sm:py-24 px-4 bg-[#070e24] text-white overflow-hidden select-none font-sans relative" id="network">
       
       {/* Background Subtle Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/10 blur-[120px] pointer-events-none rounded-full" />
@@ -37,23 +40,79 @@ export default function NetworkSection() {
       <div className="max-w-6xl mx-auto flex flex-col items-center relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-blue-400 font-bold mb-3 block">
             Network
           </span>
           <h2
             style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
-            className="text-4xl sm:text-5xl md:text-6xl text-white leading-[1.15] mb-6 font-normal tracking-tight"
+            className="text-3xl sm:text-5xl md:text-6xl text-white leading-[1.15] mb-6 font-normal tracking-tight"
           >
             VRaise Scouting &amp; Capital Network
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans font-normal max-w-xl mx-auto">
+          <p className="text-sm sm:text-lg text-slate-300 leading-relaxed font-sans font-normal max-w-xl mx-auto">
             Connecting campus founders directly to venture funds, family offices, accelerators, incubators, mentors, and angel syndicates.
           </p>
         </div>
 
-        {/* Interactive SVG Network Canvas */}
-        <div className="relative w-full max-w-5xl h-[440px] sm:h-[500px] flex items-center justify-center">
+        {/* MOBILE LAYOUT (< md screens, 0 overlapping nodes) */}
+        <div className="flex md:hidden flex-col items-center w-full max-w-md mx-auto gap-8 z-20">
+          
+          {/* Center Logo Hub with Glowing Blue Aura */}
+          <div className="relative flex items-center justify-center py-2">
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-600/30 via-sky-500/35 to-blue-600/30 blur-2xl animate-pulse pointer-events-none" />
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative z-10 flex items-center justify-center bg-white border-2 border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.6)] px-7 py-3 rounded-full cursor-pointer"
+            >
+              <img
+                src="/assets/vraise-logo.png"
+                alt="VRaise Ventures Logo"
+                className="h-12 w-auto object-contain mix-blend-multiply"
+              />
+            </motion.div>
+          </div>
+
+          {/* Scouting Partners Group */}
+          <div className="w-full flex flex-col items-center gap-3">
+            <span className="font-mono text-[10px] uppercase font-bold text-blue-400 tracking-widest">
+              Scouting Partners
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              {scoutingPartners.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-blue-600 border border-blue-400/40 rounded-full px-5 py-2.5 shadow-[0_6px_18px_-2px_rgba(37,99,235,0.5)] font-mono text-xs uppercase font-extrabold text-white tracking-wider cursor-pointer"
+                >
+                  {item}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Capital Partners Group */}
+          <div className="w-full flex flex-col items-center gap-3">
+            <span className="font-mono text-[10px] uppercase font-bold text-blue-400 tracking-widest">
+              Capital Partners
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              {capitalPartners.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-blue-600 border border-blue-400/40 rounded-full px-5 py-2.5 shadow-[0_6px_18px_-2px_rgba(37,99,235,0.5)] font-mono text-xs uppercase font-extrabold text-white tracking-wider cursor-pointer"
+                >
+                  {item}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* DESKTOP & TABLET INTERACTIVE CANVAS LAYOUT (>= md screens) */}
+        <div className="hidden md:flex relative w-full max-w-5xl h-[500px] items-center justify-center">
           
           {/* SVG Connection Lines & Animated Blue Dots */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1000 500" fill="none">
