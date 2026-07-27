@@ -50,15 +50,16 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
         
-        {/* Category Pill Tag */}
+        {/* Category Text Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 font-mono text-[11px] uppercase tracking-wider font-semibold mb-6 shadow-xs"
+          className="mb-4"
         >
-          <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-          <span>Campus-First Deal Origination</span>
+          <span className="font-mono text-xs uppercase tracking-[0.2em] font-extrabold text-blue-600">
+            Campus-First Deal Origination
+          </span>
         </motion.div>
 
         {/* Main Headline in PT Serif */}
