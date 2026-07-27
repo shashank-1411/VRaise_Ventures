@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, Compass, Globe2, Layers, Mail, Users } from "lucide-react";
+import { Mail } from "lucide-react";
 
 interface HeroProps {
   onOpenModal: () => void;
@@ -77,48 +77,43 @@ export default function Hero({ onOpenModal }: HeroProps) {
             <span>PITCH US</span>
           </motion.button>
 
-          {/* 3D White Glass Tactile Capsule "Partner With Us" Button */}
+          {/* 3D Light Grey Tactile Capsule "PARTNER WITH US" Button */}
           <motion.button
             onClick={onOpenModal}
-            whileHover={{ scale: 1.05, y: -2 }}
+            whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.96 }}
-            className="px-7 sm:px-8 py-3 sm:py-3.5 bg-white/10 backdrop-blur-md text-white font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-white/25 shadow-lg hover:bg-white/20 active:translate-y-1 transition-all cursor-pointer flex items-center gap-2"
+            className="px-7 sm:px-9 py-3 sm:py-3.5 bg-gradient-to-b from-slate-100 via-slate-200 to-slate-300 text-slate-900 font-mono text-xs uppercase font-extrabold tracking-wider rounded-full shadow-[0_12px_24px_-4px_rgba(0,0,0,0.3),inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_0_0_#94a3b8] border-t border-white hover:brightness-105 active:translate-y-1 transition-all cursor-pointer flex items-center justify-center"
           >
-            <Users size={16} className="text-white shrink-0" />
             <span>Partner With Us</span>
           </motion.button>
         </motion.div>
 
-        {/* Clean Aligned Hero Metrics & Network Badges */}
+        {/* Clean Single-Row Aligned Hero Metrics Badges (No Icons) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="w-full max-w-5xl mx-auto"
+          className="w-full max-w-6xl mx-auto"
         >
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-mono text-[11px] sm:text-xs uppercase font-extrabold text-white">
+          <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-2 sm:gap-3 font-mono text-[10px] sm:text-xs uppercase font-extrabold text-white">
             
             {/* Badge 1: 100+ Campus Scouts */}
-            <div className="bg-slate-900/75 backdrop-blur-md border border-white/15 shadow-md rounded-full px-5 py-3 flex items-center gap-2.5 hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white">
-              <GraduationCap size={16} className="text-blue-400 shrink-0" />
+            <div className="bg-slate-900/80 backdrop-blur-md border border-white/15 shadow-md rounded-full px-4 sm:px-5 py-2.5 sm:py-3 flex items-center hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white shrink-0">
               <span>100+ Campus Scouts</span>
             </div>
 
             {/* Badge 2: Go8 · Ivy League · Russell Group · IITs · IIMs */}
-            <div className="bg-slate-900/75 backdrop-blur-md border border-white/15 shadow-md rounded-full px-5 py-3 flex items-center gap-2.5 hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white">
-              <Compass size={16} className="text-blue-400 shrink-0" />
+            <div className="bg-slate-900/80 backdrop-blur-md border border-white/15 shadow-md rounded-full px-4 sm:px-5 py-2.5 sm:py-3 flex items-center hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white shrink-0">
               <span>Go8 · Ivy League · Russell Group · IITs · IIMs</span>
             </div>
 
             {/* Badge 3: Operating in 5 Continents */}
-            <div className="bg-slate-900/75 backdrop-blur-md border border-white/15 shadow-md rounded-full px-5 py-3 flex items-center gap-2.5 hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white">
-              <Globe2 size={16} className="text-blue-400 shrink-0" />
+            <div className="bg-slate-900/80 backdrop-blur-md border border-white/15 shadow-md rounded-full px-4 sm:px-5 py-2.5 sm:py-3 flex items-center hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white shrink-0">
               <span>Operating in 5 Continents</span>
             </div>
 
             {/* Badge 4: Pre-Seed to Series A */}
-            <div className="bg-slate-900/75 backdrop-blur-md border border-white/15 shadow-md rounded-full px-5 py-3 flex items-center gap-2.5 hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white">
-              <Layers size={16} className="text-blue-400 shrink-0" />
+            <div className="bg-slate-900/80 backdrop-blur-md border border-white/15 shadow-md rounded-full px-4 sm:px-5 py-2.5 sm:py-3 flex items-center hover:bg-slate-800/80 hover:border-white/30 transition-all cursor-default text-white shrink-0">
               <span>Pre-Seed to Series A</span>
             </div>
 
