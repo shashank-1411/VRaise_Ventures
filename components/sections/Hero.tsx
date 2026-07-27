@@ -17,18 +17,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
         
-        {/* Category Text Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-4"
-        >
-          <span className="font-mono text-xs uppercase tracking-[0.2em] font-extrabold text-blue-600">
-            Campus-First Deal Origination
-          </span>
-        </motion.div>
-
         {/* Main Headline in PT Serif */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
