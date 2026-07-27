@@ -2,11 +2,19 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { FloatingPaths } from "@/components/ui/background-paths";
 
 export default function AboutVRaise() {
   return (
-    <section className="w-full py-24 px-4 bg-white select-none overflow-hidden font-sans" id="about-vraise">
-      <div className="max-w-5xl mx-auto text-center flex flex-col items-center relative">
+    <section className="relative w-full py-24 px-4 bg-white select-none overflow-hidden font-sans" id="about-vraise">
+      
+      {/* Blue Animated Background Paths */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <FloatingPaths position={1} />
+        <FloatingPaths position={-1} />
+      </div>
+
+      <div className="max-w-5xl mx-auto text-center flex flex-col items-center relative z-10">
         
         {/* Section Tagline */}
         <div className="text-center mb-10">
