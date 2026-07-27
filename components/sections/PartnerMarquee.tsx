@@ -44,10 +44,10 @@ export default function PartnerMarquee() {
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Left Gradient Fade Mask */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-1/4 max-w-[220px] bg-gradient-to-r from-white via-white/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-20" />
         
         {/* Right Gradient Fade Mask */}
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-1/4 max-w-[220px] bg-gradient-to-l from-white via-white/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-20" />
 
         {/* Slow Marquee Track */}
         <motion.div

@@ -44,7 +44,7 @@ export default function VerticalFloatingDock({
   ];
 
   return (
-    <aside aria-label="Quick Access Dock" className="fixed right-2 sm:right-3 top-1/2 -translate-y-1/2 z-50 font-sans">
+    <aside aria-label="Quick Access Dock" className="fixed right-3 bottom-6 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-50 font-sans">
       <div className="bg-white/95 backdrop-blur-xl border border-slate-300 shadow-xl rounded-full p-1.5 flex flex-col items-center gap-2">
         {dockItems.map((item) => (
           <div key={item.id} className="relative group">
