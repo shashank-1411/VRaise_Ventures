@@ -55,9 +55,11 @@ export default function Footer() {
           {/* Brand Info & Email Contact */}
           <div className="lg:col-span-2 space-y-4">
             <div>
-              <span className="font-extrabold text-2xl text-slate-950 tracking-tight block">
-                VRaise Ventures
-              </span>
+              <img
+                src="/assets/vraise-logo.png"
+                alt="VRaise Ventures Logo"
+                className="h-12 sm:h-14 w-auto object-contain mix-blend-multiply"
+              />
             </div>
             
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xs font-normal">
