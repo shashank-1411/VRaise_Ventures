@@ -100,28 +100,6 @@ export default function PartnerWithUs({ onOpenModal }: PartnerWithUsProps) {
           })}
         </div>
 
-        {/* Dedicated Partner CTA Container */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-10 shadow-sm text-center sm:text-left max-w-4xl mx-auto">
-          <div className="flex-1">
-            <h4 className="text-xl sm:text-2xl text-slate-950 font-extrabold mb-1 tracking-tight">
-              Ready to expand your fund's deal origination?
-            </h4>
-            <p className="text-slate-600 text-sm font-sans font-normal">
-              Connect with our team to set up custom thesis parameters and receive curated founder pipelines.
-            </p>
-          </div>
-
-          <motion.button
-            onClick={onOpenModal}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            className="px-8 py-3.5 bg-gradient-to-b from-slate-800 via-slate-900 to-black text-white font-mono text-xs uppercase font-bold tracking-wider rounded-full shadow-[0_12px_24px_-4px_rgba(0,0,0,0.5),inset_0_2px_3px_rgba(255,255,255,0.25),0_4px_0_0_#09090b] border-t border-slate-700/80 flex items-center gap-2 cursor-pointer shrink-0"
-          >
-            <Users size={16} />
-            <span>Partner With Us</span>
-          </motion.button>
-        </div>
-
       </div>
     </section>
   );
