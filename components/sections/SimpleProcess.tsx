@@ -10,31 +10,41 @@ export default function SimpleProcess() {
       number: "01",
       icon: Search,
       title: "Scout",
+      subtitle: "Campus Discovery",
       description: "Campus scouts surface founders at the idea and pre-incubation stage.",
+      color: "from-amber-500 to-orange-500",
     },
     {
       number: "02",
       icon: CheckCircle2,
       title: "Validate",
+      subtitle: "Traction & Team",
       description: "We test the team, the market and the traction before anything moves forward.",
+      color: "from-orange-500 to-amber-600",
     },
     {
       number: "03",
       icon: FileCheck,
       title: "Prepare",
+      subtitle: "IC Readiness",
       description: "Narrative, deck, model and data room built to investment-committee standard.",
+      color: "from-amber-600 to-blue-600",
     },
     {
       number: "04",
       icon: Send,
       title: "Connect",
+      subtitle: "Investor Matching",
       description: "Matched and introduced to the funds and angels who actually invest in that thesis.",
+      color: "from-blue-600 to-teal-600",
     },
     {
       number: "05",
       icon: TrendingUp,
       title: "Raise",
+      subtitle: "Close & Support",
       description: "Support through diligence, negotiation and close.",
+      color: "from-teal-600 to-emerald-600",
     },
   ];
 
@@ -45,89 +55,72 @@ export default function SimpleProcess() {
         {/* Section Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold mb-3 block">
-            Simple Process
+            Venture Journey
           </span>
           <h2
             style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
             className="text-4xl sm:text-5xl md:text-6xl text-slate-950 leading-[1.15] mb-6 font-normal tracking-tight"
           >
-            A simple venture journey
+            The 5-Step Journey from Campus to Capital
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans font-normal max-w-xl mx-auto">
-            Five steps, applied the same way to every company we take on, in any sector and at any stage.
+            Applied the same way to every company we take on, in any sector and at any stage.
           </p>
         </div>
 
-        {/* Row 1: 3 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-14 text-center mb-14">
-          {steps.slice(0, 3).map((step, idx) => {
-            const Icon = step.icon;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                whileHover={{ y: -6 }}
-                className="flex flex-col items-center group cursor-pointer"
-              >
-                {/* Floating Black Circle Icon with Drop Shadow */}
-                <div className="w-14 h-14 rounded-full bg-slate-950 text-white flex items-center justify-center shadow-[0_14px_28px_-4px_rgba(0,0,0,0.5)] mb-6 group-hover:scale-110 transition-transform">
-                  <Icon size={22} className="text-white" />
-                </div>
+        {/* Visual Journey Timeline Track Container */}
+        <div className="relative">
+          
+          {/* Connecting Track Line behind milestone cards */}
+          <div className="hidden lg:block absolute top-[44px] left-[8%] right-[8%] h-[3px] bg-gradient-to-r from-orange-500 via-blue-500 to-emerald-500 z-0 opacity-40 rounded-full" />
 
-                {/* Step Title in PT Serif */}
-                <h3
-                  style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
-                  className="text-2xl text-slate-950 font-normal mb-3 tracking-tight"
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
+            {steps.map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.12 }}
+                  whileHover={{ y: -6 }}
+                  className="flex flex-col items-center text-center bg-slate-50/90 border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 group cursor-pointer"
                 >
-                  {step.number}. {step.title}
-                </h3>
+                  {/* Step Milestone Badge & Icon */}
+                  <div className="relative mb-5 flex items-center justify-center">
+                    {/* Floating Black Icon Circle */}
+                    <div className="w-14 h-14 rounded-2xl bg-slate-950 text-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-orange-500 transition-all duration-300">
+                      <Icon size={22} className="text-white" />
+                    </div>
 
-                {/* Step Description */}
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xs font-sans font-normal">
-                  {step.description}
-                </p>
-              </motion.div>
-            );
-          })}
-        </div>
+                    {/* Number Badge Pill */}
+                    <div className="absolute -top-2 -right-2 font-mono text-[10px] font-extrabold text-white bg-slate-900 border border-white px-2 py-0.5 rounded-full shadow-xs">
+                      {step.number}
+                    </div>
+                  </div>
 
-        {/* Row 2: 2 Centered Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 text-center max-w-4xl mx-auto">
-          {steps.slice(3, 5).map((step, idx) => {
-            const Icon = step.icon;
-            return (
-              <motion.div
-                key={idx + 3}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: (idx + 3) * 0.15 }}
-                whileHover={{ y: -6 }}
-                className="flex flex-col items-center group cursor-pointer"
-              >
-                {/* Floating Black Circle Icon with Drop Shadow */}
-                <div className="w-14 h-14 rounded-full bg-slate-950 text-white flex items-center justify-center shadow-[0_14px_28px_-4px_rgba(0,0,0,0.5)] mb-6 group-hover:scale-110 transition-transform">
-                  <Icon size={22} className="text-white" />
-                </div>
+                  {/* Step Subtitle Badge */}
+                  <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-orange-500 mb-1.5 block">
+                    {step.subtitle}
+                  </span>
 
-                {/* Step Title in PT Serif */}
-                <h3
-                  style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
-                  className="text-2xl text-slate-950 font-normal mb-3 tracking-tight"
-                >
-                  {step.number}. {step.title}
-                </h3>
+                  {/* Step Title in PT Serif */}
+                  <h3
+                    style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
+                    className="text-2xl text-slate-950 font-normal mb-3 tracking-tight"
+                  >
+                    {step.title}
+                  </h3>
 
-                {/* Step Description */}
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xs font-sans font-normal">
-                  {step.description}
-                </p>
-              </motion.div>
-            );
-          })}
+                  {/* Step Description */}
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans font-normal">
+                    {step.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
       </div>
