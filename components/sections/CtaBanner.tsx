@@ -58,7 +58,7 @@ export default function CtaBanner({
             </h2>
 
             <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed max-w-xl mx-auto font-normal">
-              Book a 15-minute intro call with our origination team to set up customized thesis parameters across India, ANZ, and US tech corridors.
+              Book a quick intro call with our team to discuss fundraising or deal origination.
             </p>
           </div>
 
