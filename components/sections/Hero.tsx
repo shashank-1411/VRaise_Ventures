@@ -12,17 +12,17 @@ export default function Hero({ onOpenModal }: HeroProps) {
   return (
     <section className="relative w-full pt-32 sm:pt-40 pb-20 sm:pb-24 px-4 bg-slate-950 text-white overflow-hidden font-sans select-none">
       
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none -z-20">
+      {/* Background Image (z-0 layer) */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80">
         <img
           src="/assets/herohero.jpeg"
           alt="VRaise Scouting Network Background"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center brightness-95 contrast-105"
         />
       </div>
 
-      {/* Navy Blue Overlay Film */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#091124]/90 via-[#0a1532]/85 to-[#0b1328]/95 backdrop-blur-[2px] pointer-events-none -z-10" />
+      {/* Navy Blue Translucent Overlay Film (z-1 layer) */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#070e24]/75 via-[#091535]/65 to-[#0b1328]/85 pointer-events-none z-1" />
 
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
         
