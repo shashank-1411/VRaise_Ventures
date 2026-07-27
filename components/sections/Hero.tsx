@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Compass, Globe2, Layers, Mail, Users } from "lucide-react";
+import { MagneticText } from "@/components/ui/morphing-cursor";
 
 interface HeroProps {
   onOpenModal: () => void;
@@ -17,7 +18,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
         
-        {/* Main Headline in PT Serif */}
+        {/* Main Headline in PT Serif with Blue Morphing Lens */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -25,19 +26,27 @@ export default function Hero({ onOpenModal }: HeroProps) {
           style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.08] text-slate-950 font-normal tracking-tight max-w-5xl mb-4"
         >
-          World&apos;s first student led council
+          <MagneticText
+            text="World's first student led council"
+            hoverText="WE SCOUT • WE BUILD • WE RAISE"
+            textClassName="font-normal font-serif text-slate-950"
+            circleRadius={240}
+          />
         </motion.h1>
 
-        {/* Blinking Line Directly Below Headline (Pure Text) */}
+        {/* Blinking Sub-Headline Line Directly Below Headline */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mb-8"
         >
-          <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] font-extrabold text-blue-600 animate-pulse">
-            we scout • we build • we raise
-          </p>
+          <MagneticText
+            text="we scout • we build • we raise"
+            hoverText="DISCREET DEAL ORIGINATION"
+            textClassName="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] font-extrabold text-blue-600"
+            circleRadius={180}
+          />
         </motion.div>
 
         {/* Sub-Headline Description */}
