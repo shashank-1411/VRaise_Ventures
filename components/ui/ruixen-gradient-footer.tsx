@@ -22,17 +22,14 @@ type Stop = { offset: number; color: string };
 const VBW = 1271;
 const VBH = 599;
 
-// Ruixen's stops, floor (0) → top (1): dark ember → blue → near-white → yellow
-// → red-orange → magenta → transparent pink.
+// Blue gradient stops, floor (0) → top (1): deep navy → royal blue → electric blue → sky blue → ice blue → transparent fade
 const RUIXEN_STOPS: Stop[] = [
-  { offset: 0, color: "#340B05" },
-  { offset: 0.1827, color: "#0358F7" },
-  { offset: 0.2837, color: "#5092C7" },
-  { offset: 0.4135, color: "#E1ECFE" },
-  { offset: 0.5866, color: "#FFD400" },
-  { offset: 0.6827, color: "#FA3D1D" },
-  { offset: 0.8029, color: "#FD02F5" },
-  { offset: 1, color: "#FFC0FD00" },
+  { offset: 0, color: "#0A192F" },
+  { offset: 0.20, color: "#0A369D" },
+  { offset: 0.40, color: "#0358F7" },
+  { offset: 0.65, color: "#3B82F6" },
+  { offset: 0.85, color: "#93C5FD" },
+  { offset: 1, color: "rgba(147, 197, 253, 0)" },
 ];
 
 // Height curve: a gentle power falloff, giving the flatter, pyramid-like rise of
