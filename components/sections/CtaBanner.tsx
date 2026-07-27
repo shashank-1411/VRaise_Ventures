@@ -55,26 +55,26 @@ export default function CtaBanner({ onOpenModal }: CtaBannerProps) {
             </p>
           </div>
 
-          {/* Dual Action Buttons: Pitch Us (Blue Highlight) & Partner With Us */}
+          {/* Dual 3D Tactile Capsule CTAs */}
           <div className="z-20 pt-2 flex flex-wrap items-center justify-center gap-4">
             
-            {/* Attention-grabbing Highlight "Pitch Us" Button (Blue Theme) */}
+            {/* 3D Blue Tactile Capsule "PITCH US" Button */}
             <motion.button
               onClick={handlePitchUs}
               whileHover={{ scale: 1.07, y: -4 }}
               whileTap={{ scale: 0.96 }}
-              className="px-9 py-3.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_20px_35px_-8px_rgba(37,99,235,0.65)] border border-blue-400/50 flex items-center gap-3 cursor-pointer transition-all duration-300 group"
+              className="px-9 py-3.5 bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_16px_32px_-6px_rgba(37,99,235,0.65),inset_0_2px_4px_rgba(255,255,255,0.4),0_4px_0_0_#1d4ed8] border-t border-blue-300/60 hover:brightness-110 active:translate-y-1 flex items-center gap-3 cursor-pointer transition-all duration-300 group"
             >
               <Mail size={16} className="text-white group-hover:rotate-12 transition-transform" />
               <span>PITCH US</span>
             </motion.button>
 
-            {/* Secondary "Partner With Us" Button */}
+            {/* 3D White Tactile Capsule "PARTNER WITH US" Button */}
             <motion.button
               onClick={onOpenModal}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.96 }}
-              className="px-8 py-3.5 bg-white hover:bg-slate-100 text-slate-950 font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-white shadow-xs transition-colors cursor-pointer flex items-center gap-2"
+              className="px-8 py-3.5 bg-gradient-to-b from-white via-slate-50 to-slate-100 text-slate-950 font-mono text-xs uppercase font-bold tracking-wider rounded-full border border-white shadow-[0_12px_24px_-4px_rgba(255,255,255,0.35),inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_0_0_#cbd5e1] hover:bg-slate-100 active:translate-y-1 transition-all cursor-pointer flex items-center gap-2"
             >
               <Users size={16} className="text-slate-950" />
               <span>PARTNER WITH US</span>

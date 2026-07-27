@@ -115,7 +115,7 @@ export default function PartnerWithUs({ onOpenModal }: PartnerWithUsProps) {
             onClick={onOpenModal}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
-            className="px-8 py-3.5 bg-slate-950 hover:bg-slate-800 text-white font-mono text-xs uppercase font-bold tracking-wider rounded-full shadow-md flex items-center gap-2 cursor-pointer shrink-0"
+            className="px-8 py-3.5 bg-gradient-to-b from-slate-800 via-slate-900 to-black text-white font-mono text-xs uppercase font-bold tracking-wider rounded-full shadow-[0_12px_24px_-4px_rgba(0,0,0,0.5),inset_0_2px_3px_rgba(255,255,255,0.25),0_4px_0_0_#09090b] border-t border-slate-700/80 flex items-center gap-2 cursor-pointer shrink-0"
           >
             <Users size={16} />
             <span>Partner With Us</span>

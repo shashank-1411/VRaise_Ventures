@@ -46,22 +46,22 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           </a>
         </nav>
 
-        {/* Right Action CTA Buttons & Mobile Hamburger */}
+        {/* Right 3D Capsule CTA Buttons & Mobile Hamburger */}
         <div className="flex items-center gap-2.5 sm:gap-3">
           
-          {/* Attention-grabbing Highlight "Pitch Us" Button (Blue Theme) */}
+          {/* 3D Blue Capsule "Pitch Us" Button */}
           <button
             onClick={handlePitchUs}
-            className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-mono text-[11px] sm:text-xs uppercase font-extrabold tracking-wider shadow-[0_8px_20px_-4px_rgba(37,99,235,0.5)] border border-blue-400/50 hover:scale-105 transition-all cursor-pointer flex items-center gap-1.5 sm:gap-2"
+            className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700 text-white font-mono text-[11px] sm:text-xs uppercase font-extrabold tracking-wider shadow-[0_8px_18px_-3px_rgba(37,99,235,0.55),inset_0_2px_3px_rgba(255,255,255,0.4),0_3px_0_0_#1d4ed8] border-t border-blue-300/60 hover:scale-105 active:translate-y-0.5 transition-all cursor-pointer flex items-center gap-1.5 sm:gap-2"
           >
             <Mail size={13} className="text-white shrink-0" />
             <span>Pitch Us</span>
           </button>
 
-          {/* Secondary "Partner With Us" Button */}
+          {/* 3D White Capsule "Partner With Us" Button */}
           <button
             onClick={onOpenModal}
-            className="hidden sm:flex px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-100 text-slate-900 font-mono text-[11px] sm:text-xs uppercase font-bold tracking-wider transition-all shadow-xs cursor-pointer items-center gap-1.5"
+            className="hidden sm:flex px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-b from-white via-slate-50 to-slate-100 border border-slate-300/90 text-slate-900 font-mono text-[11px] sm:text-xs uppercase font-bold tracking-wider shadow-[0_6px_14px_-2px_rgba(0,0,0,0.1),inset_0_2px_3px_rgba(255,255,255,0.9),0_3px_0_0_#cbd5e1] hover:bg-slate-100 active:translate-y-0.5 transition-all cursor-pointer items-center gap-1.5"
           >
             <Users size={13} className="text-slate-700 shrink-0" />
             <span>Partner With Us</span>
@@ -116,7 +116,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
               setMobileMenuOpen(false);
               onOpenModal();
             }}
-            className="mt-2 w-full py-3 rounded-full border border-slate-300 bg-slate-900 text-white font-mono text-xs uppercase font-bold tracking-wider flex items-center justify-center gap-2"
+            className="mt-2 w-full py-3 rounded-full bg-gradient-to-b from-slate-800 via-slate-900 to-black text-white font-mono text-xs uppercase font-bold tracking-wider shadow-[0_8px_18px_-3px_rgba(0,0,0,0.5),inset_0_2px_3px_rgba(255,255,255,0.2),0_3px_0_0_#09090b] flex items-center justify-center gap-2"
           >
             <Users size={14} />
             <span>Partner With Us</span>
