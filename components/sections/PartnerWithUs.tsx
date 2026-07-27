@@ -47,14 +47,6 @@ export default function PartnerWithUs({ onOpenModal }: PartnerWithUsProps) {
         {/* Section Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto flex flex-col items-center">
           
-          {/* Main Partnership Icon Badge */}
-          <motion.div
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            className="w-16 h-16 rounded-2xl bg-[#091535] border border-blue-500/30 text-white flex items-center justify-center shadow-2xl mb-6 cursor-pointer"
-          >
-            <Handshake size={32} className="text-blue-400" />
-          </motion.div>
-
           <span className="font-mono text-xs uppercase tracking-widest text-blue-400 font-bold mb-3 block">
             Partner With Us
           </span>
