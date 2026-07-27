@@ -10,6 +10,7 @@ import SimpleProcess from "@/components/sections/SimpleProcess";
 import NetworkSection from "@/components/sections/NetworkSection";
 import ByTheNumbers from "@/components/sections/ByTheNumbers";
 import FaqSection from "@/components/sections/FaqSection";
+import PartnerWithUs from "@/components/sections/PartnerWithUs";
 import CtaBanner from "@/components/sections/CtaBanner";
 import Footer from "@/components/layout/Footer";
 import ScoutingModal from "@/components/ui/ScoutingModal";
@@ -32,11 +33,12 @@ export default function Home() {
         <NetworkSection />
         <ByTheNumbers />
         <FaqSection />
+        <PartnerWithUs onOpenModal={() => setModalOpen(true)} />
         <CtaBanner onOpenModal={() => setModalOpen(true)} />
         <Footer />
         <VerticalFloatingDock
           onOpenCallModal={() => setModalOpen(true)}
-          onOpenNewsletterModal={() => setNewsletterOpen(true)}
+          onOpenNewsletterModal={() => setNewsletterOpen(false)}
         />
         <ScoutingModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
         <NewsletterModal isOpen={newsletterOpen} onClose={() => setNewsletterOpen(false)} />
