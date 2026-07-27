@@ -139,18 +139,17 @@ export default function NetworkSection() {
             <span>Mentor</span>
           </motion.div>
 
-          {/* CENTER HUB: VRAISE VENTURES */}
-          <div className="relative z-20 flex flex-col items-center">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border-2 border-slate-900 text-slate-950 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] cursor-pointer mb-3"
-            >
-              <Rocket size={26} className="text-slate-950" />
-            </motion.div>
-            <span className="font-extrabold text-xl sm:text-2xl text-slate-950 font-sans tracking-tight">
-              VRaise
-            </span>
-          </div>
+          {/* CENTER HUB: VRAISE VENTURES LOGO PNG */}
+          <motion.div
+            whileHover={{ scale: 1.08 }}
+            className="relative z-20 flex items-center justify-center bg-white/95 backdrop-blur-md border-2 border-slate-900 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.25)] px-7 sm:px-10 py-3 sm:py-4 rounded-full cursor-pointer"
+          >
+            <img
+              src="/assets/vraise-logo.png"
+              alt="VRaise Ventures Logo"
+              className="h-12 sm:h-16 md:h-20 w-auto object-contain mix-blend-multiply"
+            />
+          </motion.div>
 
           {/* RIGHT OUTER NODES (Clean typography, no icons/emojis) */}
           {/* Node 4: Investor (Top Right) */}
