@@ -25,7 +25,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
     {
       name: "John Clerk",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
-      bg: "from-amber-200 to-orange-300",
+      bg: "from-sky-200 to-blue-300",
       rotate: "rotate-6",
     },
     {
@@ -46,7 +46,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
     <section className="relative w-full pt-32 sm:pt-44 pb-20 px-4 bg-white text-slate-900 overflow-hidden font-sans select-none">
       
       {/* Background Subtle Gradient Backdrop */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] bg-gradient-to-b from-slate-50 via-white to-white pointer-events-none -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] bg-gradient-to-b from-blue-50/50 via-white to-white pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
         
@@ -55,9 +55,9 @@ export default function Hero({ onOpenModal }: HeroProps) {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-mono text-[11px] uppercase tracking-wider font-semibold mb-6 shadow-xs"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 font-mono text-[11px] uppercase tracking-wider font-semibold mb-6 shadow-xs"
         >
-          <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
           <span>Campus-First Deal Origination</span>
         </motion.div>
 
@@ -82,19 +82,19 @@ export default function Hero({ onOpenModal }: HeroProps) {
           We source high-quality deal flow for venture funds across every sector and every stage, and we prepare founders properly before they meet an investor.
         </motion.p>
 
-        {/* Action Buttons: Pitch Us (Attention-grabbing) & Partner With Us */}
+        {/* Action Buttons: Pitch Us (Blue Highlight) & Partner With Us */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mb-12 sm:mb-16"
         >
-          {/* Attention-grabbing Pitch Us Button */}
+          {/* Attention-grabbing Pitch Us Button (Blue Gradient) */}
           <motion.a
             href="mailto:pitch@vraiseventures.com?subject=Pitch%20Us%20-%20VRaise%20Ventures"
             whileHover={{ scale: 1.07, y: -4 }}
             whileTap={{ scale: 0.96 }}
-            className="px-7 sm:px-9 py-3 sm:py-3.5 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_15px_30px_-5px_rgba(249,115,22,0.6)] border border-orange-400/50 flex items-center gap-2.5 sm:gap-3 cursor-pointer transition-all duration-300 group"
+            className="px-7 sm:px-9 py-3 sm:py-3.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_15px_30px_-5px_rgba(37,99,235,0.6)] border border-blue-400/50 flex items-center gap-2.5 sm:gap-3 cursor-pointer transition-all duration-300 group"
           >
             <Mail size={16} className="text-white group-hover:rotate-12 transition-transform shrink-0" />
             <span>PITCH US</span>
@@ -112,7 +112,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </motion.button>
         </motion.div>
 
-        {/* DESKTOP CONSTELLATION GRAPH SHOWCASE (Hidden on small mobile screens) */}
+        {/* DESKTOP CONSTELLATION GRAPH SHOWCASE */}
         <div className="hidden md:block relative w-full max-w-5xl h-[580px] mt-2 select-none">
           
           {/* Organic Curved SVG Dashed Wave Line */}
@@ -164,7 +164,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           {/* 3. JOHN CLERK ✔ */}
           <motion.div
             whileHover={{ scale: 1.05, y: -6, rotate: 0 }}
-            className="absolute left-[45%] top-[22%] w-[195px] h-[245px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-20 rotate-6 group cursor-pointer bg-gradient-to-br from-amber-200 to-orange-300"
+            className="absolute left-[45%] top-[22%] w-[195px] h-[245px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-900 z-20 rotate-6 group cursor-pointer bg-gradient-to-br from-blue-200 to-sky-300"
           >
             <img
               src={founders[2].image}
@@ -227,7 +227,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </div>
 
           <div className="absolute left-[39%] bottom-[12%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900">
-            <Globe2 size={14} className="text-orange-500" />
+            <Globe2 size={14} className="text-blue-600" />
             <span>Operating in 5 Continents</span>
           </div>
 
@@ -238,7 +238,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
         </div>
 
-        {/* MOBILE SHOWCASE GRID (Visible only on mobile devices) */}
+        {/* MOBILE SHOWCASE GRID */}
         <div className="md:hidden w-full flex flex-col items-center gap-6 mt-4">
           
           {/* 3D Founders horizontal scroll container */}
@@ -274,7 +274,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
               <span>Go8 · Ivy League · Russell Group · IITs · IIMs</span>
             </div>
             <div className="bg-slate-50 border border-slate-200/90 rounded-2xl px-4 py-3 shadow-xs flex items-center gap-2.5 justify-center">
-              <Globe2 size={15} className="text-orange-500 shrink-0" />
+              <Globe2 size={15} className="text-blue-600 shrink-0" />
               <span>Operating in 5 Continents</span>
             </div>
             <div className="bg-slate-50 border border-slate-200/90 rounded-2xl px-4 py-3 shadow-xs flex items-center gap-2.5 justify-center">

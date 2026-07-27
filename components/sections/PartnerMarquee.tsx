@@ -26,7 +26,7 @@ export default function PartnerMarquee() {
   return (
     <div className="w-full bg-white/40 backdrop-blur-xs border-y border-slate-200/80 py-12 overflow-hidden relative z-20 font-sans select-none">
       <div className="max-w-6xl mx-auto text-center mb-8 px-4">
-        <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-orange-500 mb-2 block">
+        <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">
           PARTNER NETWORK
         </span>
         <h3

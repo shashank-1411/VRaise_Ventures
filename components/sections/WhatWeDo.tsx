@@ -49,7 +49,7 @@ export default function WhatWeDo() {
         
         {/* Section Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold mb-3 block">
+          <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold mb-3 block">
             What We Do
           </span>
           <h2

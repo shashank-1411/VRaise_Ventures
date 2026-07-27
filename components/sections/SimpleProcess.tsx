@@ -12,7 +12,7 @@ export default function SimpleProcess() {
       title: "Scout",
       subtitle: "Campus Discovery",
       description: "Campus scouts surface founders at the idea and pre-incubation stage.",
-      color: "from-amber-500 to-orange-500",
+      color: "from-sky-500 to-blue-600",
     },
     {
       number: "02",
@@ -20,7 +20,7 @@ export default function SimpleProcess() {
       title: "Validate",
       subtitle: "Traction & Team",
       description: "We test the team, the market and the traction before anything moves forward.",
-      color: "from-orange-500 to-amber-600",
+      color: "from-blue-600 to-indigo-600",
     },
     {
       number: "03",
@@ -28,7 +28,7 @@ export default function SimpleProcess() {
       title: "Prepare",
       subtitle: "IC Readiness",
       description: "Narrative, deck, model and data room built to investment-committee standard.",
-      color: "from-amber-600 to-blue-600",
+      color: "from-indigo-600 to-blue-700",
     },
     {
       number: "04",
@@ -36,7 +36,7 @@ export default function SimpleProcess() {
       title: "Connect",
       subtitle: "Investor Matching",
       description: "Matched and introduced to the funds and angels who actually invest in that thesis.",
-      color: "from-blue-600 to-teal-600",
+      color: "from-blue-700 to-sky-600",
     },
     {
       number: "05",
@@ -44,7 +44,7 @@ export default function SimpleProcess() {
       title: "Raise",
       subtitle: "Close & Support",
       description: "Support through diligence, negotiation and close.",
-      color: "from-teal-600 to-emerald-600",
+      color: "from-sky-600 to-teal-600",
     },
   ];
 
@@ -54,7 +54,7 @@ export default function SimpleProcess() {
         
         {/* Section Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold mb-3 block">
+          <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold mb-3 block">
             Venture Journey
           </span>
           <h2
@@ -72,7 +72,7 @@ export default function SimpleProcess() {
         <div className="relative">
           
           {/* Connecting Track Line behind milestone cards */}
-          <div className="hidden lg:block absolute top-[44px] left-[8%] right-[8%] h-[3px] bg-gradient-to-r from-orange-500 via-blue-500 to-emerald-500 z-0 opacity-40 rounded-full" />
+          <div className="hidden lg:block absolute top-[44px] left-[8%] right-[8%] h-[3px] bg-gradient-to-r from-blue-500 via-indigo-600 to-blue-700 z-0 opacity-40 rounded-full" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
             {steps.map((step, idx) => {
@@ -90,7 +90,7 @@ export default function SimpleProcess() {
                   {/* Step Milestone Badge & Icon */}
                   <div className="relative mb-5 flex items-center justify-center">
                     {/* Floating Black Icon Circle */}
-                    <div className="w-14 h-14 rounded-2xl bg-slate-950 text-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-orange-500 transition-all duration-300">
+                    <div className="w-14 h-14 rounded-2xl bg-slate-950 text-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
                       <Icon size={22} className="text-white" />
                     </div>
 
@@ -101,7 +101,7 @@ export default function SimpleProcess() {
                   </div>
 
                   {/* Step Subtitle Badge */}
-                  <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-orange-500 mb-1.5 block">
+                  <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-blue-600 mb-1.5 block">
                     {step.subtitle}
                   </span>
 

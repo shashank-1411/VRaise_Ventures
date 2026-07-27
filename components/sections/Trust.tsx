@@ -32,7 +32,7 @@ export default function Trust() {
             onMouseEnter={() => setHoveredTrust("04")}
             onMouseLeave={() => setHoveredTrust(null)}
           >
-            <div className="w-full h-1.5 bg-orange-500 rounded-full mb-4"></div>
+            <div className="w-full h-1.5 bg-blue-600 rounded-full mb-4"></div>
             <h3 className="text-lg font-bold mb-2">We speak their language</h3>
             <p className="text-sm text-text-muted">Student founders ourselves. We&apos;ve built where they&apos;re building, so founders open up to us.</p>
           </motion.div>

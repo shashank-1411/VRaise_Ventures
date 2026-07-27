@@ -40,7 +40,7 @@ export default function CtaBanner({ onOpenModal }: CtaBannerProps) {
 
           {/* Headline & Sub Headline */}
           <div className="space-y-4 max-w-2xl z-20 flex flex-col items-center relative">
-            <span className="font-mono text-xs uppercase tracking-widest text-orange-400 font-bold">
+            <span className="font-mono text-xs uppercase tracking-widest text-blue-400 font-bold">
               Ready to Partner?
             </span>
             <h2
@@ -55,15 +55,15 @@ export default function CtaBanner({ onOpenModal }: CtaBannerProps) {
             </p>
           </div>
 
-          {/* Dual Action Buttons: Pitch Us (Highlight) & Partner With Us */}
+          {/* Dual Action Buttons: Pitch Us (Blue Highlight) & Partner With Us */}
           <div className="z-20 pt-2 flex flex-wrap items-center justify-center gap-4">
             
-            {/* Attention-grabbing Highlight "Pitch Us" Button (mailto link) */}
+            {/* Attention-grabbing Highlight "Pitch Us" Button (Blue Theme) */}
             <motion.button
               onClick={handlePitchUs}
               whileHover={{ scale: 1.07, y: -4 }}
               whileTap={{ scale: 0.96 }}
-              className="px-9 py-3.5 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_20px_35px_-8px_rgba(249,115,22,0.65)] border border-orange-400/50 flex items-center gap-3 cursor-pointer transition-all duration-300 group"
+              className="px-9 py-3.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_20px_35px_-8px_rgba(37,99,235,0.65)] border border-blue-400/50 flex items-center gap-3 cursor-pointer transition-all duration-300 group"
             >
               <Mail size={16} className="text-white group-hover:rotate-12 transition-transform" />
               <span>PITCH US</span>

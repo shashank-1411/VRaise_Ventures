@@ -44,7 +44,7 @@ export default function FaqSection() {
         
         {/* Section Header */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
-          <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold mb-3 block">
+          <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold mb-3 block">
             Frequently Asked Questions
           </span>
           <h2

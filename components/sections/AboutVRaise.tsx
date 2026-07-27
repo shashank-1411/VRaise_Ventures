@@ -10,7 +10,7 @@ export default function AboutVRaise() {
         
         {/* Section Tagline */}
         <div className="text-center mb-10">
-          <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold block">
+          <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold block">
             About VRaise
           </span>
         </div>
@@ -40,11 +40,11 @@ export default function AboutVRaise() {
           />
         </motion.div>
 
-        {/* Center Brand Header with Enlarged Logo & Soft Glowing Aura */}
+        {/* Center Brand Header with Enlarged Logo & Soft Glowing Blue Aura */}
         <div className="relative mb-12 flex items-center justify-center">
           
-          {/* Glowing Animated Pulsing Orange Aura Ring */}
-          <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-orange-500/20 via-amber-500/25 to-orange-500/20 blur-2xl animate-pulse pointer-events-none z-0" />
+          {/* Glowing Animated Pulsing Blue Aura Ring */}
+          <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-blue-600/20 via-sky-500/25 to-blue-600/20 blur-2xl animate-pulse pointer-events-none z-0" />
 
           {/* Enlarged Center Logo Pill Badge */}
           <motion.div

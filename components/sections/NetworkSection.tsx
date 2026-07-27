@@ -35,7 +35,7 @@ export default function NetworkSection() {
         
         {/* Section Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold mb-3 block">
+          <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold mb-3 block">
             Network
           </span>
           <h2
@@ -65,14 +65,14 @@ export default function NetworkSection() {
             <path id="path-right-2" d="M 880 240 C 740 240, 620 240, 500 240" stroke="#cbd5e1" strokeWidth="1.5" />
             <path id="path-right-3" d="M 840 400 C 700 400, 620 240, 500 240" stroke="#cbd5e1" strokeWidth="1.5" />
 
-            {/* ANIMATED BLINKING ORANGE DOTS MATRIX AROUND CENTER HUB */}
+            {/* ANIMATED BLINKING BLUE DOTS MATRIX AROUND CENTER HUB */}
             {blinkingDots.map((dot, idx) => (
               <motion.circle
-                key={`orange-dot-${idx}`}
+                key={`blue-dot-${idx}`}
                 cx={dot.cx}
                 cy={dot.cy}
                 r={1.8}
-                fill="#f97316"
+                fill="#2563eb"
                 initial={{ opacity: 0.15, scale: 0.8 }}
                 animate={{
                   opacity: [0.15, dot.maxOpacity, 0.15],
