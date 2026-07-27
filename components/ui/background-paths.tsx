@@ -5,22 +5,23 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function FloatingPaths({ position = 1, className }: { position: number; className?: string }) {
-    const paths = Array.from({ length: 12 }, (_, i) => ({
+    // 9 lines max per position
+    const paths = Array.from({ length: 9 }, (_, i) => ({
         id: i,
-        d: `M-${380 - i * 14 * position} -${189 + i * 15}C-${
-            380 - i * 14 * position
-        } -${189 + i * 15} -${312 - i * 14 * position} ${216 - i * 15} ${
-            152 - i * 14 * position
-        } ${343 - i * 15}C${616 - i * 14 * position} ${470 - i * 15} ${
-            684 - i * 14 * position
-        } ${875 - i * 15} ${684 - i * 14 * position} ${875 - i * 15}`,
-        width: 0.3 + i * 0.02,
+        d: `M-${380 - i * 18 * position} -${189 + i * 20}C-${
+            380 - i * 18 * position
+        } -${189 + i * 20} -${312 - i * 18 * position} ${216 - i * 20} ${
+            152 - i * 18 * position
+        } ${343 - i * 20}C${616 - i * 18 * position} ${470 - i * 20} ${
+            684 - i * 18 * position
+        } ${875 - i * 20} ${684 - i * 18 * position} ${875 - i * 20}`,
+        width: 1.4 + i * 0.12,
     }));
 
     return (
         <div className={cn("absolute inset-0 pointer-events-none overflow-hidden", className)}>
             <svg
-                className="w-full h-full text-blue-500/60"
+                className="w-full h-full text-blue-600"
                 viewBox="0 0 696 316"
                 fill="none"
             >
@@ -31,15 +32,15 @@ export function FloatingPaths({ position = 1, className }: { position: number; c
                         d={path.d}
                         stroke="currentColor"
                         strokeWidth={path.width}
-                        strokeOpacity={0.08 + path.id * 0.015}
-                        initial={{ pathLength: 0.3, opacity: 0.4 }}
+                        strokeOpacity={0.25 + path.id * 0.04}
+                        initial={{ pathLength: 0.3, opacity: 0.5 }}
                         animate={{
                             pathLength: 1,
-                            opacity: [0.2, 0.45, 0.2],
+                            opacity: [0.35, 0.75, 0.35],
                             pathOffset: [0, 1, 0],
                         }}
                         transition={{
-                            duration: 24 + Math.random() * 10,
+                            duration: 20 + Math.random() * 8,
                             repeat: Number.POSITIVE_INFINITY,
                             ease: "linear",
                         }}
