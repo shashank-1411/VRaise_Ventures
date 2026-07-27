@@ -44,7 +44,7 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section className="w-full py-24 px-4 bg-white font-sans" id="what-we-do">
+    <section className="w-full py-24 px-4 bg-white font-sans select-none" id="what-we-do">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
@@ -77,7 +77,7 @@ export default function WhatWeDo() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="relative bg-slate-50/80 border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col justify-between"
+                className="relative bg-slate-50/80 border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-xs hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-300/80 transition-all duration-300 overflow-hidden group flex flex-col justify-between"
               >
                 {/* Upper Left Dot Matrix Stipple Effect */}
                 <div
@@ -88,9 +88,9 @@ export default function WhatWeDo() {
                   }}
                 />
 
-                {/* Floating Black Circle Icon */}
+                {/* Floating Navy Blue Circle Icon */}
                 <div className="relative z-10 mb-8">
-                  <div className="w-12 h-12 rounded-full bg-slate-950 text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-full bg-[#091535] text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(9,21,53,0.4)] group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
                     <Icon size={20} className="text-white" />
                   </div>
                 </div>
@@ -125,7 +125,7 @@ export default function WhatWeDo() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: (idx + 3) * 0.1 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="relative bg-slate-50/80 border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col justify-between"
+                className="relative bg-slate-50/80 border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-xs hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-300/80 transition-all duration-300 overflow-hidden group flex flex-col justify-between"
               >
                 {/* Upper Left Dot Matrix Stipple Effect */}
                 <div
@@ -136,9 +136,9 @@ export default function WhatWeDo() {
                   }}
                 />
 
-                {/* Floating Black Circle Icon */}
+                {/* Floating Navy Blue Circle Icon */}
                 <div className="relative z-10 mb-8">
-                  <div className="w-12 h-12 rounded-full bg-slate-950 text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-full bg-[#091535] text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(9,21,53,0.4)] group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
                     <Icon size={20} className="text-white" />
                   </div>
                 </div>

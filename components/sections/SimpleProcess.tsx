@@ -80,9 +80,9 @@ export default function SimpleProcess() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.12 }}
                   whileHover={{ y: -6, scale: 1.02 }}
-                  className="relative bg-slate-50/80 border border-slate-200/80 rounded-3xl p-6 sm:p-7 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col items-center text-center cursor-pointer h-full"
+                  className="relative bg-slate-50/80 border border-slate-200/80 rounded-3xl p-6 sm:p-7 shadow-xs hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-300/80 transition-all duration-300 overflow-hidden group flex flex-col items-center text-center cursor-pointer h-full"
                 >
-                  {/* Upper Left Dot Matrix Stipple Effect (Same as WhatWeDo Cards) */}
+                  {/* Upper Left Dot Matrix Stipple Effect */}
                   <div
                     className="absolute top-0 left-0 w-28 h-28 opacity-25 pointer-events-none"
                     style={{
@@ -91,12 +91,12 @@ export default function SimpleProcess() {
                     }}
                   />
 
-                  {/* Floating Black Circle Icon with Step Number Badge */}
+                  {/* Floating Navy Blue Circle Icon with Step Number Badge */}
                   <div className="relative z-10 mb-6">
-                    <div className="w-14 h-14 rounded-full bg-slate-950 text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform relative">
+                    <div className="w-14 h-14 rounded-full bg-[#091535] text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(9,21,53,0.4)] group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300 relative">
                       <Icon size={22} className="text-white" />
                       {/* Step Number Badge Pill */}
-                      <div className="absolute -top-1 -right-1 font-mono text-[10px] font-extrabold text-white bg-slate-950 border border-slate-700 px-2 py-0.5 rounded-full shadow-xs">
+                      <div className="absolute -top-1 -right-1 font-mono text-[10px] font-extrabold text-white bg-[#091535] border border-blue-900 px-2 py-0.5 rounded-full shadow-xs">
                         {step.number}
                       </div>
                     </div>
