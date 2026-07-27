@@ -8,14 +8,11 @@ export default function AboutVRaise() {
     <section className="w-full py-24 px-4 bg-white select-none overflow-hidden font-sans" id="about-vraise">
       <div className="max-w-5xl mx-auto text-center flex flex-col items-center relative">
         
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold mb-3 block">
+        {/* Section Tagline */}
+        <div className="text-center mb-10">
+          <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold block">
             About VRaise
           </span>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-            VRaise Ventures
-          </h2>
         </div>
 
         {/* Floating 3D Heart GIFs */}
@@ -62,7 +59,7 @@ export default function AboutVRaise() {
           </motion.div>
         </div>
 
-        {/* Main Manifesto Statement Paragraph in PT Serif */}
+        {/* Discreet Scouting Network Manifesto Paragraph in PT Serif */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,7 +68,7 @@ export default function AboutVRaise() {
           style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
           className="text-2xl sm:text-3xl md:text-4xl text-slate-800 leading-relaxed max-w-4xl mx-auto font-normal tracking-tight mb-12"
         >
-          Good companies are found late. By the time a fund hears about a founder, three others already have. We built a scout network inside the universities where those founders actually start — so our partners see the best of them first, and see them ready.
+          VRaise operates very discreetly. Our scout network works entirely behind the scenes inside leading university campuses worldwide — most people never know where our scouts are located, ensuring our partners see exceptional founders first, and see them ready.
         </motion.p>
 
       </div>
