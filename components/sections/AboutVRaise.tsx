@@ -1,50 +1,52 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Compass } from "lucide-react";
 
 export default function AboutVRaise() {
-  const avatars = [
-    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop",
-  ];
+  // Generate a ring of blinking orange lights behind the center logo
+  const orangeBlinkingLights = useMemo(() => {
+    const dots: { cx: number; cy: number; duration: number; delay: number; maxOpacity: number }[] = [];
+    const centerX = 160;
+    const centerY = 80;
+    const numRings = 4;
+    const dotsPerRingBase = 10;
+
+    for (let ring = 1; ring <= numRings; ring++) {
+      const radius = ring * 22;
+      const count = dotsPerRingBase + ring * 6;
+      for (let i = 0; i < count; i++) {
+        const angle = (i / count) * 2 * Math.PI;
+        const cx = centerX + radius * Math.cos(angle);
+        const cy = centerY + radius * Math.sin(angle);
+        const duration = 1.0 + (i % 4) * 0.3;
+        const delay = (i % 6) * 0.2;
+        const maxOpacity = 0.6 + (i % 3) * 0.15;
+        dots.push({ cx, cy, duration, delay, maxOpacity });
+      }
+    }
+    return dots;
+  }, []);
 
   return (
-    <section className="relative w-full py-28 px-4 bg-white overflow-hidden select-none" id="about-vraise">
-      <div className="max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
+    <section className="w-full py-24 px-4 bg-white select-none overflow-hidden font-sans" id="about-vraise">
+      <div className="max-w-5xl mx-auto text-center flex flex-col items-center relative">
         
-        {/* Floating 3D Animated GIF Badges */}
-        <motion.div
-          animate={{ y: [0, -10, 0], rotate: [-12, -8, -12] }}
-          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          className="absolute left-[5%] top-[15%] w-12 h-12 z-0 pointer-events-none hidden sm:flex items-center justify-center"
-        >
-          <img
-            src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXIwZ3h5ZjQ3NnpqMDRwY3hncWxyN3MzNm9iNmJjNzh4czd0NnQ4OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/BCuhVJrGxNNsSCHglI/giphy.gif"
-            alt="3D Heart GIF"
-            className="w-full h-full object-contain drop-shadow-xl"
-          />
-        </motion.div>
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold mb-3 block">
+            About VRaise
+          </span>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+            VRaise Ventures
+          </h2>
+        </div>
 
+        {/* Floating 3D Heart GIFs (Maintained Original Size) */}
         <motion.div
-          animate={{ y: [0, -12, 0], scale: [1, 1.08, 1] }}
-          transition={{ repeat: Infinity, duration: 4.5, delay: 0.5, ease: "easeInOut" }}
-          className="absolute right-[6%] top-[18%] w-11 h-11 z-0 pointer-events-none hidden sm:flex items-center justify-center"
-        >
-          <img
-            src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXIwZ3h5ZjQ3NnpqMDRwY3hncWxyN3MzNm9iNmJjNzh4czd0NnQ4OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/BCuhVJrGxNNsSCHglI/giphy.gif"
-            alt="3D Heart GIF"
-            className="w-full h-full object-contain drop-shadow-xl"
-          />
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, -10, 0], rotate: [12, 16, 12] }}
-          transition={{ repeat: Infinity, duration: 3.8, delay: 1, ease: "easeInOut" }}
-          className="absolute left-[8%] bottom-[20%] w-11 h-11 z-0 pointer-events-none hidden sm:flex items-center justify-center"
+          animate={{ y: [0, -12, 0], rotate: [-15, -8, -15] }}
+          transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }}
+          className="absolute left-[5%] top-[18%] w-14 h-14 z-0 pointer-events-none hidden sm:flex items-center justify-center"
         >
           <img
             src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXIwZ3h5ZjQ3NnpqMDRwY3hncWxyN3MzNm9iNmJjNzh4czd0NnQ4OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/BCuhVJrGxNNsSCHglI/giphy.gif"
@@ -56,7 +58,7 @@ export default function AboutVRaise() {
         <motion.div
           animate={{ y: [0, -10, 0], rotate: [15, 8, 15] }}
           transition={{ repeat: Infinity, duration: 4.2, delay: 1.5, ease: "easeInOut" }}
-          className="absolute right-[7%] bottom-[22%] w-12 h-12 z-0 pointer-events-none hidden sm:flex items-center justify-center"
+          className="absolute right-[5%] bottom-[22%] w-14 h-14 z-0 pointer-events-none hidden sm:flex items-center justify-center"
         >
           <img
             src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXIwZ3h5ZjQ3NnpqMDRwY3hncWxyN3MzNm9iNmJjNzh4czd0NnQ4OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/BCuhVJrGxNNsSCHglI/giphy.gif"
@@ -65,22 +67,48 @@ export default function AboutVRaise() {
           />
         </motion.div>
 
-        {/* Center Brand Header with Stipple Glow Pattern */}
-        <div className="relative mb-8">
-          <div
-            className="absolute -top-10 left-1/2 -translate-x-1/2 w-44 h-44 opacity-30 pointer-events-none rounded-full"
-            style={{
-              backgroundImage: `radial-gradient(#94a3b8 1.5px, transparent 1.5px)`,
-              backgroundSize: `10px 10px`,
-            }}
-          />
-          <div className="relative z-10 flex items-center justify-center bg-white border border-slate-200/90 shadow-md px-8 py-3 rounded-full">
+        {/* Center Brand Header with Enlarged Logo & Animated Orange Blinking Lights */}
+        <div className="relative mb-12 flex items-center justify-center">
+          
+          {/* Glowing Animated Pulsing Orange Aura Ring */}
+          <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-orange-500/25 via-amber-500/35 to-orange-500/25 blur-2xl animate-pulse pointer-events-none z-0" />
+
+          {/* SVG Animated Orange Blinking Lights Field */}
+          <svg className="absolute -inset-16 w-80 h-40 pointer-events-none z-0" viewBox="0 0 320 160" fill="none">
+            {orangeBlinkingLights.map((dot, idx) => (
+              <motion.circle
+                key={`orange-light-${idx}`}
+                cx={dot.cx}
+                cy={dot.cy}
+                r={2.2}
+                fill="#f97316"
+                className="shadow-[0_0_8px_#f97316]"
+                initial={{ opacity: 0.2, scale: 0.8 }}
+                animate={{
+                  opacity: [0.2, dot.maxOpacity, 0.2],
+                  scale: [0.8, 1.5, 0.8],
+                }}
+                transition={{
+                  duration: dot.duration,
+                  delay: dot.delay,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            ))}
+          </svg>
+
+          {/* Enlarged Center Logo Pill Badge */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="relative z-10 flex items-center justify-center bg-white/95 backdrop-blur-md border-2 border-slate-200/90 shadow-2xl px-10 sm:px-14 py-4 sm:py-5 rounded-full"
+          >
             <img
               src="/assets/vraise-logo.png"
               alt="VRaise Ventures Logo"
-              className="h-14 sm:h-18 w-auto object-contain mix-blend-multiply"
+              className="h-20 sm:h-28 md:h-32 w-auto object-contain mix-blend-multiply"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* Main Manifesto Statement Paragraph in PT Serif */}
@@ -94,23 +122,6 @@ export default function AboutVRaise() {
         >
           Good companies are found late. By the time a fund hears about a founder, three others already have. We built a scout network inside the universities where those founders actually start — so our partners see the best of them first, and see them ready.
         </motion.p>
-
-        {/* Bottom Scout Avatars Stack */}
-        <div className="flex items-center justify-center -space-x-3 mb-6">
-          {avatars.map((img, i) => (
-            <div
-              key={i}
-              className="w-10 h-10 rounded-full border-2 border-white shadow-md overflow-hidden bg-slate-100"
-            >
-              <img src={img} alt="Scout Avatar" className="w-full h-full object-cover" />
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom Sub-Tagline */}
-        <span className="font-mono text-xs uppercase tracking-widest text-orange-500 font-bold">
-          Capital is the start. Partnership is the work.
-        </span>
 
       </div>
     </section>
