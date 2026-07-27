@@ -72,17 +72,16 @@ export default function Hero({ onOpenModal }: HeroProps) {
           World&apos;s first student led council
         </motion.h1>
 
-        {/* Blinking Line Directly Below Headline */}
+        {/* Blinking Line Directly Below Headline (Pure Text) */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mb-8"
         >
-          <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] font-extrabold text-blue-600 animate-pulse bg-blue-50/90 border border-blue-200/80 px-6 py-2 rounded-full shadow-xs inline-flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping" />
-            <span>we scout • we build • we raise</span>
-          </span>
+          <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] font-extrabold text-blue-600 animate-pulse">
+            we scout • we build • we raise
+          </p>
         </motion.div>
 
         {/* Sub-Headline Description */}
