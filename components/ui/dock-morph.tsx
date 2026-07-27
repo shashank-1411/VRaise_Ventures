@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import {
   Tooltip,
   TooltipContent,
@@ -55,9 +54,9 @@ export default function DockMorph({ items, className, position = "bottom" }: Doc
       <TooltipProvider delayDuration={100}>
         <div
           className={cn(
-            "relative flex items-center gap-2 p-1.5 rounded-full",
+            "relative flex items-center gap-2.5 p-1.5 rounded-full",
             position === "left" ? "flex-col gap-4 px-4 py-8" : "flex-row",
-            "bg-white/80 backdrop-blur-xl shadow-md border border-slate-200/80"
+            "bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)]"
           )}
         >
           {dockItems.map((item, i) => (
@@ -68,41 +67,49 @@ export default function DockMorph({ items, className, position = "bottom" }: Doc
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
                 >
-                  {/* Morphic glass bubble */}
+                  {/* Morphic glass bubble background animation */}
                   <AnimatePresence>
                     {hovered === i && (
                       <motion.div
                         initial={{ scale: 0.6, opacity: 0 }}
-                        animate={{ scale: 1.3, opacity: 1 }}
+                        animate={{ scale: 1.45, opacity: 1 }}
                         exit={{ scale: 0.6, opacity: 0 }}
                         transition={{
                           type: "spring",
-                          stiffness: 250,
-                          damping: 20,
+                          stiffness: 280,
+                          damping: 22,
                         }}
                         className={cn(
                           "absolute inset-0 rounded-full -z-10",
-                          "bg-gradient-to-tr from-blue-500/30 via-blue-300/20 to-transparent",
-                          "backdrop-blur-2xl shadow-md"
+                          "bg-gradient-to-tr from-blue-500/35 via-blue-300/25 to-blue-100/10",
+                          "backdrop-blur-2xl shadow-lg shadow-blue-500/20"
                         )}
                       />
                     )}
                   </AnimatePresence>
 
-                  {/* Icon button */}
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="relative z-10 h-9 w-9 rounded-full hover:scale-110 transition-transform text-slate-800 hover:text-blue-600 hover:bg-slate-100/60"
+                  {/* 3D Circular Bubble Button */}
+                  <motion.button
+                    type="button"
                     onClick={item.onClick}
+                    whileHover={{ scale: 1.12 }}
+                    whileTap={{ scale: 0.92 }}
+                    transition={{ type: "spring", stiffness: 350, damping: 18 }}
+                    className={cn(
+                      "relative z-10 h-9 w-9 sm:h-10 sm:w-10 rounded-full flex items-center justify-center cursor-pointer transition-colors duration-200",
+                      "bg-slate-100/90 hover:bg-slate-950 text-slate-800 hover:text-white",
+                      "border border-slate-200/90 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.8)]",
+                      "hover:shadow-[0_4px_14px_-2px_rgba(37,99,235,0.4)]"
+                    )}
+                    aria-label={item.label}
                   >
-                    <item.icon className="h-4.5 w-4.5" />
-                  </Button>
+                    <item.icon className="h-4.5 w-4.5 shrink-0 transition-colors duration-200" />
+                  </motion.button>
                 </div>
               </TooltipTrigger>
               <TooltipContent
                 side={position === "left" ? "right" : "bottom"}
-                className="text-xs font-mono font-semibold bg-slate-900 text-white border-none px-2.5 py-1 rounded-md"
+                className="text-xs font-mono font-semibold bg-slate-950 text-white border-none px-2.5 py-1 rounded-md shadow-md"
               >
                 {item.label}
               </TooltipContent>
