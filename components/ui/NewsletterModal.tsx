@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Mail, CheckCircle2, ArrowRight } from "lucide-react";
-import confetti from "canvas-confetti";
+import { X, Mail, Copy, Check, ExternalLink } from "lucide-react";
 
 interface NewsletterModalProps {
   isOpen: boolean;
@@ -11,30 +10,13 @@ interface NewsletterModalProps {
 }
 
 export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
-  const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const contactEmail = "contact@vraiseventures.com";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    // Trigger Confetti Explosion
-    confetti({
-      particleCount: 120,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ["#09090b", "#3f3f46", "#71717a", "#0284c7", "#10b981"],
-    });
-
-    setIsSubmitted(true);
-  };
-
-  const handleResetAndClose = () => {
-    onClose();
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setEmail("");
-    }, 300);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(contactEmail);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -46,11 +28,11 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={handleResetAndClose}
+            onClick={onClose}
             className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
           />
 
-          {/* Modal Card */}
+          {/* Contact Card Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -60,84 +42,75 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
           >
             {/* Close Button */}
             <button
-              onClick={handleResetAndClose}
+              onClick={onClose}
               className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-950 hover:bg-slate-100 rounded-full transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X size={18} />
             </button>
 
-            {!isSubmitted ? (
-              <div className="space-y-5">
-                <div className="flex items-center gap-3">
-                  <div className="p-3 bg-slate-100 border border-slate-300 rounded-2xl text-slate-950">
-                    <Mail size={22} />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 block">
-                      [ VRaise Signal ]
-                    </span>
-                    <h3 className="text-xl font-extrabold tracking-tight text-slate-950">
-                      Subscribe to Newsletter
-                    </h3>
-                  </div>
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="p-3 bg-blue-50 border border-blue-200 rounded-2xl text-blue-600">
+                  <Mail size={24} />
                 </div>
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  Get verified, off-market early-stage deal intelligence across ANZ, India &amp; US delivered directly to your inbox every fortnight.
-                </p>
-
-                <form onSubmit={handleSubmit} className="space-y-3 pt-1">
-                  <div>
-                    <label htmlFor="newsletter-email" className="block text-xs font-mono font-bold text-slate-700 uppercase mb-1.5">
-                      Work Email Address
-                    </label>
-                    <input
-                      id="newsletter-email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="partner@venturefund.com"
-                      required
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-950 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-slate-950 transition-all placeholder:text-slate-400"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full py-3.5 px-6 bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm rounded-xl shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
-                  >
-                    <span>Subscribe Now</span>
-                    <ArrowRight size={16} />
-                  </button>
-                </form>
-
-                <p className="text-[11px] text-slate-400 font-mono text-center pt-1">
-                  No spam. Unsubscribe at any time with one click.
-                </p>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-600 block">
+                    Get In Touch
+                  </span>
+                  <h3 className="text-xl font-extrabold tracking-tight text-slate-950">
+                    Direct Email Contact
+                  </h3>
+                </div>
               </div>
-            ) : (
-              <div className="text-center py-6 space-y-4">
-                <div className="w-14 h-14 bg-emerald-100 border border-emerald-300 text-emerald-700 rounded-full flex items-center justify-center mx-auto shadow-xs">
-                  <CheckCircle2 size={30} />
-                </div>
 
-                <h3 className="text-2xl font-extrabold text-slate-950 tracking-tight">
-                  You&apos;re Subscribed! 🎉
-                </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Have a question, pitch, or partnership inquiry? Reach out to our origination team directly via email.
+              </p>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xs mx-auto">
-                  Thank you for subscribing. We&apos;ve sent a confirmation email to <span className="font-bold text-slate-900">{email}</span>.
-                </p>
-
+              {/* Email Address Display Box */}
+              <div className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-2xl p-3.5">
+                <span className="font-mono text-xs sm:text-sm font-bold text-slate-900 truncate">
+                  {contactEmail}
+                </span>
                 <button
-                  onClick={handleResetAndClose}
-                  className="mt-4 px-6 py-2.5 bg-slate-950 text-white font-bold text-xs rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
+                  onClick={handleCopy}
+                  className="p-2 text-slate-500 hover:text-slate-950 hover:bg-white rounded-xl transition-colors cursor-pointer flex items-center gap-1.5 text-xs font-mono font-bold shrink-0 ml-2"
                 >
-                  Done
+                  {copied ? (
+                    <>
+                      <Check size={14} className="text-emerald-600" />
+                      <span className="text-emerald-600">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={14} />
+                      <span>Copy</span>
+                    </>
+                  )}
                 </button>
               </div>
-            )}
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <a
+                  href={`mailto:${contactEmail}?subject=Inquiry%20-%20VRaise%20Ventures`}
+                  className="flex-1 py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs uppercase font-bold tracking-wider rounded-2xl shadow-md flex items-center justify-center gap-2 transition-colors"
+                >
+                  <Mail size={16} />
+                  <span>Send Email</span>
+                  <ExternalLink size={13} className="opacity-70" />
+                </a>
+
+                <button
+                  onClick={onClose}
+                  className="py-3 px-5 border border-slate-300 hover:bg-slate-100 text-slate-800 font-mono text-xs uppercase font-bold tracking-wider rounded-2xl transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+
           </motion.div>
         </div>
       )}

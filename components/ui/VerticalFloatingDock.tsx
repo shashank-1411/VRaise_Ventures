@@ -36,8 +36,8 @@ export default function VerticalFloatingDock({
       action: () => window.open("https://calendly.com", "_blank"),
     },
     {
-      id: "newsletter",
-      label: "Newsletter",
+      id: "email",
+      label: "Email Us",
       icon: <Mail size={15} className="text-slate-900 group-hover:text-white transition-colors" />,
       action: onOpenNewsletterModal,
     },
