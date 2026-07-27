@@ -4,6 +4,14 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Sparkles, Building2 } from "lucide-react";
 
+interface PartnerItem {
+  name: string;
+  image: string | null;
+  category?: string;
+  isMore?: boolean;
+  isText?: boolean;
+}
+
 export default function PartnerMarquee() {
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,7 +19,7 @@ export default function PartnerMarquee() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // Primary partner logos
-  const primaryLogos = [
+  const primaryLogos: PartnerItem[] = [
     { name: "TEN13", image: "/assets/ten13.png", category: "Syndicate Platform" },
     { name: "Pinery", image: "/assets/pinery.png", category: "Venture Fund" },
     { name: "Boardy", image: "/assets/boardy.png", category: "AI & Tech Fund" },
@@ -19,7 +27,7 @@ export default function PartnerMarquee() {
   ];
 
   // Extended partner list for the popup modal
-  const allPartners = [
+  const allPartners: PartnerItem[] = [
     ...primaryLogos,
     { name: "Blackbird Ventures Network", image: null, category: "ANZ Tech Corridor", isText: true },
     { name: "Square Peg Syndicate", image: null, category: "Global Growth Fund", isText: true },
@@ -29,7 +37,7 @@ export default function PartnerMarquee() {
     { name: "Campus Founders Angel Network", image: null, category: "University Angels", isText: true },
   ];
 
-  const marqueeItems = [
+  const marqueeItems: PartnerItem[] = [
     ...primaryLogos,
     { name: "and many more...", image: null, isMore: true },
     ...primaryLogos,
