@@ -210,13 +210,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
             </div>
           </motion.div>
 
-          {/* Floating Badge Pill 1: 15+ Campus Scouts (Far Left Bottom) */}
+          {/* Floating Badge Pill 1: 30+ Campus Scouts (Far Left Bottom) */}
           <motion.div
             whileHover={{ scale: 1.1, y: -3 }}
             className="absolute left-[-1%] sm:left-[1%] bottom-[24%] sm:bottom-[28%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
           >
             <GraduationCap size={14} className="text-slate-800" />
-            <span>15+ Campus Scouts</span>
+            <span>30+ Campus Scouts</span>
           </motion.div>
 
           {/* Floating Badge Pill 2: IITs · IIMs · Ivy League (Top Center) */}
@@ -244,14 +244,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
           >
             <Layers size={14} className="text-emerald-600" />
             <span>All Sectors & Stages</span>
-          </motion.div>
-
-          {/* Floating Badge Pill 5: Seed to Series A (Far Right Mid) */}
-          <motion.div
-            whileHover={{ scale: 1.1, y: -3 }}
-            className="absolute right-[-1%] sm:right-[1%] top-[68%] sm:top-[70%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
-          >
-            <span>SEED TO SERIES A</span>
           </motion.div>
 
           {/* Floating Orange Circle Icon (Top Left-Center) */}
