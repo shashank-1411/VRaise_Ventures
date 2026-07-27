@@ -12,7 +12,6 @@ export default function SimpleProcess() {
       title: "Scout",
       subtitle: "Campus Discovery",
       description: "Campus scouts surface founders at the idea and pre-incubation stage.",
-      color: "from-sky-500 to-blue-600",
     },
     {
       number: "02",
@@ -20,7 +19,6 @@ export default function SimpleProcess() {
       title: "Validate",
       subtitle: "Traction & Team",
       description: "We test the team, the market and the traction before anything moves forward.",
-      color: "from-blue-600 to-indigo-600",
     },
     {
       number: "03",
@@ -28,7 +26,6 @@ export default function SimpleProcess() {
       title: "Prepare",
       subtitle: "IC Readiness",
       description: "Narrative, deck, model and data room built to investment-committee standard.",
-      color: "from-indigo-600 to-blue-700",
     },
     {
       number: "04",
@@ -36,7 +33,6 @@ export default function SimpleProcess() {
       title: "Connect",
       subtitle: "Investor Matching",
       description: "Matched and introduced to the funds and angels who actually invest in that thesis.",
-      color: "from-blue-700 to-sky-600",
     },
     {
       number: "05",
@@ -44,7 +40,6 @@ export default function SimpleProcess() {
       title: "Raise",
       subtitle: "Close & Support",
       description: "Support through diligence, negotiation and close.",
-      color: "from-sky-600 to-teal-600",
     },
   ];
 
@@ -72,9 +67,9 @@ export default function SimpleProcess() {
         <div className="relative">
           
           {/* Connecting Track Line behind milestone cards */}
-          <div className="hidden lg:block absolute top-[44px] left-[8%] right-[8%] h-[3px] bg-gradient-to-r from-blue-500 via-indigo-600 to-blue-700 z-0 opacity-40 rounded-full" />
+          <div className="hidden lg:block absolute top-[52px] left-[8%] right-[8%] h-[3px] bg-gradient-to-r from-blue-500 via-indigo-600 to-blue-700 z-0 opacity-40 rounded-full" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-6 relative z-10">
             {steps.map((step, idx) => {
               const Icon = step.icon;
               return (
@@ -84,37 +79,44 @@ export default function SimpleProcess() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.12 }}
-                  whileHover={{ y: -6 }}
-                  className="flex flex-col items-center text-center bg-slate-50/90 border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 group cursor-pointer"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="relative bg-slate-50/80 border border-slate-200/80 rounded-3xl p-6 sm:p-7 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col items-center text-center cursor-pointer h-full"
                 >
-                  {/* Step Milestone Badge & Icon */}
-                  <div className="relative mb-5 flex items-center justify-center">
-                    {/* Floating Black Icon Circle */}
-                    <div className="w-14 h-14 rounded-2xl bg-slate-950 text-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
-                      <Icon size={22} className="text-white" />
-                    </div>
+                  {/* Upper Left Dot Matrix Stipple Effect (Same as WhatWeDo Cards) */}
+                  <div
+                    className="absolute top-0 left-0 w-28 h-28 opacity-25 pointer-events-none"
+                    style={{
+                      backgroundImage: `radial-gradient(#94a3b8 1px, transparent 1px)`,
+                      backgroundSize: `8px 8px`,
+                    }}
+                  />
 
-                    {/* Number Badge Pill */}
-                    <div className="absolute -top-2 -right-2 font-mono text-[10px] font-extrabold text-white bg-slate-900 border border-white px-2 py-0.5 rounded-full shadow-xs">
-                      {step.number}
+                  {/* Floating Black Circle Icon with Step Number Badge */}
+                  <div className="relative z-10 mb-6">
+                    <div className="w-14 h-14 rounded-full bg-slate-950 text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform relative">
+                      <Icon size={22} className="text-white" />
+                      {/* Step Number Badge Pill */}
+                      <div className="absolute -top-1 -right-1 font-mono text-[10px] font-extrabold text-white bg-slate-950 border border-slate-700 px-2 py-0.5 rounded-full shadow-xs">
+                        {step.number}
+                      </div>
                     </div>
                   </div>
 
                   {/* Step Subtitle Badge */}
-                  <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-blue-600 mb-1.5 block">
+                  <span className="relative z-10 font-mono text-[10px] uppercase tracking-wider font-bold text-blue-600 mb-1.5 block">
                     {step.subtitle}
                   </span>
 
                   {/* Step Title in PT Serif */}
                   <h3
                     style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
-                    className="text-2xl text-slate-950 font-normal mb-3 tracking-tight"
+                    className="relative z-10 text-2xl text-slate-950 font-normal mb-3 tracking-tight"
                   >
                     {step.title}
                   </h3>
 
                   {/* Step Description */}
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans font-normal">
+                  <p className="relative z-10 text-slate-600 text-xs sm:text-sm leading-relaxed font-sans font-normal">
                     {step.description}
                   </p>
                 </motion.div>
