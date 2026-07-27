@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Sparkles } from "lucide-react";
+import { X } from "lucide-react";
 
 interface PartnerItem {
   name: string;
@@ -129,8 +129,7 @@ export default function PartnerMarquee() {
               >
                 {item.isMore ? (
                   /* "and many more..." clickable pill badge */
-                  <div className="flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-blue-50/90 border border-blue-200 shadow-xs group-hover:bg-blue-600 group-hover:border-blue-600 transition-all h-20 sm:h-22 min-w-[160px] sm:min-w-[200px]">
-                    <Sparkles size={16} className="text-blue-600 group-hover:text-white transition-colors shrink-0" />
+                  <div className="flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-blue-50/90 border border-blue-200 shadow-xs group-hover:bg-blue-600 group-hover:border-blue-600 transition-all h-20 sm:h-22 min-w-[160px] sm:min-w-[200px]">
                     <span className="font-mono text-xs uppercase tracking-widest font-extrabold text-blue-600 group-hover:text-white transition-colors">
                       {item.name}
                     </span>
