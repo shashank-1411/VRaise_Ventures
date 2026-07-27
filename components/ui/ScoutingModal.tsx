@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, CheckCircle, FilePen } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Handshake, CheckCircle2, Send } from "lucide-react";
+import confetti from "canvas-confetti";
 
 interface ScoutingModalProps {
   isOpen: boolean;
@@ -9,172 +11,181 @@ interface ScoutingModalProps {
 }
 
 export default function ScoutingModal({ isOpen, onClose }: ScoutingModalProps) {
-  const [signed, setSigned] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     fundName: "",
-    stage: "Seed",
-    chequeSize: "$500k - $1M",
-    thesis: "",
+    message: "",
   });
-
-  if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!signed) {
-      alert("Please sign the digital agreement before submitting.");
-      return;
-    }
+    if (!formData.name || !formData.email) return;
+
+    // Trigger celebration confetti
+    confetti({
+      particleCount: 120,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ["#2563eb", "#3b82f6", "#60a5fa", "#000000", "#10b981"],
+    });
+
     setSubmitted(true);
   };
 
   const handleReset = () => {
-    setSigned(false);
-    setSubmitted(false);
     onClose();
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: "", email: "", fundName: "", message: "" });
+    }, 300);
   };
 
   return (
-    <div
-      className="modal-overlay"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) handleReset();
-      }}
-    >
-      <div className="modal-content relative">
-        <button
-          onClick={handleReset}
-          className="modal-close"
-          aria-label="Close modal"
-        >
-          <X size={20} />
-        </button>
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={handleReset}
+            className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
+          />
 
-        {!submitted ? (
-          <div>
-            <div className="modal-header mb-6">
-              <span className="badge">Scouting Agreement</span>
-              <h2 className="text-2xl font-black text-outlineDark">VRaise Scout Mandate</h2>
-              <p className="text-sm text-text-muted mt-1">
-                Enter your investment parameters to sign a non-binding referral agreement with VRaise Ventures.
-              </p>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-outlineDark mb-1">Your Full Name</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Alex Morgan"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full p-3 border-2 border-outlineDark rounded-xl text-sm focus:outline-none focus:border-magentaBrand"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-outlineDark mb-1">Work Email</label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="alex@fund.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full p-3 border-2 border-outlineDark rounded-xl text-sm focus:outline-none focus:border-magentaBrand"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-outlineDark mb-1">Fund Name</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Venture Capital"
-                    value={formData.fundName}
-                    onChange={(e) => setFormData({ ...formData, fundName: e.target.value })}
-                    className="w-full p-3 border-2 border-outlineDark rounded-xl text-sm focus:outline-none focus:border-magentaBrand"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-outlineDark mb-1">Investment Stage</label>
-                  <select
-                    value={formData.stage}
-                    onChange={(e) => setFormData({ ...formData, stage: e.target.value })}
-                    className="w-full p-3 border-2 border-outlineDark rounded-xl text-sm focus:outline-none focus:border-magentaBrand bg-white"
-                  >
-                    <option value="Pre-Seed">Pre-Seed</option>
-                    <option value="Seed">Seed</option>
-                    <option value="Series A">Series A</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-outlineDark mb-1">Cheque Size</label>
-                  <select
-                    value={formData.chequeSize}
-                    onChange={(e) => setFormData({ ...formData, chequeSize: e.target.value })}
-                    className="w-full p-3 border-2 border-outlineDark rounded-xl text-sm focus:outline-none focus:border-magentaBrand bg-white"
-                  >
-                    <option value="$100k - $500k">$100k - $500k</option>
-                    <option value="$500k - $1M">$500k - $1M</option>
-                    <option value="$1M - $3M">$1M - $3M</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-outlineDark mb-1">Investment Thesis / Mandate Details</label>
-                <textarea
-                  rows={3}
-                  placeholder="Tell us what sectors, founders, or geographies you prioritize..."
-                  value={formData.thesis}
-                  onChange={(e) => setFormData({ ...formData, thesis: e.target.value })}
-                  className="w-full p-3 border-2 border-outlineDark rounded-xl text-sm focus:outline-none focus:border-magentaBrand resize-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-outlineDark mb-1">Digital Signature</label>
-                <div
-                  onClick={() => setSigned(!signed)}
-                  className={`signature-box flex items-center justify-center gap-2 ${signed ? "signed" : ""}`}
-                >
-                  <FilePen size={18} />
-                  <span>
-                    {signed
-                      ? `✓ Signed by ${formData.name || "Authorized Representative"}`
-                      : "Click here to add Digital Signature"}
-                  </span>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="btn btn-primary w-full py-4 text-base font-bold rounded-xl mt-4"
-              >
-                Sign & Submit Mandate
-              </button>
-            </form>
-          </div>
-        ) : (
-          <div className="text-center py-8">
-            <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-black text-outlineDark mb-2">Agreement Submitted!</h2>
-            <p className="text-sm text-text-muted max-w-md mx-auto mb-6">
-              Thank you, <span className="font-bold text-outlineDark">{formData.name}</span>. Your signed referral mandate for <span className="font-bold text-outlineDark">{formData.fundName}</span> has been received. Our partners will reach out within 24 hours.
-            </p>
-            <button onClick={handleReset} className="btn btn-primary px-8 py-3 rounded-xl">
-              Done
+          {/* Modal Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ type: "spring", stiffness: 350, damping: 25 }}
+            className="relative w-full max-w-lg bg-white border border-slate-200 rounded-3xl shadow-2xl p-6 sm:p-8 text-slate-950 z-10 font-sans"
+          >
+            {/* Close Button */}
+            <button
+              onClick={handleReset}
+              className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-950 hover:bg-slate-100 rounded-full transition-colors cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X size={18} />
             </button>
-          </div>
-        )}
-      </div>
-    </div>
+
+            {!submitted ? (
+              <div className="space-y-6">
+                
+                {/* Modal Header */}
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-blue-50 border border-blue-200 rounded-2xl text-blue-600">
+                    <Handshake size={24} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-600 block">
+                      [ Partner With Us ]
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-950">
+                      Partner With VRaise
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Connect with our deal origination team to set up custom thesis parameters and receive curated, off-market founder pipelines.
+                </p>
+
+                {/* Short Partner Form (White & Blue Theme) */}
+                <form onSubmit={handleSubmit} className="space-y-4 pt-1">
+                  <div>
+                    <label className="block text-xs font-mono font-bold text-slate-700 uppercase mb-1">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Alex Morgan"
+                      className="w-full h-11 px-4 text-xs sm:text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-950 placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none transition-colors"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono font-bold text-slate-700 uppercase mb-1">
+                        Work Email *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="alex@fund.com"
+                        className="w-full h-11 px-4 text-xs sm:text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-950 placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none transition-colors"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-mono font-bold text-slate-700 uppercase mb-1">
+                        Fund / Syndicate Name
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.fundName}
+                        onChange={(e) => setFormData({ ...formData, fundName: e.target.value })}
+                        placeholder="Venture Capital"
+                        className="w-full h-11 px-4 text-xs sm:text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-950 placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono font-bold text-slate-700 uppercase mb-1">
+                      Message / Mandate (Optional)
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Tell us your sector focus or investment check size..."
+                      className="w-full p-3.5 text-xs sm:text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-950 placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none transition-colors resize-none"
+                    />
+                  </div>
+
+                  {/* 3D Blue Submit Button */}
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 px-6 bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700 text-white font-mono text-xs uppercase font-extrabold tracking-wider rounded-2xl shadow-[0_8px_18px_-3px_rgba(37,99,235,0.55),inset_0_2px_3px_rgba(255,255,255,0.4),0_3px_0_0_#1d4ed8] border-t border-blue-300/60 hover:scale-[1.02] active:translate-y-0.5 transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
+                  >
+                    <Send size={15} />
+                    <span>Submit Partnership Inquiry</span>
+                  </button>
+                </form>
+
+              </div>
+            ) : (
+              /* Success State */
+              <div className="py-8 text-center space-y-4">
+                <div className="w-16 h-16 bg-blue-50 text-blue-600 border border-blue-200 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <CheckCircle2 size={36} />
+                </div>
+                <h3 className="text-2xl font-extrabold text-slate-950 tracking-tight">
+                  Inquiry Received!
+                </h3>
+                <p className="text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
+                  Thank you for reaching out. Our team will review your mandate and contact you within 24 hours.
+                </p>
+                <button
+                  onClick={handleReset}
+                  className="mt-4 px-8 py-3 bg-slate-950 text-white font-mono text-xs uppercase font-bold tracking-wider rounded-2xl hover:bg-slate-800 transition-colors cursor-pointer"
+                >
+                  Done
+                </button>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 }

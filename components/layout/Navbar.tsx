@@ -10,7 +10,7 @@ interface NavbarProps {
 
 export default function Navbar({ onOpenModal }: NavbarProps) {
   const handlePitchUs = () => {
-    window.location.href = "mailto:pitch@vraiseventures.com?subject=Pitch%20Us%20-%20VRaise%20Ventures";
+    window.open("https://calendly.com", "_blank");
   };
 
   return (

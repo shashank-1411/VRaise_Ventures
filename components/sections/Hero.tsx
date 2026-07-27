@@ -102,15 +102,15 @@ export default function Hero({ onOpenModal }: HeroProps) {
           className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mb-12 sm:mb-16"
         >
           {/* 3D Blue Tactile Capsule "PITCH US" Button */}
-          <motion.a
-            href="mailto:pitch@vraiseventures.com?subject=Pitch%20Us%20-%20VRaise%20Ventures"
+          <motion.button
+            onClick={() => window.open("https://calendly.com", "_blank")}
             whileHover={{ scale: 1.07, y: -4 }}
             whileTap={{ scale: 0.96 }}
             className="px-7 sm:px-9 py-3 sm:py-3.5 bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700 text-white font-sans text-xs uppercase font-extrabold tracking-widest rounded-full shadow-[0_14px_28px_-4px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.4),0_4px_0_0_#1d4ed8] border-t border-blue-300/60 hover:brightness-110 active:translate-y-1 flex items-center gap-2.5 sm:gap-3 cursor-pointer transition-all duration-300 group"
           >
             <Mail size={16} className="text-white group-hover:rotate-12 transition-transform shrink-0" />
             <span>PITCH US</span>
-          </motion.a>
+          </motion.button>
 
           {/* 3D White Tactile Capsule "Partner With Us" Button */}
           <motion.button
