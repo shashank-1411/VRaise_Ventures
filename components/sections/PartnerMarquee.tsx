@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -14,8 +14,6 @@ interface PartnerItem {
 export default function PartnerMarquee() {
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   // Mentioned partner logos
   const primaryLogos: PartnerItem[] = [
@@ -38,27 +36,6 @@ export default function PartnerMarquee() {
     ...baseItems,
     ...baseItems,
   ];
-
-  // Sync scrollbar progress
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    const maxScroll = scrollWidth - clientWidth;
-    if (maxScroll > 0) {
-      setScrollProgress((scrollLeft / maxScroll) * 100);
-    }
-  };
-
-  const handleBarClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const percentage = (clickX / rect.width) * 100;
-    setScrollProgress(percentage);
-    if (scrollRef.current) {
-      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
-      scrollRef.current.scrollLeft = (percentage / 100) * maxScroll;
-    }
-  };
 
   return (
     <div className="w-full bg-white/40 backdrop-blur-xs border-y border-slate-200/80 py-12 overflow-hidden relative z-20 font-sans select-none">
@@ -104,8 +81,6 @@ export default function PartnerMarquee() {
 
         {/* Scrollable Track Wrapper */}
         <div
-          ref={scrollRef}
-          onScroll={handleScroll}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className="w-full overflow-x-auto no-scrollbar scroll-smooth py-2 px-4"
@@ -147,18 +122,6 @@ export default function PartnerMarquee() {
               </motion.div>
             ))}
           </div>
-        </div>
-
-        {/* Single Slim Scroll Bar */}
-        <div
-          className="w-48 sm:w-64 h-1 bg-slate-200/80 rounded-full overflow-hidden mx-auto mt-6 relative cursor-pointer"
-          onClick={handleBarClick}
-          aria-label="Scroll position indicator"
-        >
-          <div
-            className="h-full bg-blue-600 rounded-full transition-all duration-150 ease-out"
-            style={{ width: `${Math.min(100, Math.max(15, scrollProgress))}%` }}
-          />
         </div>
 
       </div>
