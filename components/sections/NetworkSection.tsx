@@ -2,10 +2,9 @@
 
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Rocket } from "lucide-react";
 
 export default function NetworkSection() {
-  // Generate a field of concentric orange dots with randomized blinking animations
+  // Generate a field of concentric dots with randomized blinking animations
   const blinkingDots = useMemo(() => {
     const dots: { cx: number; cy: number; duration: number; delay: number; maxOpacity: number }[] = [];
     const centerX = 500;
@@ -42,35 +41,36 @@ export default function NetworkSection() {
             style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
             className="text-4xl sm:text-5xl md:text-6xl text-slate-950 leading-[1.15] mb-6 font-normal tracking-tight"
           >
-            The VRaise Scouting &amp; Capital Network
+            VRaise Scouting &amp; Capital Network
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans font-normal max-w-xl mx-auto">
-            Connecting campus founders directly to tier-1 venture funds, accelerators, mentors, and angel syndicates.
+            Connecting campus founders directly to venture funds, family offices, accelerators, incubators, mentors, and angel syndicates.
           </p>
         </div>
 
         {/* Interactive SVG Network Canvas */}
-        <div className="relative w-full max-w-5xl h-[420px] sm:h-[480px] flex items-center justify-center">
+        <div className="relative w-full max-w-5xl h-[440px] sm:h-[500px] flex items-center justify-center">
           
           {/* SVG Connection Lines & Animated Blue Dots */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1000 480" fill="none">
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1000 500" fill="none">
             
-            {/* Left Paths to Center (500, 240) */}
-            <path id="path-left-1" d="M 160 80 C 300 80, 380 240, 500 240" stroke="#cbd5e1" strokeWidth="1.5" />
-            <path id="path-left-2" d="M 120 240 C 260 240, 380 240, 500 240" stroke="#cbd5e1" strokeWidth="1.5" />
-            <path id="path-left-3" d="M 160 400 C 300 400, 380 240, 500 240" stroke="#cbd5e1" strokeWidth="1.5" />
+            {/* Left Paths to Center Hub (500, 250) */}
+            <path id="path-left-1" d="M 160 70 C 300 70, 380 250, 500 250" stroke="#cbd5e1" strokeWidth="1.5" />
+            <path id="path-left-2" d="M 110 190 C 250 190, 380 250, 500 250" stroke="#cbd5e1" strokeWidth="1.5" />
+            <path id="path-left-3" d="M 110 310 C 250 310, 380 250, 500 250" stroke="#cbd5e1" strokeWidth="1.5" />
+            <path id="path-left-4" d="M 160 430 C 300 430, 380 250, 500 250" stroke="#cbd5e1" strokeWidth="1.5" />
 
-            {/* Right Paths to Center (500, 240) */}
-            <path id="path-right-1" d="M 840 80 C 700 80, 620 240, 500 240" stroke="#cbd5e1" strokeWidth="1.5" />
-            <path id="path-right-2" d="M 880 240 C 740 240, 620 240, 500 240" stroke="#cbd5e1" strokeWidth="1.5" />
-            <path id="path-right-3" d="M 840 400 C 700 400, 620 240, 500 240" stroke="#cbd5e1" strokeWidth="1.5" />
+            {/* Right Paths to Center Hub (500, 250) */}
+            <path id="path-right-1" d="M 840 90 C 700 90, 620 250, 500 250" stroke="#cbd5e1" strokeWidth="1.5" />
+            <path id="path-right-2" d="M 880 250 C 740 250, 620 250, 500 250" stroke="#cbd5e1" strokeWidth="1.5" />
+            <path id="path-right-3" d="M 840 410 C 700 410, 620 250, 500 250" stroke="#cbd5e1" strokeWidth="1.5" />
 
             {/* ANIMATED BLINKING BLUE DOTS MATRIX AROUND CENTER HUB */}
             {blinkingDots.map((dot, idx) => (
               <motion.circle
                 key={`blue-dot-${idx}`}
                 cx={dot.cx}
-                cy={dot.cy}
+                cy={dot.cy + 10}
                 r={1.8}
                 fill="#2563eb"
                 initial={{ opacity: 0.15, scale: 0.8 }}
@@ -89,54 +89,66 @@ export default function NetworkSection() {
 
             {/* ANIMATED GLOWING BLUE DOTS MOVING FROM OUTER NODES TO CENTER */}
             <circle r="4" fill="#3b82f6" className="shadow-[0_0_12px_#3b82f6]">
-              <animateMotion dur="2.8s" repeatCount="indefinite" path="M 160 80 C 300 80, 380 240, 500 240" />
+              <animateMotion dur="2.8s" repeatCount="indefinite" path="M 160 70 C 300 70, 380 250, 500 250" />
             </circle>
             
             <circle r="4" fill="#3b82f6" className="shadow-[0_0_12px_#3b82f6]">
-              <animateMotion dur="3.2s" repeatCount="indefinite" path="M 120 240 C 260 240, 380 240, 500 240" />
+              <animateMotion dur="3.2s" repeatCount="indefinite" path="M 110 190 C 250 190, 380 250, 500 250" />
             </circle>
             
             <circle r="4" fill="#3b82f6" className="shadow-[0_0_12px_#3b82f6]">
-              <animateMotion dur="3.5s" repeatCount="indefinite" path="M 160 400 C 300 400, 380 240, 500 240" />
+              <animateMotion dur="3.5s" repeatCount="indefinite" path="M 110 310 C 250 310, 380 250, 500 250" />
             </circle>
 
             <circle r="4" fill="#3b82f6" className="shadow-[0_0_12px_#3b82f6]">
-              <animateMotion dur="3.0s" repeatCount="indefinite" path="M 840 80 C 700 80, 620 240, 500 240" />
+              <animateMotion dur="3.0s" repeatCount="indefinite" path="M 160 430 C 300 430, 380 250, 500 250" />
             </circle>
 
             <circle r="4" fill="#3b82f6" className="shadow-[0_0_12px_#3b82f6]">
-              <animateMotion dur="3.4s" repeatCount="indefinite" path="M 880 240 C 740 240, 620 240, 500 240" />
+              <animateMotion dur="3.1s" repeatCount="indefinite" path="M 840 90 C 700 90, 620 250, 500 250" />
             </circle>
 
             <circle r="4" fill="#3b82f6" className="shadow-[0_0_12px_#3b82f6]">
-              <animateMotion dur="2.6s" repeatCount="indefinite" path="M 840 400 C 700 400, 620 240, 500 240" />
+              <animateMotion dur="3.4s" repeatCount="indefinite" path="M 880 250 C 740 250, 620 250, 500 250" />
+            </circle>
+
+            <circle r="4" fill="#3b82f6" className="shadow-[0_0_12px_#3b82f6]">
+              <animateMotion dur="2.7s" repeatCount="indefinite" path="M 840 410 C 700 410, 620 250, 500 250" />
             </circle>
 
           </svg>
 
-          {/* LEFT OUTER NODES (Clean typography, no icons/emojis) */}
-          {/* Node 1: Founder (Top Left) */}
+          {/* LEFT OUTER NODES (4 Connected Nodes) */}
+          {/* Node 1: Founders */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute left-[3%] sm:left-[8%] top-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
+            className="absolute left-[3%] sm:left-[8%] top-[8%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <span>Founder</span>
+            <span>Founders</span>
           </motion.div>
 
-          {/* Node 2: Accelerator (Mid Left) */}
+          {/* Node 2: Accelerators */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute left-[1%] sm:left-[4%] top-[46%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
+            className="absolute left-[1%] sm:left-[4%] top-[34%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <span>Accelerator</span>
+            <span>Accelerators</span>
           </motion.div>
 
-          {/* Node 3: Mentor (Bottom Left) */}
+          {/* Node 3: Incubators */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute left-[3%] sm:left-[8%] bottom-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
+            className="absolute left-[1%] sm:left-[4%] bottom-[34%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <span>Mentor</span>
+            <span>Incubators</span>
+          </motion.div>
+
+          {/* Node 4: Mentors */}
+          <motion.div
+            whileHover={{ scale: 1.08, y: -4 }}
+            className="absolute left-[3%] sm:left-[8%] bottom-[8%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
+          >
+            <span>Mentors</span>
           </motion.div>
 
           {/* CENTER HUB: VRAISE VENTURES LOGO PNG */}
@@ -151,29 +163,29 @@ export default function NetworkSection() {
             />
           </motion.div>
 
-          {/* RIGHT OUTER NODES (Clean typography, no icons/emojis) */}
-          {/* Node 4: Investor (Top Right) */}
+          {/* RIGHT OUTER NODES (3 Connected Nodes) */}
+          {/* Node 5: Venture Funds */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
             className="absolute right-[3%] sm:right-[8%] top-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <span>Investor</span>
+            <span>Venture Funds</span>
           </motion.div>
 
-          {/* Node 5: VC (Mid Right) */}
+          {/* Node 6: Family Offices */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
-            className="absolute right-[1%] sm:right-[4%] top-[46%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-bold text-slate-900 cursor-pointer tracking-wider"
+            className="absolute right-[1%] sm:right-[4%] top-[46%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <span>VC</span>
+            <span>Family Offices</span>
           </motion.div>
 
-          {/* Node 6: Angel (Bottom Right) */}
+          {/* Node 7: Angel Syndicates */}
           <motion.div
             whileHover={{ scale: 1.08, y: -4 }}
             className="absolute right-[3%] sm:right-[8%] bottom-[12%] z-20 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-xl font-mono text-xs uppercase font-extrabold text-slate-900 cursor-pointer tracking-wider"
           >
-            <span>Angel</span>
+            <span>Angel Syndicates</span>
           </motion.div>
 
         </div>

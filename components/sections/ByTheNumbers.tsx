@@ -41,22 +41,28 @@ function AnimatedCount({ value, suffix = "" }: { value: number; suffix?: string 
 export default function ByTheNumbers() {
   const stats = [
     {
-      value: 30,
+      value: 100,
       suffix: "+",
-      label: "CAMPUS SCOUTS ACROSS TIER 1 UNIVERSITIES",
+      label: "CAMPUS SCOUTS",
       display: null,
     },
     {
-      value: 3,
+      value: 5,
       suffix: "",
-      label: "COUNTRIES",
+      label: "CONTINENTS",
       display: null,
     },
     {
       value: 0,
       suffix: "",
-      label: "SECTORS & STAGES",
+      label: "ALL SECTORS",
       display: "ALL",
+    },
+    {
+      value: 0,
+      suffix: "",
+      label: "PRE-SEED TO SERIES A",
+      display: "EARLY",
     },
   ];
 
@@ -76,11 +82,11 @@ export default function ByTheNumbers() {
             The scouting network
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans font-normal max-w-xl mx-auto">
-            Our reach across campuses, markets and partner funds.
+            Our reach across campuses, global markets and partner funds.
           </p>
         </div>
 
-        {/* 3-Stat Interactive Container */}
+        {/* 4-Stat Interactive Container */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,12 +94,12 @@ export default function ByTheNumbers() {
           transition={{ duration: 0.7 }}
           className="bg-slate-50/80 border border-slate-200/90 rounded-3xl p-8 sm:p-12 shadow-sm"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-slate-200/90">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-slate-200/90">
             {stats.map((stat, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ y: -4, scale: 1.03 }}
-                className="flex flex-col justify-center px-4 sm:px-8 text-center sm:text-left transition-transform cursor-pointer"
+                className="flex flex-col justify-center px-4 sm:px-6 text-center sm:text-left transition-transform cursor-pointer"
               >
                 <div
                   style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}

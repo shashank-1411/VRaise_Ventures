@@ -24,7 +24,7 @@ export default function Portfolio() {
         <div className="portfolio-intro flex flex-col gap-4">
           <span className="badge">Portfolio</span>
           <h2 className="text-3xl font-extrabold text-outlineDark">Our Partners & Portfolio</h2>
-          <p className="text-sm text-text-muted">We partner with top-tier syndicated platforms, GovTech specialists, and pre-seed experts across the ANZ-India corridor.</p>
+          <p className="text-sm text-text-muted">We partner with syndicated platforms, GovTech specialists, and pre-seed experts across the ANZ-India corridor.</p>
           <div className="portfolio-controls flex gap-4 mt-4">
             <button
               onClick={scrollLeft}
