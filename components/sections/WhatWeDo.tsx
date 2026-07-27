@@ -10,7 +10,7 @@ export default function WhatWeDo() {
       icon: Compass,
       title: "Venture Scouting",
       description:
-        "Student scouts embedded across IITs, IIMs and Ivy League campuses identify strong founders across every sector, often before they appear in any deal pipeline.",
+        "Student scouts embedded across Go8, Ivy League, Russell Group, IITs, and IIMs campuses identify strong founders across every sector, often before they appear in any deal pipeline.",
       colSpan: "col-span-1 md:col-span-1",
     },
     {

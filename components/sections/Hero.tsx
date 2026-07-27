@@ -222,13 +222,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
             <span>100+ Campus Scouts</span>
           </motion.div>
 
-          {/* Floating Badge Pill 2: IITs · IIMs · Ivy League (Top Center) */}
+          {/* Floating Badge Pill 2: Go8 · Ivy League · Russell Group · IITs · IIMs (Top Center) */}
           <motion.div
             whileHover={{ scale: 1.1, y: -3 }}
-            className="absolute left-[37%] sm:left-[40%] top-[12%] sm:top-[14%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
+            className="absolute left-[26%] sm:left-[30%] top-[12%] sm:top-[14%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
           >
             <Compass size={14} className="text-blue-600" />
-            <span>IITs · IIMs · Ivy League</span>
+            <span>Go8 · Ivy League · Russell Group · IITs · IIMs</span>
           </motion.div>
 
           {/* Floating Badge Pill 3: Operating in 5 Continents (Bottom Center) */}
