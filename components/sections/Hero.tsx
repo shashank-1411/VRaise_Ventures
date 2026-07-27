@@ -213,13 +213,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
             </div>
           </motion.div>
 
-          {/* Floating Badge Pill 1: 30+ Campus Scouts (Far Left Bottom) */}
+          {/* Floating Badge Pill 1: 100+ Campus Scouts (Far Left Bottom) */}
           <motion.div
             whileHover={{ scale: 1.1, y: -3 }}
             className="absolute left-[-1%] sm:left-[1%] bottom-[24%] sm:bottom-[28%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
           >
             <GraduationCap size={14} className="text-slate-800" />
-            <span>30+ Campus Scouts</span>
+            <span>100+ Campus Scouts</span>
           </motion.div>
 
           {/* Floating Badge Pill 2: IITs · IIMs · Ivy League (Top Center) */}
@@ -231,22 +231,22 @@ export default function Hero({ onOpenModal }: HeroProps) {
             <span>IITs · IIMs · Ivy League</span>
           </motion.div>
 
-          {/* Floating Badge Pill 3: 3 Countries (Bottom Center) */}
+          {/* Floating Badge Pill 3: Operating in 5 Continents (Bottom Center) */}
           <motion.div
             whileHover={{ scale: 1.1, y: -3 }}
-            className="absolute left-[40%] sm:left-[43%] bottom-[12%] sm:bottom-[14%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
+            className="absolute left-[36%] sm:left-[39%] bottom-[10%] sm:bottom-[12%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
           >
             <Globe2 size={14} className="text-orange-500" />
-            <span>3 Countries</span>
+            <span>Operating in 5 Continents</span>
           </motion.div>
 
-          {/* Floating Badge Pill 4: All Sectors & Stages (Right Mid-Top) */}
+          {/* Floating Badge Pill 4: Pre-Seed to Series A (Right Mid-Top) */}
           <motion.div
             whileHover={{ scale: 1.1, y: -3 }}
-            className="absolute right-[10%] sm:right-[13%] top-[54%] sm:top-[56%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
+            className="absolute right-[8%] sm:right-[11%] top-[54%] sm:top-[56%] z-30 bg-white border border-slate-300 rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-mono text-[11px] uppercase font-bold text-slate-900"
           >
             <Layers size={14} className="text-emerald-600" />
-            <span>All Sectors & Stages</span>
+            <span>Pre-Seed to Series A</span>
           </motion.div>
 
           {/* Floating Orange Circle Icon (Top Left-Center) */}
