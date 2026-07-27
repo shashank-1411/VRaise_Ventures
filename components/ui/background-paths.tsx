@@ -5,17 +5,17 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function FloatingPaths({ position = 1, className }: { position: number; className?: string }) {
-    // 9 lines max per position
-    const paths = Array.from({ length: 9 }, (_, i) => ({
+    // 4 lines max per position (3-4 lines total)
+    const paths = Array.from({ length: 4 }, (_, i) => ({
         id: i,
-        d: `M-${380 - i * 18 * position} -${189 + i * 20}C-${
-            380 - i * 18 * position
-        } -${189 + i * 20} -${312 - i * 18 * position} ${216 - i * 20} ${
-            152 - i * 18 * position
-        } ${343 - i * 20}C${616 - i * 18 * position} ${470 - i * 20} ${
-            684 - i * 18 * position
-        } ${875 - i * 20} ${684 - i * 18 * position} ${875 - i * 20}`,
-        width: 1.4 + i * 0.12,
+        d: `M-${380 - i * 32 * position} -${189 + i * 35}C-${
+            380 - i * 32 * position
+        } -${189 + i * 35} -${312 - i * 32 * position} ${216 - i * 35} ${
+            152 - i * 32 * position
+        } ${343 - i * 35}C${616 - i * 32 * position} ${470 - i * 35} ${
+            684 - i * 32 * position
+        } ${875 - i * 35} ${684 - i * 32 * position} ${875 - i * 35}`,
+        width: 1.8 + i * 0.2,
     }));
 
     return (
@@ -32,15 +32,15 @@ export function FloatingPaths({ position = 1, className }: { position: number; c
                         d={path.d}
                         stroke="currentColor"
                         strokeWidth={path.width}
-                        strokeOpacity={0.25 + path.id * 0.04}
+                        strokeOpacity={0.3 + path.id * 0.08}
                         initial={{ pathLength: 0.3, opacity: 0.5 }}
                         animate={{
                             pathLength: 1,
-                            opacity: [0.35, 0.75, 0.35],
+                            opacity: [0.4, 0.8, 0.4],
                             pathOffset: [0, 1, 0],
                         }}
                         transition={{
-                            duration: 20 + Math.random() * 8,
+                            duration: 18 + Math.random() * 6,
                             repeat: Number.POSITIVE_INFINITY,
                             ease: "linear",
                         }}
