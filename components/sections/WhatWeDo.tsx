@@ -91,7 +91,7 @@ export default function WhatWeDo() {
                 {/* Floating Navy Blue Circle Icon */}
                 <div className="relative z-10 mb-8">
                   <div className="w-12 h-12 rounded-full bg-[#091535] text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(9,21,53,0.4)] group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
-                    <Icon size={20} className="text-white" />
+                    <Icon size={20} className="text-white group-hover:rotate-[360deg] transition-transform duration-500 ease-in-out" />
                   </div>
                 </div>
 
@@ -139,7 +139,7 @@ export default function WhatWeDo() {
                 {/* Floating Navy Blue Circle Icon */}
                 <div className="relative z-10 mb-8">
                   <div className="w-12 h-12 rounded-full bg-[#091535] text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(9,21,53,0.4)] group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
-                    <Icon size={20} className="text-white" />
+                    <Icon size={20} className="text-white group-hover:rotate-[360deg] transition-transform duration-500 ease-in-out" />
                   </div>
                 </div>
 

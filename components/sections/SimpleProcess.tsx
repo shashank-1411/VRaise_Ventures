@@ -94,7 +94,7 @@ export default function SimpleProcess() {
                   {/* Floating Navy Blue Circle Icon with Step Number Badge */}
                   <div className="relative z-10 mb-6">
                     <div className="w-14 h-14 rounded-full bg-[#091535] text-white flex items-center justify-center shadow-[0_12px_24px_-4px_rgba(9,21,53,0.4)] group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300 relative">
-                      <Icon size={22} className="text-white" />
+                      <Icon size={22} className="text-white group-hover:rotate-[360deg] transition-transform duration-500 ease-in-out" />
                       {/* Step Number Badge Pill */}
                       <div className="absolute -top-1 -right-1 font-mono text-[10px] font-extrabold text-white bg-[#091535] border border-blue-900 px-2 py-0.5 rounded-full shadow-xs">
                         {step.number}
