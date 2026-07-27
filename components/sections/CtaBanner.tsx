@@ -22,7 +22,7 @@ export default function CtaBanner({ onOpenModal }: CtaBannerProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           whileHover={{ scale: 1.01 }}
-          className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 p-10 sm:p-16 flex flex-col items-center text-center justify-center gap-6 min-h-[380px] bg-slate-950"
+          className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-blue-300/40 p-10 sm:p-16 flex flex-col items-center text-center justify-center gap-6 min-h-[380px] bg-blue-950"
         >
           {/* Background Video */}
           <video
@@ -35,22 +35,22 @@ export default function CtaBanner({ onOpenModal }: CtaBannerProps) {
             <source src="/assets/15452141_1920_1080_60fps.mp4" type="video/mp4" />
           </video>
 
-          {/* Dark Overlay for Ultra Crisp White Contrast */}
-          <div className="absolute inset-0 bg-slate-950/65 backdrop-blur-[2px] z-10" />
+          {/* Light Blue Film Overlay (Replaced Black Film) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-blue-600/45 to-blue-900/70 backdrop-blur-[2px] z-10" />
 
           {/* Headline & Sub Headline */}
           <div className="space-y-4 max-w-2xl z-20 flex flex-col items-center relative">
-            <span className="font-mono text-xs uppercase tracking-widest text-blue-400 font-bold">
+            <span className="font-mono text-xs uppercase tracking-widest text-blue-200 font-bold">
               Ready to Partner?
             </span>
             <h2
               style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-white"
+              className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-white drop-shadow-sm"
             >
               Ready to access off-market deal flow?
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed max-w-xl mx-auto font-normal">
+            <p className="text-sm sm:text-base text-blue-50 font-sans leading-relaxed max-w-xl mx-auto font-normal">
               Get in touch with our origination team to discuss fundraising or explore partnership opportunities.
             </p>
           </div>
