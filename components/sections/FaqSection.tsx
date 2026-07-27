@@ -44,14 +44,11 @@ export default function FaqSection() {
         
         {/* Section Header */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
-          <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold mb-3 block">
-            Frequently Asked Questions
-          </span>
           <h2
             style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
             className="text-4xl sm:text-5xl md:text-6xl text-slate-950 leading-[1.15] mb-6 font-normal tracking-tight"
           >
-            Common questions
+            Frequently Asked Questions
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans font-normal">
             Got questions? We&apos;ve answered the most important ones to guide you every step of the way.
