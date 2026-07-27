@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, Linkedin, Calendar } from "lucide-react";
+import DockMorph from "@/components/ui/dock-morph";
 
 interface NavbarProps {
   onOpenModal: () => void;
@@ -13,15 +14,35 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
     window.open("https://calendly.com", "_blank");
   };
 
+  const navDockItems = [
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      onClick: () => window.open("https://linkedin.com", "_blank"),
+    },
+    {
+      icon: Calendar,
+      label: "Schedule Call",
+      onClick: () => window.open("https://calendly.com", "_blank"),
+    },
+    {
+      icon: Mail,
+      label: "Contact Us",
+      onClick: onOpenModal,
+    },
+  ];
+
   return (
     <header className="absolute top-0 left-0 right-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3 sm:py-4 flex items-center justify-between relative min-h-[72px] sm:min-h-[88px]">
         
-        {/* Left Spacer for Perfect Balance */}
-        <div className="w-24 sm:w-32 hidden sm:block" />
+        {/* Left Side Horizontal Morphing Dock Bar */}
+        <div className="flex items-center">
+          <DockMorph position="inline" items={navDockItems} />
+        </div>
 
         {/* Center VRaise Logo (Aligned Exactly in Middle) */}
-        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-auto">
           <Link href="/" className="inline-block group py-1">
             <img
               src="/assets/vraise-logo.png"
@@ -32,7 +53,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
         </div>
 
         {/* Right 3D Blue Capsule "Pitch Us" Button */}
-        <div className="ml-auto flex items-center">
+        <div className="flex items-center">
           <button
             onClick={handlePitchUs}
             className="px-5 sm:px-7 py-2 sm:py-2.5 rounded-full bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700 text-white font-mono text-[11px] sm:text-xs uppercase font-extrabold tracking-wider shadow-[0_8px_18px_-3px_rgba(37,99,235,0.55),inset_0_2px_3px_rgba(255,255,255,0.4),0_3px_0_0_#1d4ed8] border-t border-blue-300/60 hover:scale-105 active:translate-y-0.5 transition-all cursor-pointer flex items-center gap-1.5 sm:gap-2"

@@ -15,7 +15,6 @@ import CtaBanner from "@/components/sections/CtaBanner";
 import Footer from "@/components/layout/Footer";
 import ScoutingModal from "@/components/ui/ScoutingModal";
 import NewsletterModal from "@/components/ui/NewsletterModal";
-import VerticalFloatingDock from "@/components/ui/VerticalFloatingDock";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -36,10 +35,6 @@ export default function Home() {
         <PartnerWithUs onOpenModal={() => setModalOpen(true)} />
         <CtaBanner onOpenModal={() => setModalOpen(true)} />
         <Footer />
-        <VerticalFloatingDock
-          onOpenCallModal={() => setModalOpen(true)}
-          onOpenNewsletterModal={() => setNewsletterOpen(false)}
-        />
         <ScoutingModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
         <NewsletterModal isOpen={newsletterOpen} onClose={() => setNewsletterOpen(false)} />
       </div>
