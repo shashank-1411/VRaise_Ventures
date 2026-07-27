@@ -11,7 +11,7 @@ export default function AboutVRaise() {
         {/* Section Tagline */}
         <div className="text-center mb-10">
           <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold block">
-            About VRaise
+            About
           </span>
         </div>
 
