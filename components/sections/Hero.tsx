@@ -67,16 +67,29 @@ export default function Hero({ onOpenModal }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.08] text-slate-950 font-normal tracking-tight max-w-5xl mb-6"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.08] text-slate-950 font-normal tracking-tight max-w-5xl mb-4"
         >
-          The world's first university deal origination engine.
+          World&apos;s first student led council
         </motion.h1>
+
+        {/* Blinking Line Directly Below Headline */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mb-8"
+        >
+          <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] font-extrabold text-blue-600 animate-pulse bg-blue-50/90 border border-blue-200/80 px-6 py-2 rounded-full shadow-xs inline-flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping" />
+            <span>we scout • we build • we raise</span>
+          </span>
+        </motion.div>
 
         {/* Sub-Headline Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
           className="text-base sm:text-lg md:text-xl text-slate-600 font-sans font-normal max-w-2xl leading-relaxed mb-8 sm:mb-10"
         >
           We source high-quality deal flow for venture funds across every sector and every stage, and we prepare founders properly before they meet an investor.
