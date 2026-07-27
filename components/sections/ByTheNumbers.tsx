@@ -41,15 +41,9 @@ function AnimatedCount({ value, suffix = "" }: { value: number; suffix?: string 
 export default function ByTheNumbers() {
   const stats = [
     {
-      value: 15,
+      value: 30,
       suffix: "+",
-      label: "CAMPUS SCOUTS",
-      display: null,
-    },
-    {
-      value: 12,
-      suffix: "+",
-      label: "PARTNER UNIVERSITIES",
+      label: "CAMPUS SCOUTS ACROSS TIER 1 UNIVERSITIES",
       display: null,
     },
     {
@@ -86,7 +80,7 @@ export default function ByTheNumbers() {
           </p>
         </div>
 
-        {/* 4-Stat Interactive Container (Matching Template Screenshot) */}
+        {/* 3-Stat Interactive Container */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +88,7 @@ export default function ByTheNumbers() {
           transition={{ duration: 0.7 }}
           className="bg-slate-50/80 border border-slate-200/90 rounded-3xl p-8 sm:p-12 shadow-sm"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-slate-200/90">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-slate-200/90">
             {stats.map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -111,7 +105,7 @@ export default function ByTheNumbers() {
                     <AnimatedCount value={stat.value} suffix={stat.suffix} />
                   )}
                 </div>
-                <span className="font-mono text-xs uppercase tracking-widest text-slate-500 font-bold">
+                <span className="font-mono text-xs uppercase tracking-widest text-slate-500 font-bold leading-relaxed">
                   {stat.label}
                 </span>
               </motion.div>
