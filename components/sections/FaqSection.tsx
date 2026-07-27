@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 
+import { HeadingParallax } from "@/components/ui/heading-parallax";
+
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open by default
 
@@ -44,7 +46,7 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-2xl mx-auto">
+        <HeadingParallax className="text-center mb-16 max-w-2xl mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold mb-3 block">
             FAQ
           </span>
@@ -57,7 +59,7 @@ export default function FaqSection() {
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans font-normal">
             Got questions? We&apos;ve answered the most important ones to guide you every step of the way.
           </p>
-        </div>
+        </HeadingParallax>
 
         {/* FAQ Accordion List */}
         <div className="flex flex-col gap-4">

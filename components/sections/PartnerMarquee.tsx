@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
+import { HeadingParallax } from "@/components/ui/heading-parallax";
+
 interface PartnerItem {
   name: string;
   image?: string | null;
@@ -58,7 +60,7 @@ export default function PartnerMarquee() {
       `}</style>
 
       {/* Section Header */}
-      <div className="max-w-6xl mx-auto text-center mb-8 px-4">
+      <HeadingParallax className="max-w-6xl mx-auto text-center mb-8 px-4">
         <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">
           PARTNER NETWORK
         </span>
@@ -68,7 +70,7 @@ export default function PartnerMarquee() {
         >
           Some of Our Partner Funds &amp; Syndicates
         </h3>
-      </div>
+      </HeadingParallax>
 
       {/* Marquee Container with Horizontal Scrollability */}
       <div className="relative w-full">

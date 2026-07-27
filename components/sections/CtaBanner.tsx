@@ -4,6 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 
+import { HeadingParallax } from "@/components/ui/heading-parallax";
+
 interface CtaBannerProps {
   onOpenModal: () => void;
 }
@@ -39,7 +41,7 @@ export default function CtaBanner({ onOpenModal }: CtaBannerProps) {
           <div className="absolute inset-0 bg-gradient-to-r from-[#070e24]/90 via-[#091535]/80 to-[#0b1328]/90 backdrop-blur-[2px] z-10" />
 
           {/* Headline & Sub Headline */}
-          <div className="space-y-3 max-w-2xl z-20 flex flex-col items-center relative">
+          <HeadingParallax className="space-y-3 max-w-2xl z-20 flex flex-col items-center relative">
             <span className="font-mono text-xs uppercase tracking-widest text-blue-400 font-bold">
               Ready to Partner?
             </span>
@@ -53,7 +55,7 @@ export default function CtaBanner({ onOpenModal }: CtaBannerProps) {
             <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed max-w-xl mx-auto font-normal">
               Get in touch with our origination team to discuss fundraising or explore partnership opportunities.
             </p>
-          </div>
+          </HeadingParallax>
 
           {/* Sleek Flat Capsule CTAs */}
           <div className="z-20 pt-2 flex flex-wrap items-center justify-center gap-4">

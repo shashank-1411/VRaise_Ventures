@@ -4,6 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Search, CheckCircle2, FileCheck, Send, TrendingUp } from "lucide-react";
 
+import { HeadingParallax } from "@/components/ui/heading-parallax";
+
 export default function SimpleProcess() {
   const steps = [
     {
@@ -48,7 +50,7 @@ export default function SimpleProcess() {
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center mb-20 max-w-3xl mx-auto">
+        <HeadingParallax className="text-center mb-20 max-w-3xl mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold mb-3 block">
             Venture Journey
           </span>
@@ -56,12 +58,12 @@ export default function SimpleProcess() {
             style={{ fontFamily: 'var(--font-pt-serif), "PT Serif", serif' }}
             className="text-4xl sm:text-5xl md:text-6xl text-slate-950 leading-[1.15] mb-6 font-normal tracking-tight"
           >
-            The 5-Step Journey from Campus to Capital
+            How VRaise works with companies and funds
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans font-normal max-w-xl mx-auto">
-            Applied the same way to every company we take on, in any sector and at any stage.
+            From initial campus discovery to closing the round, our process is built for speed and clarity.
           </p>
-        </div>
+        </HeadingParallax>
 
         {/* Visual Journey Timeline Track Container */}
         <div className="relative">

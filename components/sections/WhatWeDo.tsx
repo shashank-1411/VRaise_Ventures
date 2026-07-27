@@ -4,6 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Compass, Rocket, Network, FileText, Lightbulb } from "lucide-react";
 
+import { HeadingParallax } from "@/components/ui/heading-parallax";
+
 export default function WhatWeDo() {
   const cards = [
     {
@@ -48,7 +50,7 @@ export default function WhatWeDo() {
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <HeadingParallax className="text-center mb-16 max-w-3xl mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold mb-3 block">
             What We Do
           </span>
@@ -61,7 +63,7 @@ export default function WhatWeDo() {
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans font-normal max-w-2xl mx-auto">
             We cover the work between a promising company and a completed round: sourcing, preparation, introductions and support through the raise.
           </p>
-        </div>
+        </HeadingParallax>
 
         {/* 5-Card Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">

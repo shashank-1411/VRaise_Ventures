@@ -3,6 +3,8 @@
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 
+import { HeadingParallax } from "@/components/ui/heading-parallax";
+
 export default function NetworkSection() {
   // Generate a field of concentric dots with randomized blinking animations
   const blinkingDots = useMemo(() => {
@@ -37,7 +39,7 @@ export default function NetworkSection() {
       <div className="max-w-6xl mx-auto flex flex-col items-center relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
+        <HeadingParallax className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-blue-400 font-bold mb-3 block">
             Network
           </span>
@@ -50,7 +52,7 @@ export default function NetworkSection() {
           <p className="text-sm sm:text-lg text-slate-300 leading-relaxed font-sans font-normal max-w-xl mx-auto">
             Connecting campus founders directly to venture funds, family offices, accelerators, incubators, mentors, and angel syndicates.
           </p>
-        </div>
+        </HeadingParallax>
 
         {/* Horizontally Scrollable Mind Map Container (Identical layout to PC canvas) */}
         <div className="w-full overflow-x-auto no-scrollbar py-2">

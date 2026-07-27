@@ -8,6 +8,8 @@ interface PartnerWithUsProps {
   onOpenModal: () => void;
 }
 
+import { HeadingParallax } from "@/components/ui/heading-parallax";
+
 export default function PartnerWithUs({ onOpenModal }: PartnerWithUsProps) {
   const pillars = [
     {
@@ -45,7 +47,7 @@ export default function PartnerWithUs({ onOpenModal }: PartnerWithUsProps) {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto flex flex-col items-center">
+        <HeadingParallax className="text-center mb-16 max-w-3xl mx-auto flex flex-col items-center">
           
           <span className="font-mono text-xs uppercase tracking-widest text-blue-400 font-bold mb-3 block">
             Partner With Us
@@ -61,7 +63,7 @@ export default function PartnerWithUs({ onOpenModal }: PartnerWithUsProps) {
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans font-normal max-w-2xl mx-auto">
             A dedicated origination engine built inside top university ecosystems worldwide, delivering curated, off-market opportunities directly to venture funds and syndicates.
           </p>
-        </div>
+        </HeadingParallax>
 
         {/* 4 Value Proposition Cards (Matching WhatWeDo card aesthetics) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
