@@ -54,9 +54,10 @@ export default function DockMorph({ items, className, position = "bottom" }: Doc
       <TooltipProvider delayDuration={100}>
         <div
           className={cn(
-            "relative flex items-center gap-2.5 p-1.5 rounded-full",
-            position === "left" ? "flex-col gap-4 px-4 py-8" : "flex-row",
-            "bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)]"
+            "relative flex items-center gap-2 p-1 rounded-full",
+            position === "left" ? "flex-col gap-3 px-3 py-5" : "flex-row",
+            "bg-gradient-to-b from-white via-slate-50 to-slate-100/95 border border-slate-200/90",
+            "shadow-[0_8px_18px_-3px_rgba(0,0,0,0.08),inset_0_2px_3px_rgba(255,255,255,0.9),0_3px_0_0_#cbd5e1]"
           )}
         >
           {dockItems.map((item, i) => (
@@ -72,7 +73,7 @@ export default function DockMorph({ items, className, position = "bottom" }: Doc
                     {hovered === i && (
                       <motion.div
                         initial={{ scale: 0.6, opacity: 0 }}
-                        animate={{ scale: 1.45, opacity: 1 }}
+                        animate={{ scale: 1.4, opacity: 1 }}
                         exit={{ scale: 0.6, opacity: 0 }}
                         transition={{
                           type: "spring",
@@ -81,29 +82,31 @@ export default function DockMorph({ items, className, position = "bottom" }: Doc
                         }}
                         className={cn(
                           "absolute inset-0 rounded-full -z-10",
-                          "bg-gradient-to-tr from-blue-500/35 via-blue-300/25 to-blue-100/10",
-                          "backdrop-blur-2xl shadow-lg shadow-blue-500/20"
+                          "bg-gradient-to-tr from-blue-500/40 via-blue-300/25 to-blue-100/10",
+                          "backdrop-blur-2xl shadow-lg shadow-blue-500/25"
                         )}
                       />
                     )}
                   </AnimatePresence>
 
-                  {/* 3D Circular Bubble Button */}
+                  {/* 3D Tactile Capsule Button (Matching Pitch Us CTA) */}
                   <motion.button
                     type="button"
                     onClick={item.onClick}
-                    whileHover={{ scale: 1.12 }}
-                    whileTap={{ scale: 0.92 }}
+                    whileHover={{ scale: 1.1, y: -1 }}
+                    whileTap={{ scale: 0.94, y: 1 }}
                     transition={{ type: "spring", stiffness: 350, damping: 18 }}
                     className={cn(
-                      "relative z-10 h-9 w-9 sm:h-10 sm:w-10 rounded-full flex items-center justify-center cursor-pointer transition-colors duration-200",
-                      "bg-slate-100/90 hover:bg-slate-950 text-slate-800 hover:text-white",
-                      "border border-slate-200/90 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.8)]",
-                      "hover:shadow-[0_4px_14px_-2px_rgba(37,99,235,0.4)]"
+                      "relative z-10 h-8 w-8 sm:h-8.5 sm:w-8.5 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200",
+                      "bg-gradient-to-b from-white via-slate-100 to-slate-200/90 text-slate-800 hover:text-white",
+                      "hover:from-blue-500 hover:via-blue-600 hover:to-blue-700",
+                      "border border-slate-300/80 hover:border-blue-300/60",
+                      "shadow-[0_4px_10px_-2px_rgba(0,0,0,0.08),inset_0_1.5px_2px_rgba(255,255,255,0.9),0_2px_0_0_#cbd5e1]",
+                      "hover:shadow-[0_8px_16px_-3px_rgba(37,99,235,0.55),inset_0_1.5px_2px_rgba(255,255,255,0.4),0_2px_0_0_#1d4ed8]"
                     )}
                     aria-label={item.label}
                   >
-                    <item.icon className="h-4.5 w-4.5 shrink-0 transition-colors duration-200" />
+                    <item.icon className="h-4 w-4 shrink-0 transition-colors duration-200" />
                   </motion.button>
                 </div>
               </TooltipTrigger>
